@@ -22,6 +22,14 @@ super-duper-fiesta/
 
 No language, framework, build system, test runner, or CI/CD has been configured yet. When these are added, update this file accordingly.
 
+### Commit History (as of 2026-04-19)
+
+| SHA | Message |
+|-----|---------|
+| `b2b4e2e` | Merge pull request #1 from conormd/claude/add-claude-documentation-KPJ5Q |
+| `592efc8` | Add CLAUDE.md with project conventions and AI assistant guidance |
+| `80b5546` | Initial commit |
+
 ## Development Workflow
 
 ### Branching
