@@ -4,7 +4,7 @@ This file provides guidance for AI assistants (Claude and others) working in thi
 
 ## Repository Overview
 
-**super-duper-fiesta** is a starter repository currently in early initialization. It contains no application code yet — only a README. This file will evolve as the project grows.
+**super-duper-fiesta** is a starter repository in early initialization. It contains no application code yet — only this guidance file and a README. This file will evolve as the project grows.
 
 - **Remote:** conormd/super-duper-fiesta
 - **Default branch:** main
@@ -20,7 +20,7 @@ super-duper-fiesta/
 └── README.md       ← project description
 ```
 
-No language, framework, build system, test runner, or CI/CD has been configured yet. When these are added, update this file accordingly.
+No language, framework, build system, test runner, or CI/CD has been configured yet. When these are added, update this file accordingly (see [Updating This File](#updating-this-file)). There are no pre-commit hooks configured at this time.
 
 ## Development Workflow
 
@@ -59,3 +59,4 @@ When the project acquires structure (language, framework, tests, CI, etc.), upda
 - Document how to run tests and linters
 - Document environment variable setup
 - Add any project-specific coding conventions
+- Keep the directory tree in [Current Repository State](#current-repository-state) in sync with the actual repository contents
