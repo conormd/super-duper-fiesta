@@ -133,20 +133,41 @@ input[type='search'] {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 14px 16px;
-  cursor: pointer;
-  transition: border-color 0.15s, transform 0.05s;
-  text-align: left;
-  color: inherit;
-  font: inherit;
-  width: 100%;
+  transition: border-color 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .card:hover {
   border-color: var(--accent);
 }
 
-.card:active {
+.card-main {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.card-main:active {
   transform: scale(0.995);
+}
+
+.card-link {
+  font-size: 0.8rem;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.card-link:hover {
+  text-decoration: underline;
 }
 
 .card h3 {

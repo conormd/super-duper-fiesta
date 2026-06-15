@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import type { Implant, RadiographView } from '../types';
+import { radiopaediaSearchUrl } from '../lib/search';
 
 interface Props {
   implant: Implant;
@@ -81,13 +82,7 @@ export function ImplantDetail({ implant, onClose }: Props) {
           </div>
           <p className="view-links">
             View images externally:{' '}
-            <a
-              href={`https://radiopaedia.org/search?q=${encodeURIComponent(
-                `${implant.manufacturer} ${implant.name}`,
-              )}&scope=cases`}
-              target="_blank"
-              rel="noreferrer"
-            >
+            <a href={radiopaediaSearchUrl(implant)} target="_blank" rel="noreferrer">
               Radiopaedia
             </a>
             {implant.imageLinks?.map((link) => (

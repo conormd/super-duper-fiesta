@@ -16,6 +16,12 @@ export function searchableText(i: Implant): string {
     .toLowerCase();
 }
 
+/** Build a Radiopaedia case-search URL for an implant. */
+export function radiopaediaSearchUrl(implant: Implant): string {
+  const q = encodeURIComponent(`${implant.manufacturer} ${implant.name}`);
+  return `https://radiopaedia.org/search?q=${q}&scope=cases`;
+}
+
 /** Split a free-text query into meaningful tokens. */
 export function tokenize(query: string): string[] {
   return query
