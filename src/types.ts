@@ -74,6 +74,8 @@ export interface Implant {
   references?: Reference[];
   /** Reference radiographs, ideally one AP and one lateral (mediolateral) view. */
   views?: ImplantImage[];
+  /** Curated external links to view radiographs (atlases, technique guides). */
+  imageLinks?: { label: string; url: string }[];
 }
 
 /** A yes/no/unsure answer used by the guided identification flow. */

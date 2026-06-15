@@ -301,6 +301,12 @@ input[type='search'] {
   color: var(--accent);
 }
 
+.view-links {
+  margin: 10px 0 0;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
 .view-placeholder {
   border: 1px dashed var(--border);
   border-radius: 6px;

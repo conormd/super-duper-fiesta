@@ -76,14 +76,23 @@ update automatically from the data — no other code changes are needed.
 ### Reference radiographs
 
 Each implant detail view shows two slots — **AP** and **lateral (mediolateral)**
-— since documenting both planes improves recognition. Populate them via the
-optional `views` array of `ImplantImage` objects (`view`, `src`, `caption`,
-`credit`, `license`, `sourceUrl`). `src` may be a URL or a path under `public/`.
+— since documenting both planes improves recognition. There are three ways to
+populate them, and all are supported:
 
-> **Do not embed copyrighted radiographs.** Only use images you have the right
-> to display — e.g. open-access figures (CC BY), institution-owned teaching
-> files, or images you have permission to use — and always fill in `credit` and
-> `license`. Slots with no image show a placeholder.
+1. **Host an image** (open-access CC BY figure or institution-owned/permissioned
+   file): add a `views` entry (`view`, `src`, `caption`, `credit`, `license`,
+   `sourceUrl`). Drop local files in `public/radiographs/` — see
+   [`public/radiographs/README.md`](public/radiographs/README.md) for the
+   convention and licensing rules. `src` may be a URL or a `/radiographs/…` path.
+2. **Curated external links**: add an `imageLinks` array (`{ label, url }`) to
+   point at specific atlases or manufacturer technique guides.
+3. **Automatic atlas search**: every implant detail view links out to a
+   Radiopaedia search for that product — no data entry required.
+
+> **Do not embed copyrighted radiographs.** Only host images you have the right
+> to display, always fill in `credit` and `license`, and ensure any clinical
+> images are de-identified. Slots with no hosted image show a placeholder while
+> still offering the external links above.
 
 ## Disclaimer & data provenance
 

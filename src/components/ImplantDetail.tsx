@@ -79,6 +79,26 @@ export function ImplantDetail({ implant, onClose }: Props) {
             <ViewSlot implant={implant} view="AP" />
             <ViewSlot implant={implant} view="Lateral" />
           </div>
+          <p className="view-links">
+            View images externally:{' '}
+            <a
+              href={`https://radiopaedia.org/search?q=${encodeURIComponent(
+                `${implant.manufacturer} ${implant.name}`,
+              )}&scope=cases`}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Radiopaedia
+            </a>
+            {implant.imageLinks?.map((link) => (
+              <span key={link.url}>
+                {' · '}
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              </span>
+            ))}
+          </p>
         </section>
 
         <section>
