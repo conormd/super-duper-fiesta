@@ -1,9 +1,45 @@
 import { useEffect } from 'react';
-import type { Implant } from '../types';
+import type { Implant, RadiographView } from '../types';
 
 interface Props {
   implant: Implant;
   onClose: () => void;
+}
+
+const VIEW_LABELS: Record<RadiographView, string> = {
+  AP: 'AP (anteroposterior)',
+  Lateral: 'Lateral (mediolateral)',
+};
+
+function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView }) {
+  const image = implant.views?.find((v) => v.view === view);
+  return (
+    <figure className="view-slot">
+      <span className="view-label">{VIEW_LABELS[view]}</span>
+      {image ? (
+        <>
+          <img src={image.src} alt={`${implant.name} — ${VIEW_LABELS[view]} radiograph`} />
+          <figcaption>
+            {image.caption && <span>{image.caption}</span>}
+            {(image.credit || image.license) && (
+              <span className="credit">
+                {image.sourceUrl ? (
+                  <a href={image.sourceUrl} target="_blank" rel="noreferrer">
+                    {image.credit ?? 'Source'}
+                  </a>
+                ) : (
+                  image.credit
+                )}
+                {image.license && ` · ${image.license}`}
+              </span>
+            )}
+          </figcaption>
+        </>
+      ) : (
+        <div className="view-placeholder">No licensed {view} image yet</div>
+      )}
+    </figure>
+  );
 }
 
 export function ImplantDetail({ implant, onClose }: Props) {
@@ -35,6 +71,14 @@ export function ImplantDetail({ implant, onClose }: Props) {
         <section>
           <h4>Overview</h4>
           <p>{implant.summary}</p>
+        </section>
+
+        <section>
+          <h4>Reference radiographs</h4>
+          <div className="views">
+            <ViewSlot implant={implant} view="AP" />
+            <ViewSlot implant={implant} view="Lateral" />
+          </div>
         </section>
 
         <section>

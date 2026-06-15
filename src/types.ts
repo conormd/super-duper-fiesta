@@ -14,6 +14,27 @@ export type Anatomy =
 
 export type Fixation = 'Cemented' | 'Cementless' | 'Hybrid' | 'Either' | 'N/A';
 
+/** Standard radiographic projections used for implant assessment. */
+export type RadiographView = 'AP' | 'Lateral';
+
+/**
+ * A reference radiograph for an implant. Implants are ideally documented in
+ * both the AP and lateral (mediolateral) planes for more reliable recognition.
+ * Any real radiograph MUST carry attribution and a license — do not embed
+ * copyrighted images. `src` may be a URL or a path under `public/`.
+ */
+export interface ImplantImage {
+  view: RadiographView;
+  src: string;
+  caption?: string;
+  /** Attribution for the image source (required for real radiographs). */
+  credit?: string;
+  /** License terms, e.g. "CC BY 4.0". */
+  license?: string;
+  /** Link to the original, licensed source. */
+  sourceUrl?: string;
+}
+
 /** A literature reference supporting an entry. Sourced from PubMed. */
 export interface Reference {
   /** Article title. */
@@ -51,6 +72,8 @@ export interface Implant {
   notes?: string;
   /** Supporting literature (PubMed). */
   references?: Reference[];
+  /** Reference radiographs, ideally one AP and one lateral (mediolateral) view. */
+  views?: ImplantImage[];
 }
 
 /** A yes/no/unsure answer used by the guided identification flow. */

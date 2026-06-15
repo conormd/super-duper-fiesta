@@ -19,8 +19,9 @@ Biomet, Stryker, Smith & Nephew, Arthrex, and DePuy Synthes.
   match their known identifying features.
 - **Browse catalogue** — search and filter the full reference set by
   manufacturer, anatomical region, and keyword.
-- **Implant detail** — overview, radiographic identifying features, notable
-  variants, market period, and entry-specific caveats.
+- **Implant detail** — overview, paired AP and lateral (mediolateral) reference
+  radiograph slots, radiographic identifying features, notable variants, market
+  period, supporting references, and entry-specific caveats.
 
 ## Anatomical regions covered
 
@@ -71,6 +72,18 @@ field for any entry-specific caveats. Entries may include an optional
 `references` array of `Reference` objects (title, source, `pmid`, `doi`); these
 render as PubMed/DOI links in the detail view. The guided flow and catalogue
 update automatically from the data — no other code changes are needed.
+
+### Reference radiographs
+
+Each implant detail view shows two slots — **AP** and **lateral (mediolateral)**
+— since documenting both planes improves recognition. Populate them via the
+optional `views` array of `ImplantImage` objects (`view`, `src`, `caption`,
+`credit`, `license`, `sourceUrl`). `src` may be a URL or a path under `public/`.
+
+> **Do not embed copyrighted radiographs.** Only use images you have the right
+> to display — e.g. open-access figures (CC BY), institution-owned teaching
+> files, or images you have permission to use — and always fill in `credit` and
+> `license`. Slots with no image show a placeholder.
 
 ## Disclaimer & data provenance
 

@@ -54,6 +54,10 @@ super-duper-fiesta/
   caveats in the entry's `notes` field. Do not fabricate precise specs.
 - To add implants, append to the `implants` array in `src/data/implants.ts`
   following the `Implant` interface; the UI updates automatically.
+- **Reference radiographs:** entries support an optional `views` array (AP and
+  lateral). Never embed copyrighted radiographs — use only open-access (e.g.
+  CC BY), institution-owned, or permissioned images, and always populate
+  `credit` and `license`.
 
 ## Development Workflow
 

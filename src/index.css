@@ -257,6 +257,69 @@ input[type='search'] {
   color: var(--text-dim);
 }
 
+/* Reference radiograph views */
+.views {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.view-slot {
+  margin: 0;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.view-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-dim);
+}
+
+.view-slot img {
+  width: 100%;
+  border-radius: 6px;
+  display: block;
+  background: #000;
+}
+
+.view-slot figcaption {
+  font-size: 0.78rem;
+  color: var(--text-dim);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.view-slot .credit a {
+  color: var(--accent);
+}
+
+.view-placeholder {
+  border: 1px dashed var(--border);
+  border-radius: 6px;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 0.82rem;
+  padding: 12px;
+}
+
+@media (max-width: 480px) {
+  .views {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Guided identify flow */
 .identify-step {
   background: var(--surface);
