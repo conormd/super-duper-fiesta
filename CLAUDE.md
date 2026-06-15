@@ -4,23 +4,56 @@ This file provides guidance for AI assistants (Claude and others) working in thi
 
 ## Repository Overview
 
-**super-duper-fiesta** is a starter repository currently in early initialization. It contains no application code yet — only a README. This file will evolve as the project grows.
+**super-duper-fiesta** hosts **OrthoID**, a client-side web app that acts as a
+reference aid for radiographic identification of orthopaedic implants from
+manufacturers active in the Canadian market (Zimmer Biomet, Stryker, Smith &
+Nephew, Arthrex, DePuy Synthes).
 
 - **Remote:** conormd/super-duper-fiesta
 - **Default branch:** main
 - **Active feature branch convention:** `claude/<description>-<ID>`
 
-## Current Repository State
+## Tech Stack
 
-The repository is minimal:
+- **Vite + React + TypeScript** (strict mode), no backend.
+- Implant reference data is a static TypeScript module — no database.
+
+## Commands
+
+```bash
+npm install      # install dependencies
+npm run dev      # dev server (http://localhost:5173)
+npm run build    # tsc -b && vite build → dist/
+npm run preview  # serve the production build
+npm run lint     # type-check only (tsc --noEmit)
+```
+
+There is no test runner or CI configured yet. When one is added, document it here.
+
+## Repository Structure
 
 ```
 super-duper-fiesta/
-├── CLAUDE.md       ← this file
-└── README.md       ← project description
+├── CLAUDE.md            ← this file
+├── README.md           ← project description
+├── index.html
+├── package.json, tsconfig*.json, vite.config.ts
+└── src/
+    ├── main.tsx, App.tsx, index.css, types.ts
+    ├── data/implants.ts     ← implant reference dataset
+    ├── lib/search.ts        ← tokenization + feature-match scoring
+    └── components/          ← Disclaimer, IdentifyView, BrowseView, cards, detail
 ```
 
-No language, framework, build system, test runner, or CI/CD has been configured yet. When these are added, update this file accordingly.
+## Domain Notes
+
+- **OrthoID is an educational aid, not a medical device.** Keep the in-app
+  disclaimer prominent and never frame output as a definitive identification.
+- Implant data must come from publicly available manufacturer information.
+  Keep `identifyingFeatures` to cues visible or inferable from imaging, and put
+  caveats in the entry's `notes` field. Do not fabricate precise specs.
+- To add implants, append to the `implants` array in `src/data/implants.ts`
+  following the `Implant` interface; the UI updates automatically.
 
 ## Development Workflow
 

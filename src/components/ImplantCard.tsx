@@ -1,0 +1,26 @@
+import type { Implant } from '../types';
+
+interface Props {
+  implant: Implant;
+  score?: number;
+  onSelect: (implant: Implant) => void;
+}
+
+export function ImplantCard({ implant, score, onSelect }: Props) {
+  return (
+    <button className="card" onClick={() => onSelect(implant)}>
+      <h3>
+        {implant.name}
+        {score !== undefined && score > 0 && (
+          <span className="score-pill">{score} match{score > 1 ? 'es' : ''}</span>
+        )}
+      </h3>
+      <div className="badges">
+        <span className="badge mfr">{implant.manufacturer}</span>
+        <span className="badge">{implant.anatomy}</span>
+        <span className="badge">{implant.category}</span>
+      </div>
+      <p className="summary">{implant.summary}</p>
+    </button>
+  );
+}
