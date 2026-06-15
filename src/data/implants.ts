@@ -1,4 +1,49 @@
-import type { Implant } from '../types';
+import type { Implant, Reference } from '../types';
+
+/**
+ * Shared literature references, retrieved from PubMed. These are general
+ * radiographic-evaluation / implant-identification sources for each region;
+ * they support the category-level identifying features rather than any single
+ * product claim. DOIs are included so each entry links back to its source.
+ */
+const HIP_REFS: Reference[] = [
+  {
+    title: 'Radiographic evaluation of hip implants',
+    source: 'Semin Musculoskelet Radiol, 2015',
+    pmid: '25633021',
+    doi: '10.1055/s-0034-1396763',
+  },
+  {
+    title: 'Automated identification of hip arthroplasty implants using artificial intelligence',
+    source: 'Sci Rep, 2022',
+    pmid: '35842515',
+    doi: '10.1038/s41598-022-16534-3',
+  },
+];
+
+const KNEE_REFS: Reference[] = [
+  {
+    title: 'Preoperative Planning in Primary Total Knee Arthroplasty',
+    source: 'J Am Acad Orthop Surg, 2016',
+    pmid: '26990712',
+    doi: '10.5435/JAAOS-D-14-00332',
+  },
+];
+
+const SHOULDER_REFS: Reference[] = [
+  {
+    title: 'Current peri-operative imaging concepts surrounding shoulder arthroplasty',
+    source: 'Skeletal Radiol, 2019',
+    pmid: '30798396',
+    doi: '10.1007/s00256-019-03183-3',
+  },
+  {
+    title: 'Artificial intelligence for automated identification of total shoulder arthroplasty implants',
+    source: 'J Shoulder Elbow Surg, 2023',
+    pmid: '37172888',
+    doi: '10.1016/j.jse.2023.03.028',
+  },
+];
 
 /**
  * Reference dataset of orthopaedic implant product families from manufacturers
@@ -25,6 +70,7 @@ export const implants: Implant[] = [
     ],
     variants: ['CR', 'LPS (posterior-stabilised)', 'LPS-Flex', 'Gender Solutions'],
     era: 'Late 1990s–present',
+    references: KNEE_REFS,
   },
   {
     id: 'zb-persona',
@@ -102,6 +148,7 @@ export const implants: Implant[] = [
     ],
     variants: ['Anatomic', 'Reverse', 'Comprehensive Nano (stemless)'],
     era: '2007–present',
+    references: SHOULDER_REFS,
   },
 
   {
@@ -226,6 +273,7 @@ export const implants: Implant[] = [
     ],
     variants: ['CR', 'PS', 'CS', 'Triathlon Tritanium (cementless)'],
     era: '2004–present',
+    references: KNEE_REFS,
   },
   {
     id: 'st-scorpio',
@@ -272,6 +320,7 @@ export const implants: Implant[] = [
     ],
     era: '1970s–present',
     notes: 'A classic taper-slip cemented stem; the cement mantle is a key identifying cue.',
+    references: HIP_REFS,
   },
   {
     id: 'st-trident',
@@ -404,6 +453,7 @@ export const implants: Implant[] = [
     ],
     variants: ['Aequalis Ascend Flex', 'Aequalis Reversed II'],
     era: '2000s–present',
+    references: SHOULDER_REFS,
   },
 
   // ───────────────────────────── Smith & Nephew ────────────────────────────
@@ -481,6 +531,7 @@ export const implants: Implant[] = [
     ],
     era: '1997–present',
     notes: 'Resurfacing appearance (cap on the femoral head with preserved neck) is the strongest distinguishing cue versus a stemmed THA.',
+    references: HIP_REFS,
   },
   {
     id: 'sn-r3',
@@ -655,6 +706,7 @@ export const implants: Implant[] = [
     ],
     variants: ['Univers II (anatomic)', 'Univers Reverse', 'Eclipse (stemless)'],
     era: '2000s–present',
+    references: SHOULDER_REFS,
   },
   {
     id: 'ax-interference-screw',
@@ -687,6 +739,7 @@ export const implants: Implant[] = [
     ],
     variants: ['CR', 'PS', 'Rotating Platform', 'Attune Revision'],
     era: '2013–present',
+    references: KNEE_REFS,
   },
   {
     id: 'dp-pfc-sigma',
@@ -731,6 +784,7 @@ export const implants: Implant[] = [
     ],
     variants: ['Corail Standard', 'Corail Collared', 'Corail Revision'],
     era: '1986–present',
+    references: HIP_REFS,
   },
   {
     id: 'dp-summit',
@@ -789,6 +843,7 @@ export const implants: Implant[] = [
     ],
     variants: ['Global Advantage (anatomic)', 'Delta Xtend (reverse)'],
     era: '1990s–present',
+    references: SHOULDER_REFS,
   },
   {
     id: 'dp-dhs',
@@ -864,6 +919,7 @@ export const implants: Implant[] = [
     ],
     era: '1980s–2000s',
     notes: 'Extensive coating and proximal stress shielding are characteristic of this stiff CoCr stem.',
+    references: HIP_REFS,
   },
   {
     id: 'dp-c-stem',

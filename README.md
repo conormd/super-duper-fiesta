@@ -67,11 +67,14 @@ src/
 Add entries to the `implants` array in `src/data/implants.ts`. Each entry
 follows the `Implant` interface in `src/types.ts`. Keep `identifyingFeatures`
 focused on cues that are visible or inferable from imaging, and use the `notes`
-field for any entry-specific caveats. The guided flow and catalogue update
-automatically from the data — no other code changes are needed.
+field for any entry-specific caveats. Entries may include an optional
+`references` array of `Reference` objects (title, source, `pmid`, `doi`); these
+render as PubMed/DOI links in the detail view. The guided flow and catalogue
+update automatically from the data — no other code changes are needed.
 
 ## Disclaimer & data provenance
 
 Implant data is compiled from publicly available manufacturer product
-information and is non-exhaustive. OrthoID is not affiliated with or endorsed by
-any manufacturer.
+information and is non-exhaustive. Where entries cite supporting literature,
+references are sourced from PubMed and link out via DOI/PMID. OrthoID is not
+affiliated with or endorsed by any manufacturer.

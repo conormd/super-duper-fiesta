@@ -14,6 +14,18 @@ export type Anatomy =
 
 export type Fixation = 'Cemented' | 'Cementless' | 'Hybrid' | 'Either' | 'N/A';
 
+/** A literature reference supporting an entry. Sourced from PubMed. */
+export interface Reference {
+  /** Article title. */
+  title: string;
+  /** Journal and year, e.g. "Semin Musculoskelet Radiol, 2015". */
+  source: string;
+  /** PubMed identifier, used to build a pubmed.ncbi.nlm.nih.gov link. */
+  pmid?: string;
+  /** Digital Object Identifier, used to build a doi.org link. */
+  doi?: string;
+}
+
 /**
  * A single implant product family. Identifying features describe cues that are
  * commonly cited when reviewing radiographs; they are an educational aid, not a
@@ -37,6 +49,8 @@ export interface Implant {
   era?: string;
   /** Free-text caveats specific to this entry. */
   notes?: string;
+  /** Supporting literature (PubMed). */
+  references?: Reference[];
 }
 
 /** A yes/no/unsure answer used by the guided identification flow. */

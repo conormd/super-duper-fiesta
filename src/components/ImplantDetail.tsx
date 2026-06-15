@@ -62,6 +62,47 @@ export function ImplantDetail({ implant, onClose }: Props) {
             <p className="note">{implant.notes}</p>
           </section>
         )}
+
+        {implant.references && implant.references.length > 0 && (
+          <section>
+            <h4>References (via PubMed)</h4>
+            <ul>
+              {implant.references.map((ref, i) => (
+                <li key={i}>
+                  {ref.doi ? (
+                    <a href={`https://doi.org/${ref.doi}`} target="_blank" rel="noreferrer">
+                      {ref.title}
+                    </a>
+                  ) : ref.pmid ? (
+                    <a
+                      href={`https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {ref.title}
+                    </a>
+                  ) : (
+                    ref.title
+                  )}
+                  {` — ${ref.source}`}
+                  {ref.pmid && (
+                    <>
+                      {' ('}
+                      <a
+                        href={`https://pubmed.ncbi.nlm.nih.gov/${ref.pmid}/`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        PMID {ref.pmid}
+                      </a>
+                      {')'}
+                    </>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </div>
   );
