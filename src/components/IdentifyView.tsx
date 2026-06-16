@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import type { Anatomy, Fixation, Implant, Manufacturer } from '../types';
-import { implants } from '../data/implants';
 import { featureScore, tokenize } from '../lib/search';
 import { ImplantCard } from './ImplantCard';
 
@@ -24,10 +23,11 @@ const MANUFACTURERS: (Manufacturer | 'Any / unknown')[] = [
 const FIXATIONS: (Fixation | 'Any / unknown')[] = ['Any / unknown', 'Cemented', 'Cementless'];
 
 interface Props {
+  implants: Implant[];
   onSelect: (implant: Implant) => void;
 }
 
-export function IdentifyView({ onSelect }: Props) {
+export function IdentifyView({ implants, onSelect }: Props) {
   const [anatomy, setAnatomy] = useState<Anatomy | null>(null);
   const [manufacturer, setManufacturer] = useState<Manufacturer | 'Any / unknown'>('Any / unknown');
   const [fixation, setFixation] = useState<Fixation | 'Any / unknown'>('Any / unknown');
@@ -48,7 +48,7 @@ export function IdentifyView({ onSelect }: Props) {
       })
       .map((i) => ({ implant: i, score: featureScore(i, tokens) }))
       .sort((a, b) => b.score - a.score || a.implant.name.localeCompare(b.implant.name));
-  }, [anatomy, manufacturer, fixation, features, showFixation]);
+  }, [implants, anatomy, manufacturer, fixation, features, showFixation]);
 
   const reset = () => {
     setAnatomy(null);

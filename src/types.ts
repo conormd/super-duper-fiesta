@@ -35,6 +35,14 @@ export interface ImplantImage {
   sourceUrl?: string;
 }
 
+/** A non-radiograph image (e.g. a photo of the physical implant). */
+export interface ProductPhoto {
+  src: string;
+  caption?: string;
+  credit?: string;
+  license?: string;
+}
+
 /** A literature reference supporting an entry. Sourced from PubMed. */
 export interface Reference {
   /** Article title. */
@@ -76,6 +84,10 @@ export interface Implant {
   views?: ImplantImage[];
   /** Curated external links to view radiographs (atlases, technique guides). */
   imageLinks?: { label: string; url: string }[];
+  /** Photos of the physical implant or product imagery. */
+  photos?: ProductPhoto[];
+  /** 'user' for entries added through the in-app form; built-in entries omit this. */
+  source?: 'user';
 }
 
 /** A yes/no/unsure answer used by the guided identification flow. */

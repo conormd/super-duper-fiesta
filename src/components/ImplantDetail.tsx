@@ -64,6 +64,7 @@ export function ImplantDetail({ implant, onClose }: Props) {
           <span className="badge">{implant.anatomy}</span>
           <span className="badge">{implant.category}</span>
           {implant.fixation !== 'N/A' && <span className="badge">{implant.fixation}</span>}
+          {implant.source === 'user' && <span className="badge user">Added by you</span>}
         </div>
         <div className="meta-row">
           {implant.era && <span>Market period: {implant.era}</span>}
@@ -95,6 +96,25 @@ export function ImplantDetail({ implant, onClose }: Props) {
             ))}
           </p>
         </section>
+
+        {implant.photos && implant.photos.length > 0 && (
+          <section>
+            <h4>Photos</h4>
+            <div className="photo-grid">
+              {implant.photos.map((p, i) => (
+                <figure key={i} className="photo-item">
+                  <img src={p.src} alt={p.caption ?? `${implant.name} photo ${i + 1}`} />
+                  {(p.caption || p.credit) && (
+                    <figcaption>
+                      {p.caption}
+                      {p.credit && <span className="credit"> {p.credit}</span>}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section>
           <h4>Radiographic identifying features</h4>

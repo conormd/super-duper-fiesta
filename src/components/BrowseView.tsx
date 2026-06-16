@@ -1,6 +1,5 @@
 import { useMemo, useState } from 'react';
 import type { Anatomy, Implant, Manufacturer } from '../types';
-import { implants } from '../data/implants';
 import { searchableText } from '../lib/search';
 import { ImplantCard } from './ImplantCard';
 
@@ -23,10 +22,11 @@ const ANATOMIES: (Anatomy | 'All')[] = [
 ];
 
 interface Props {
+  implants: Implant[];
   onSelect: (implant: Implant) => void;
 }
 
-export function BrowseView({ onSelect }: Props) {
+export function BrowseView({ implants, onSelect }: Props) {
   const [query, setQuery] = useState('');
   const [manufacturer, setManufacturer] = useState<Manufacturer | 'All'>('All');
   const [anatomy, setAnatomy] = useState<Anatomy | 'All'>('All');
@@ -38,7 +38,7 @@ export function BrowseView({ onSelect }: Props) {
       .filter((i) => anatomy === 'All' || i.anatomy === anatomy)
       .filter((i) => q === '' || searchableText(i).includes(q))
       .sort((a, b) => a.name.localeCompare(b.name));
-  }, [query, manufacturer, anatomy]);
+  }, [implants, query, manufacturer, anatomy]);
 
   return (
     <div>
