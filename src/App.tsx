@@ -10,10 +10,19 @@ import { ImplantDetail } from './components/ImplantDetail';
 
 type Tab = 'identify' | 'browse' | 'add';
 
+/** Merge user entries over the built-in set; a user entry with the same id
+ *  replaces (overrides) the built-in one, keeping its position. */
+function mergeById(base: Implant[], overrides: Implant[]): Implant[] {
+  const map = new Map(base.map((i) => [i.id, i]));
+  for (const o of overrides) map.set(o.id, o);
+  return [...map.values()];
+}
+
 export default function App() {
   const [tab, setTab] = useState<Tab>('identify');
   const [selected, setSelected] = useState<Implant | null>(null);
   const [userImplants, setUserImplants] = useState<Implant[]>([]);
+  const [editTarget, setEditTarget] = useState<Implant | null>(null);
 
   const refreshUser = useCallback(() => {
     loadUserImplants().then(setUserImplants).catch(() => setUserImplants([]));
@@ -24,9 +33,15 @@ export default function App() {
   }, [refreshUser]);
 
   const allImplants = useMemo(
-    () => [...builtInImplants, ...userImplants],
+    () => mergeById(builtInImplants, userImplants),
     [userImplants],
   );
+
+  const handleEdit = (implant: Implant) => {
+    setEditTarget(implant);
+    setSelected(null);
+    setTab('add');
+  };
 
   return (
     <div className="app">
@@ -57,7 +72,7 @@ export default function App() {
           className={`tab ${tab === 'add' ? 'active' : ''}`}
           onClick={() => setTab('add')}
         >
-          Add implant{userImplants.length > 0 ? ` (${userImplants.length})` : ''}
+          Add / edit{userImplants.length > 0 ? ` (${userImplants.length})` : ''}
         </button>
       </nav>
 
@@ -68,10 +83,18 @@ export default function App() {
           userImplants={userImplants}
           onChange={refreshUser}
           onSelect={setSelected}
+          editTarget={editTarget}
+          onEditConsumed={() => setEditTarget(null)}
         />
       )}
 
-      {selected && <ImplantDetail implant={selected} onClose={() => setSelected(null)} />}
+      {selected && (
+        <ImplantDetail
+          implant={selected}
+          onClose={() => setSelected(null)}
+          onEdit={handleEdit}
+        />
+      )}
 
       <footer className="foot">
         OrthoID is an open educational reference. Implant data is compiled from

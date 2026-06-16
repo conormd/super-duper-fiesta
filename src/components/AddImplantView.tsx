@@ -1,5 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { Anatomy, Fixation, Implant, Manufacturer, ProductPhoto } from '../types';
+import { implants as builtInImplants } from '../data/implants';
 import {
   deleteUserImplant,
   exportUserImplants,
@@ -26,16 +27,22 @@ const ANATOMIES: Anatomy[] = [
 
 const FIXATIONS: Fixation[] = ['Cementless', 'Cemented', 'Hybrid', 'Either', 'N/A'];
 
+const BUILTIN_IDS = new Set(builtInImplants.map((i) => i.id));
+
 interface Props {
   userImplants: Implant[];
   onChange: () => void;
   onSelect: (implant: Implant) => void;
+  editTarget: Implant | null;
+  onEditConsumed: () => void;
 }
 
 const slug = (s: string) =>
   s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
 
-export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
+export function AddImplantView({ userImplants, onChange, onSelect, editTarget, onEditConsumed }: Props) {
+  const [editingId, setEditingId] = useState<string | null>(null);
+  const [editingName, setEditingName] = useState<string>('');
   const [name, setName] = useState('');
   const [manufacturer, setManufacturer] = useState<Manufacturer>('Zimmer Biomet');
   const [anatomy, setAnatomy] = useState<Anatomy>('Hip');
@@ -54,7 +61,9 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
 
   const [saved, setSaved] = useState<string | null>(null);
 
-  const reset = () => {
+  const clearForm = () => {
+    setEditingId(null);
+    setEditingName('');
     setName('');
     setCategory('');
     setSummary('');
@@ -68,20 +77,53 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
     setPhotos([]);
   };
 
+  const loadImplant = (impl: Implant) => {
+    setEditingId(impl.id);
+    setEditingName(impl.name);
+    setName(impl.name);
+    setManufacturer(impl.manufacturer);
+    setAnatomy(impl.anatomy);
+    setCategory(impl.category);
+    setFixation(impl.fixation);
+    setSummary(impl.summary);
+    setFeatures(impl.identifyingFeatures.join('\n'));
+    setVariants((impl.variants ?? []).join(', '));
+    setEra(impl.era ?? '');
+    setNotes(impl.notes ?? '');
+    setApImage(impl.views?.find((v) => v.view === 'AP')?.src ?? null);
+    setLatImage(impl.views?.find((v) => v.view === 'Lateral')?.src ?? null);
+    setPhotos((impl.photos ?? []).map((p) => p.src));
+    setCredit(impl.views?.[0]?.credit ?? impl.photos?.[0]?.credit ?? '');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // When an entry is sent in for editing (from a card or detail view), load it.
+  useEffect(() => {
+    if (editTarget) {
+      loadImplant(editTarget);
+      onEditConsumed();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [editTarget]);
+
   const onSingleFile =
     (setter: (v: string | null) => void) =>
     async (e: React.ChangeEvent<HTMLInputElement>) => {
       const file = e.target.files?.[0];
-      setter(file ? await fileToDataUrl(file) : null);
+      if (file) setter(await fileToDataUrl(file));
+      e.target.value = '';
     };
 
   const onMultiFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files ?? []);
     const urls = await Promise.all(files.map(fileToDataUrl));
     setPhotos((prev) => [...prev, ...urls]);
+    e.target.value = '';
   };
 
   const canSave = name.trim() !== '' && category.trim() !== '' && summary.trim() !== '';
+  const isEditing = editingId !== null;
+  const isOverride = editingId !== null && BUILTIN_IDS.has(editingId);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,7 +140,7 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
     }));
 
     const implant: Implant = {
-      id: `user-${slug(manufacturer)}-${slug(name)}-${Date.now()}`,
+      id: editingId ?? `user-${slug(manufacturer)}-${slug(name)}-${Date.now()}`,
       name: name.trim(),
       manufacturer,
       anatomy,
@@ -123,28 +165,43 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
 
     await putUserImplant(implant);
     setSaved(implant.name);
-    reset();
+    clearForm();
     onChange();
     window.setTimeout(() => setSaved(null), 4000);
   };
 
   const handleDelete = async (id: string) => {
     await deleteUserImplant(id);
+    if (editingId === id) clearForm();
     onChange();
   };
 
   return (
     <div>
       <p className="add-intro">
-        Add your own implants and photos. Everything you add is stored only in
-        this browser (on this device) — nothing is uploaded. Use{' '}
-        <strong>Export</strong> to back up your entries or to share them so they
-        can be added to the shared catalogue.
+        Add your own implants and photos, or edit any entry — including the
+        built-in ones. Everything you add or change is stored only in this
+        browser (on this device); nothing is uploaded. Use <strong>Export</strong>{' '}
+        to back up your changes or share them so they can be added to the shared
+        catalogue.
       </p>
       <p className="phi-warning">
         ⚠️ Only upload images you have the right to use, and make sure any
         clinical images are de-identified (no patient information in the image).
       </p>
+
+      {isEditing && (
+        <div className="editing-banner">
+          <span>
+            {isOverride ? 'Editing built-in entry: ' : 'Editing: '}
+            <strong>{editingName}</strong>
+            {isOverride && ' (your changes will override the built-in version on this device)'}
+          </span>
+          <button type="button" className="reset-btn" onClick={clearForm}>
+            Cancel edit
+          </button>
+        </div>
+      )}
 
       <form className="add-form" onSubmit={handleSubmit}>
         <div className="field">
@@ -229,12 +286,22 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
             <div className="field">
               <label>AP radiograph</label>
               <input type="file" accept="image/*" onChange={onSingleFile(setApImage)} />
-              {apImage && <img className="thumb" src={apImage} alt="AP preview" />}
+              {apImage && (
+                <span className="thumb-wrap">
+                  <img className="thumb" src={apImage} alt="AP preview" />
+                  <button type="button" className="thumb-remove" onClick={() => setApImage(null)} aria-label="Remove AP image">✕</button>
+                </span>
+              )}
             </div>
             <div className="field">
               <label>Lateral radiograph</label>
               <input type="file" accept="image/*" onChange={onSingleFile(setLatImage)} />
-              {latImage && <img className="thumb" src={latImage} alt="Lateral preview" />}
+              {latImage && (
+                <span className="thumb-wrap">
+                  <img className="thumb" src={latImage} alt="Lateral preview" />
+                  <button type="button" className="thumb-remove" onClick={() => setLatImage(null)} aria-label="Remove lateral image">✕</button>
+                </span>
+              )}
             </div>
           </div>
           <div className="field">
@@ -266,14 +333,19 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
 
         <div className="form-actions">
           <button type="submit" className="primary-btn" disabled={!canSave}>
-            Save implant
+            {isEditing ? 'Update implant' : 'Save implant'}
           </button>
+          {isEditing && (
+            <button type="button" className="reset-btn" onClick={clearForm}>
+              Cancel
+            </button>
+          )}
           {saved && <span className="saved-msg">Saved “{saved}” ✓</span>}
         </div>
       </form>
 
       <div className="user-list-header">
-        <h3>Your added implants ({userImplants.length})</h3>
+        <h3>Your added &amp; edited entries ({userImplants.length})</h3>
         {userImplants.length > 0 && (
           <button className="reset-btn" onClick={() => exportUserImplants(userImplants)}>
             Export all (JSON)
@@ -282,17 +354,28 @@ export function AddImplantView({ userImplants, onChange, onSelect }: Props) {
       </div>
 
       {userImplants.length === 0 ? (
-        <p className="empty">Nothing added yet. Fill in the form above to add your first implant.</p>
+        <p className="empty">
+          Nothing added or edited yet. Fill in the form above to add an implant,
+          or open any implant and choose “Edit” to customise it.
+        </p>
       ) : (
         <div className="grid">
-          {userImplants.map((i) => (
-            <div key={i.id} className="user-card-wrap">
-              <ImplantCard implant={i} onSelect={onSelect} />
-              <button className="delete-btn" onClick={() => handleDelete(i.id)}>
-                Delete
-              </button>
-            </div>
-          ))}
+          {userImplants.map((i) => {
+            const override = BUILTIN_IDS.has(i.id);
+            return (
+              <div key={i.id} className="user-card-wrap">
+                <ImplantCard implant={i} onSelect={onSelect} />
+                <div className="card-actions">
+                  <button className="reset-btn" onClick={() => loadImplant(i)}>
+                    Edit
+                  </button>
+                  <button className="delete-btn" onClick={() => handleDelete(i.id)}>
+                    {override ? 'Reset to built-in' : 'Delete'}
+                  </button>
+                </div>
+              </div>
+            );
+          })}
         </div>
       )}
     </div>

@@ -23,14 +23,17 @@ Biomet, Stryker, Smith & Nephew, Arthrex, and DePuy Synthes.
   radiograph slots, radiographic identifying features, notable variants, market
   period, supporting references, and entry-specific caveats.
 
-## Adding implants from the app
+## Adding and editing implants from the app
 
-An **Add implant** tab lets you add your own products and photos (AP/lateral
+An **Add / edit** tab lets you add your own products and photos (AP/lateral
 radiographs and product photos) directly through the interface — no code
-editing. Entries are stored **on your device only** (in the browser's
-IndexedDB); nothing is uploaded, which keeps clinical images private. Your
-entries are merged into the catalogue and the guided flow alongside the
-built-in data and tagged "Added by you".
+editing. You can also **edit any entry**, including the built-in ones: open an
+implant and choose **✎ Edit** to load it into the form. Editing a built-in
+entry creates a local override that shadows it; "Reset to built-in" removes the
+override and restores the original. Entries are stored **on your device only**
+(in the browser's IndexedDB); nothing is uploaded, which keeps clinical images
+private. Your additions and edits are merged into the catalogue and the guided
+flow alongside the built-in data and tagged "Added by you".
 
 Use **Export all (JSON)** to back up your entries or to share them so they can
 be reviewed and folded into the shared built-in catalogue

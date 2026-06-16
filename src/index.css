@@ -589,6 +589,47 @@ input[type='search'] {
   gap: 6px;
 }
 
+.card-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.card-actions .reset-btn,
+.card-actions .delete-btn {
+  flex: 1;
+  font-size: 0.82rem;
+}
+
+.editing-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: var(--surface-2);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 10px 14px;
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+}
+
+.edit-btn {
+  float: right;
+  margin-right: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 4px 12px;
+  font-size: 0.9rem;
+}
+
+.edit-btn:hover {
+  border-color: var(--accent);
+}
+
 .delete-btn {
   background: transparent;
   border: 1px solid var(--border);

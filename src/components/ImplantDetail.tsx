@@ -5,6 +5,7 @@ import { radiopaediaSearchUrl } from '../lib/search';
 interface Props {
   implant: Implant;
   onClose: () => void;
+  onEdit?: (implant: Implant) => void;
 }
 
 const VIEW_LABELS: Record<RadiographView, string> = {
@@ -43,7 +44,7 @@ function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView })
   );
 }
 
-export function ImplantDetail({ implant, onClose }: Props) {
+export function ImplantDetail({ implant, onClose, onEdit }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -58,6 +59,11 @@ export function ImplantDetail({ implant, onClose }: Props) {
         <button className="close" onClick={onClose} aria-label="Close">
           ✕
         </button>
+        {onEdit && (
+          <button className="edit-btn" onClick={() => onEdit(implant)}>
+            ✎ Edit
+          </button>
+        )}
         <h2>{implant.name}</h2>
         <div className="badges">
           <span className="badge mfr">{implant.manufacturer}</span>
