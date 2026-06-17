@@ -50,11 +50,6 @@ sn-peri-loc,Smith & Nephew,Trauma / Fracture fixation,PERI-LOC Locking Plates,sn
 sn-profix,Smith & Nephew,Knee,Profix,sn-profix-ap.jpg,sn-profix-lat.jpg,sn-profix-tmpl.jpg
 sn-spectron,Smith & Nephew,Hip,Spectron EF,sn-spectron-ap.jpg,sn-spectron-lat.jpg,sn-spectron-tmpl.jpg
 sn-emperion,Smith & Nephew,Hip,EMPERION,sn-emperion-ap.jpg,sn-emperion-lat.jpg,sn-emperion-tmpl.jpg
-ax-swivelock,Arthrex,Sports medicine / Soft tissue,SwiveLock,ax-swivelock-ap.jpg,ax-swivelock-lat.jpg,ax-swivelock-tmpl.jpg
-ax-corkscrew,Arthrex,Sports medicine / Soft tissue,Corkscrew / FT (FiberTak),ax-corkscrew-ap.jpg,ax-corkscrew-lat.jpg,ax-corkscrew-tmpl.jpg
-ax-tightrope,Arthrex,Sports medicine / Soft tissue,TightRope,ax-tightrope-ap.jpg,ax-tightrope-lat.jpg,ax-tightrope-tmpl.jpg
-ax-univers,Arthrex,Shoulder,Univers Shoulder,ax-univers-ap.jpg,ax-univers-lat.jpg,ax-univers-tmpl.jpg
-ax-interference-screw,Arthrex,Sports medicine / Soft tissue,Bio-Interference Screw,ax-interference-screw-ap.jpg,ax-interference-screw-lat.jpg,ax-interference-screw-tmpl.jpg
 dp-attune,DePuy Synthes,Knee,ATTUNE,dp-attune-ap.jpg,dp-attune-lat.jpg,dp-attune-tmpl.jpg
 dp-pfc-sigma,DePuy Synthes,Knee,P.F.C. Sigma,dp-pfc-sigma-ap.jpg,dp-pfc-sigma-lat.jpg,dp-pfc-sigma-tmpl.jpg
 dp-lcs,DePuy Synthes,Knee,LCS (Low Contact Stress),dp-lcs-ap.jpg,dp-lcs-lat.jpg,dp-lcs-tmpl.jpg
@@ -79,3 +74,10 @@ dp-philos,DePuy Synthes,Trauma / Fracture fixation,PHILOS (Proximal Humeral Plat
 dp-cannulated-screws,DePuy Synthes,Trauma / Fracture fixation,Cannulated Screw Fixation,dp-cannulated-screws-ap.jpg,dp-cannulated-screws-lat.jpg,dp-cannulated-screws-tmpl.jpg
 dp-delta-xtend,DePuy Synthes,Shoulder,Delta Xtend,dp-delta-xtend-ap.jpg,dp-delta-xtend-lat.jpg,dp-delta-xtend-tmpl.jpg
 dp-sigma-tc3,DePuy Synthes,Knee,P.F.C. Sigma TC3,dp-sigma-tc3-ap.jpg,dp-sigma-tc3-lat.jpg,dp-sigma-tc3-tmpl.jpg
+zb-tmta,Zimmer Biomet,Ankle,Trabecular Metal Total Ankle (TMTA),zb-tmta-ap.jpg,zb-tmta-lat.jpg,zb-tmta-tmpl.jpg
+st-star,Stryker,Ankle,STAR (Scandinavian Total Ankle Replacement),st-star-ap.jpg,st-star-lat.jpg,st-star-tmpl.jpg
+st-salto-talaris,Stryker,Ankle,Salto Talaris,st-salto-talaris-ap.jpg,st-salto-talaris-lat.jpg,st-salto-talaris-tmpl.jpg
+dp-agility,DePuy Synthes,Ankle,Agility Total Ankle,dp-agility-ap.jpg,dp-agility-lat.jpg,dp-agility-tmpl.jpg
+zb-nexel,Zimmer Biomet,Elbow,Nexel Total Elbow,zb-nexel-ap.jpg,zb-nexel-lat.jpg,zb-nexel-tmpl.jpg
+st-latitude,Stryker,Elbow,Latitude EV Total Elbow,st-latitude-ap.jpg,st-latitude-lat.jpg,st-latitude-tmpl.jpg
+dp-acclaim,DePuy Synthes,Elbow,ACCLAIM Total Elbow,dp-acclaim-ap.jpg,dp-acclaim-lat.jpg,dp-acclaim-tmpl.jpg

@@ -21,6 +21,8 @@ const ANATOMIES: Anatomy[] = [
   'Hip',
   'Knee',
   'Shoulder',
+  'Ankle',
+  'Elbow',
   'Trauma / Fracture fixation',
   'Sports medicine / Soft tissue',
 ];
