@@ -53,6 +53,9 @@ dp-pfc-sigma,DePuy Synthes,Knee,P.F.C. Sigma,dp-pfc-sigma-ap.jpg,dp-pfc-sigma-la
 dp-lcs,DePuy Synthes,Knee,LCS (Low Contact Stress),dp-lcs-ap.jpg,dp-lcs-lat.jpg,dp-lcs-tmpl.jpg
 dp-corail,DePuy Synthes,Hip,Corail,dp-corail-ap.jpg,dp-corail-lat.jpg,dp-corail-tmpl.jpg
 dp-summit,DePuy Synthes,Hip,Summit,dp-summit-ap.jpg,dp-summit-lat.jpg,dp-summit-tmpl.jpg
+dp-trilock,DePuy Synthes,Hip,Tri-Lock,dp-trilock-ap.jpg,dp-trilock-lat.jpg,dp-trilock-tmpl.jpg
+dp-prodigy,DePuy Synthes,Hip,Prodigy,dp-prodigy-ap.jpg,dp-prodigy-lat.jpg,dp-prodigy-tmpl.jpg
+dp-solution,DePuy Synthes,Hip,Solution System,dp-solution-ap.jpg,dp-solution-lat.jpg,dp-solution-tmpl.jpg
 dp-s-rom,DePuy Synthes,Hip,S-ROM,dp-s-rom-ap.jpg,dp-s-rom-lat.jpg,dp-s-rom-tmpl.jpg
 dp-pinnacle,DePuy Synthes,Hip,Pinnacle Acetabular System,dp-pinnacle-ap.jpg,dp-pinnacle-lat.jpg,dp-pinnacle-tmpl.jpg
 dp-global-shoulder,DePuy Synthes,Shoulder,Global Shoulder,dp-global-shoulder-ap.jpg,dp-global-shoulder-lat.jpg,dp-global-shoulder-tmpl.jpg
@@ -63,6 +66,7 @@ dp-expert-nail,DePuy Synthes,Trauma / Fracture fixation,Expert Nailing System,dp
 dp-aml,DePuy Synthes,Hip,AML (Anatomic Medullary Locking),dp-aml-ap.jpg,dp-aml-lat.jpg,dp-aml-tmpl.jpg
 dp-c-stem,DePuy Synthes,Hip,C-Stem,dp-c-stem-ap.jpg,dp-c-stem-lat.jpg,dp-c-stem-tmpl.jpg
 dp-charnley,DePuy Synthes,Hip,Charnley,dp-charnley-ap.jpg,dp-charnley-lat.jpg,dp-charnley-tmpl.jpg
+dp-elite-plus,DePuy Synthes,Hip,Charnley Elite Plus,dp-elite-plus-ap.jpg,dp-elite-plus-lat.jpg,dp-elite-plus-tmpl.jpg
 dp-duraloc,DePuy Synthes,Hip,Duraloc Acetabular System,dp-duraloc-ap.jpg,dp-duraloc-lat.jpg,dp-duraloc-tmpl.jpg
 dp-philos,DePuy Synthes,Trauma / Fracture fixation,PHILOS (Proximal Humeral Plate),dp-philos-ap.jpg,dp-philos-lat.jpg,dp-philos-tmpl.jpg
 dp-cannulated-screws,DePuy Synthes,Trauma / Fracture fixation,Cannulated Screw Fixation,dp-cannulated-screws-ap.jpg,dp-cannulated-screws-lat.jpg,dp-cannulated-screws-tmpl.jpg
