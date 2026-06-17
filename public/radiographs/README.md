@@ -19,10 +19,22 @@ views: [
     sourceUrl: 'https://example.org/case/123',
   },
   { view: 'Lateral', src: '/radiographs/zb-nexgen-lat.jpg', credit: '…', license: '…' },
+  { view: 'Templating', src: '/radiographs/zb-nexgen-tmpl.jpg', credit: '…', license: 'Hospital templating export' },
 ],
 ```
 
-Suggested filename convention: `<implant-id>-<ap|lat>.<ext>`.
+## Filename convention
+
+`<implant-id>-<ap|lat|tmpl>.<ext>`
+
+| Suffix | Slot |
+|--------|------|
+| `-ap`  | AP (anteroposterior) |
+| `-lat` | Lateral (mediolateral) |
+| `-tmpl`| Templating |
+
+A complete manifest listing all 62 built-in implants and their expected
+filenames is in `MANIFEST.csv` in this folder.
 
 ## Licensing — read before adding anything
 
@@ -33,8 +45,10 @@ display:
   the authors and state the licence.
 - Institution-owned teaching-file images you are permitted to publish (ensure
   they are de-identified — no PHI in the image or filename).
-- Images you have explicit permission to use.
+- Templating exports from hospital planning software you are licensed to use
+  and permitted to publish.
+- Images you have explicit written permission to use.
 
-Always populate `credit` and `license`. Slots with no image render a
-placeholder, and every implant also links out to external atlases
-(Radiopaedia) from the detail view.
+Always populate `credit` and `license` in the `views` entry. Slots with no
+image render a placeholder, and every implant also links out to Radiopaedia
+from the detail view.

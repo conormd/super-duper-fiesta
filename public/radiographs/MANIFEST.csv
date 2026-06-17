@@ -1,0 +1,63 @@
+id,manufacturer,anatomy,name,ap_filename,lateral_filename,templating_filename
+zb-nexgen,Zimmer Biomet,Knee,NexGen,zb-nexgen-ap.jpg,zb-nexgen-lat.jpg,zb-nexgen-tmpl.jpg
+zb-persona,Zimmer Biomet,Knee,Persona,zb-persona-ap.jpg,zb-persona-lat.jpg,zb-persona-tmpl.jpg
+zb-oxford,Zimmer Biomet,Knee,Oxford Partial Knee,zb-oxford-ap.jpg,zb-oxford-lat.jpg,zb-oxford-tmpl.jpg
+zb-taperloc,Zimmer Biomet,Hip,Taperloc,zb-taperloc-ap.jpg,zb-taperloc-lat.jpg,zb-taperloc-tmpl.jpg
+zb-g7,Zimmer Biomet,Hip,G7 Acetabular System,zb-g7-ap.jpg,zb-g7-lat.jpg,zb-g7-tmpl.jpg
+zb-comprehensive-shoulder,Zimmer Biomet,Shoulder,Comprehensive Shoulder,zb-comprehensive-shoulder-ap.jpg,zb-comprehensive-shoulder-lat.jpg,zb-comprehensive-shoulder-tmpl.jpg
+zb-cls-spotorno,Zimmer Biomet,Hip,CLS Spotorno,zb-cls-spotorno-ap.jpg,zb-cls-spotorno-lat.jpg,zb-cls-spotorno-tmpl.jpg
+zb-ml-taper,Zimmer Biomet,Hip,M/L Taper,zb-ml-taper-ap.jpg,zb-ml-taper-lat.jpg,zb-ml-taper-tmpl.jpg
+zb-wagner-cone,Zimmer Biomet,Hip,Wagner Cone,zb-wagner-cone-ap.jpg,zb-wagner-cone-lat.jpg,zb-wagner-cone-tmpl.jpg
+zb-continuum,Zimmer Biomet,Hip,Continuum Acetabular System,zb-continuum-ap.jpg,zb-continuum-lat.jpg,zb-continuum-tmpl.jpg
+zb-trilogy,Zimmer Biomet,Hip,Trilogy Acetabular System,zb-trilogy-ap.jpg,zb-trilogy-lat.jpg,zb-trilogy-tmpl.jpg
+zb-vanguard,Zimmer Biomet,Knee,Vanguard,zb-vanguard-ap.jpg,zb-vanguard-lat.jpg,zb-vanguard-tmpl.jpg
+zb-arcos,Zimmer Biomet,Hip,Arcos Modular Femoral Revision,zb-arcos-ap.jpg,zb-arcos-lat.jpg,zb-arcos-tmpl.jpg
+st-triathlon,Stryker,Knee,Triathlon,st-triathlon-ap.jpg,st-triathlon-lat.jpg,st-triathlon-tmpl.jpg
+st-scorpio,Stryker,Knee,Scorpio,st-scorpio-ap.jpg,st-scorpio-lat.jpg,st-scorpio-tmpl.jpg
+st-accolade,Stryker,Hip,Accolade,st-accolade-ap.jpg,st-accolade-lat.jpg,st-accolade-tmpl.jpg
+st-exeter,Stryker,Hip,Exeter,st-exeter-ap.jpg,st-exeter-lat.jpg,st-exeter-tmpl.jpg
+st-trident,Stryker,Hip,Trident Acetabular System,st-trident-ap.jpg,st-trident-lat.jpg,st-trident-tmpl.jpg
+st-restoration,Stryker,Hip,Restoration,st-restoration-ap.jpg,st-restoration-lat.jpg,st-restoration-tmpl.jpg
+st-secur-fit,Stryker,Hip,Secur-Fit,st-secur-fit-ap.jpg,st-secur-fit-lat.jpg,st-secur-fit-tmpl.jpg
+st-insignia,Stryker,Hip,Insignia,st-insignia-ap.jpg,st-insignia-lat.jpg,st-insignia-tmpl.jpg
+st-mdm,Stryker,Hip,MDM / Trident Dual Mobility,st-mdm-ap.jpg,st-mdm-lat.jpg,st-mdm-tmpl.jpg
+st-gamma,Stryker,Trauma / Fracture fixation,Gamma Nail,st-gamma-ap.jpg,st-gamma-lat.jpg,st-gamma-tmpl.jpg
+st-t2,Stryker,Trauma / Fracture fixation,T2 Nailing System,st-t2-ap.jpg,st-t2-lat.jpg,st-t2-tmpl.jpg
+st-simpliciti,Stryker,Shoulder,Simpliciti,st-simpliciti-ap.jpg,st-simpliciti-lat.jpg,st-simpliciti-tmpl.jpg
+st-aequalis,Stryker,Shoulder,Aequalis,st-aequalis-ap.jpg,st-aequalis-lat.jpg,st-aequalis-tmpl.jpg
+sn-genesis-ii,Smith & Nephew,Knee,Genesis II,sn-genesis-ii-ap.jpg,sn-genesis-ii-lat.jpg,sn-genesis-ii-tmpl.jpg
+sn-legion,Smith & Nephew,Knee,Legion,sn-legion-ap.jpg,sn-legion-lat.jpg,sn-legion-tmpl.jpg
+sn-journey,Smith & Nephew,Knee,Journey II,sn-journey-ap.jpg,sn-journey-lat.jpg,sn-journey-tmpl.jpg
+sn-polarstem,Smith & Nephew,Hip,POLARSTEM,sn-polarstem-ap.jpg,sn-polarstem-lat.jpg,sn-polarstem-tmpl.jpg
+sn-bhr,Smith & Nephew,Hip,Birmingham Hip Resurfacing (BHR),sn-bhr-ap.jpg,sn-bhr-lat.jpg,sn-bhr-tmpl.jpg
+sn-r3,Smith & Nephew,Hip,R3 Acetabular System,sn-r3-ap.jpg,sn-r3-lat.jpg,sn-r3-tmpl.jpg
+sn-synergy,Smith & Nephew,Hip,SYNERGY,sn-synergy-ap.jpg,sn-synergy-lat.jpg,sn-synergy-tmpl.jpg
+sn-anthology,Smith & Nephew,Hip,Anthology,sn-anthology-ap.jpg,sn-anthology-lat.jpg,sn-anthology-tmpl.jpg
+sn-redapt,Smith & Nephew,Hip,REDAPT Modular Revision,sn-redapt-ap.jpg,sn-redapt-lat.jpg,sn-redapt-tmpl.jpg
+sn-intertan,Smith & Nephew,Trauma / Fracture fixation,TRIGEN INTERTAN,sn-intertan-ap.jpg,sn-intertan-lat.jpg,sn-intertan-tmpl.jpg
+sn-trigen,Smith & Nephew,Trauma / Fracture fixation,TRIGEN Intramedullary Nails,sn-trigen-ap.jpg,sn-trigen-lat.jpg,sn-trigen-tmpl.jpg
+sn-peri-loc,Smith & Nephew,Trauma / Fracture fixation,PERI-LOC Locking Plates,sn-peri-loc-ap.jpg,sn-peri-loc-lat.jpg,sn-peri-loc-tmpl.jpg
+sn-profix,Smith & Nephew,Knee,Profix,sn-profix-ap.jpg,sn-profix-lat.jpg,sn-profix-tmpl.jpg
+ax-swivelock,Arthrex,Sports medicine / Soft tissue,SwiveLock,ax-swivelock-ap.jpg,ax-swivelock-lat.jpg,ax-swivelock-tmpl.jpg
+ax-corkscrew,Arthrex,Sports medicine / Soft tissue,Corkscrew / FT (FiberTak),ax-corkscrew-ap.jpg,ax-corkscrew-lat.jpg,ax-corkscrew-tmpl.jpg
+ax-tightrope,Arthrex,Sports medicine / Soft tissue,TightRope,ax-tightrope-ap.jpg,ax-tightrope-lat.jpg,ax-tightrope-tmpl.jpg
+ax-univers,Arthrex,Shoulder,Univers Shoulder,ax-univers-ap.jpg,ax-univers-lat.jpg,ax-univers-tmpl.jpg
+ax-interference-screw,Arthrex,Sports medicine / Soft tissue,Bio-Interference Screw,ax-interference-screw-ap.jpg,ax-interference-screw-lat.jpg,ax-interference-screw-tmpl.jpg
+dp-attune,DePuy Synthes,Knee,ATTUNE,dp-attune-ap.jpg,dp-attune-lat.jpg,dp-attune-tmpl.jpg
+dp-pfc-sigma,DePuy Synthes,Knee,P.F.C. Sigma,dp-pfc-sigma-ap.jpg,dp-pfc-sigma-lat.jpg,dp-pfc-sigma-tmpl.jpg
+dp-lcs,DePuy Synthes,Knee,LCS (Low Contact Stress),dp-lcs-ap.jpg,dp-lcs-lat.jpg,dp-lcs-tmpl.jpg
+dp-corail,DePuy Synthes,Hip,Corail,dp-corail-ap.jpg,dp-corail-lat.jpg,dp-corail-tmpl.jpg
+dp-summit,DePuy Synthes,Hip,Summit,dp-summit-ap.jpg,dp-summit-lat.jpg,dp-summit-tmpl.jpg
+dp-s-rom,DePuy Synthes,Hip,S-ROM,dp-s-rom-ap.jpg,dp-s-rom-lat.jpg,dp-s-rom-tmpl.jpg
+dp-pinnacle,DePuy Synthes,Hip,Pinnacle Acetabular System,dp-pinnacle-ap.jpg,dp-pinnacle-lat.jpg,dp-pinnacle-tmpl.jpg
+dp-global-shoulder,DePuy Synthes,Shoulder,Global Shoulder,dp-global-shoulder-ap.jpg,dp-global-shoulder-lat.jpg,dp-global-shoulder-tmpl.jpg
+dp-dhs,DePuy Synthes,Trauma / Fracture fixation,DHS (Dynamic Hip Screw),dp-dhs-ap.jpg,dp-dhs-lat.jpg,dp-dhs-tmpl.jpg
+dp-pfna,DePuy Synthes,Trauma / Fracture fixation,PFNA / TFN (Proximal Femoral Nail),dp-pfna-ap.jpg,dp-pfna-lat.jpg,dp-pfna-tmpl.jpg
+dp-lcp,DePuy Synthes,Trauma / Fracture fixation,LCP (Locking Compression Plate),dp-lcp-ap.jpg,dp-lcp-lat.jpg,dp-lcp-tmpl.jpg
+dp-expert-nail,DePuy Synthes,Trauma / Fracture fixation,Expert Nailing System,dp-expert-nail-ap.jpg,dp-expert-nail-lat.jpg,dp-expert-nail-tmpl.jpg
+dp-aml,DePuy Synthes,Hip,AML (Anatomic Medullary Locking),dp-aml-ap.jpg,dp-aml-lat.jpg,dp-aml-tmpl.jpg
+dp-c-stem,DePuy Synthes,Hip,C-Stem,dp-c-stem-ap.jpg,dp-c-stem-lat.jpg,dp-c-stem-tmpl.jpg
+dp-charnley,DePuy Synthes,Hip,Charnley,dp-charnley-ap.jpg,dp-charnley-lat.jpg,dp-charnley-tmpl.jpg
+dp-duraloc,DePuy Synthes,Hip,Duraloc Acetabular System,dp-duraloc-ap.jpg,dp-duraloc-lat.jpg,dp-duraloc-tmpl.jpg
+dp-philos,DePuy Synthes,Trauma / Fracture fixation,PHILOS (Proximal Humeral Plate),dp-philos-ap.jpg,dp-philos-lat.jpg,dp-philos-tmpl.jpg
+dp-cannulated-screws,DePuy Synthes,Trauma / Fracture fixation,Cannulated Screw Fixation,dp-cannulated-screws-ap.jpg,dp-cannulated-screws-lat.jpg,dp-cannulated-screws-tmpl.jpg
