@@ -57,6 +57,7 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
 
   const [apImage, setApImage] = useState<string | null>(null);
   const [latImage, setLatImage] = useState<string | null>(null);
+  const [tmplImage, setTmplImage] = useState<string | null>(null);
   const [photos, setPhotos] = useState<string[]>([]);
 
   const [saved, setSaved] = useState<string | null>(null);
@@ -74,6 +75,7 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
     setCredit('');
     setApImage(null);
     setLatImage(null);
+    setTmplImage(null);
     setPhotos([]);
   };
 
@@ -92,6 +94,7 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
     setNotes(impl.notes ?? '');
     setApImage(impl.views?.find((v) => v.view === 'AP')?.src ?? null);
     setLatImage(impl.views?.find((v) => v.view === 'Lateral')?.src ?? null);
+    setTmplImage(impl.views?.find((v) => v.view === 'Templating')?.src ?? null);
     setPhotos((impl.photos ?? []).map((p) => p.src));
     setCredit(impl.views?.[0]?.credit ?? impl.photos?.[0]?.credit ?? '');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -132,6 +135,7 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
     const views = [
       apImage && { view: 'AP' as const, src: apImage, credit: credit || undefined },
       latImage && { view: 'Lateral' as const, src: latImage, credit: credit || undefined },
+      tmplImage && { view: 'Templating' as const, src: tmplImage, credit: credit || undefined },
     ].filter(Boolean) as Implant['views'];
 
     const productPhotos: ProductPhoto[] = photos.map((src) => ({
@@ -300,6 +304,16 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
                 <span className="thumb-wrap">
                   <img className="thumb" src={latImage} alt="Lateral preview" />
                   <button type="button" className="thumb-remove" onClick={() => setLatImage(null)} aria-label="Remove lateral image">✕</button>
+                </span>
+              )}
+            </div>
+            <div className="field">
+              <label>Templating image</label>
+              <input type="file" accept="image/*" onChange={onSingleFile(setTmplImage)} />
+              {tmplImage && (
+                <span className="thumb-wrap">
+                  <img className="thumb" src={tmplImage} alt="Templating preview" />
+                  <button type="button" className="thumb-remove" onClick={() => setTmplImage(null)} aria-label="Remove templating image">✕</button>
                 </span>
               )}
             </div>

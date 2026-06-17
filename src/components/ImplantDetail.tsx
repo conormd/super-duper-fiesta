@@ -11,6 +11,7 @@ interface Props {
 const VIEW_LABELS: Record<RadiographView, string> = {
   AP: 'AP (anteroposterior)',
   Lateral: 'Lateral (mediolateral)',
+  Templating: 'Templating',
 };
 
 function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView }) {
@@ -82,10 +83,11 @@ export function ImplantDetail({ implant, onClose, onEdit }: Props) {
         </section>
 
         <section>
-          <h4>Reference radiographs</h4>
+          <h4>Reference imaging</h4>
           <div className="views">
             <ViewSlot implant={implant} view="AP" />
             <ViewSlot implant={implant} view="Lateral" />
+            <ViewSlot implant={implant} view="Templating" />
           </div>
           <p className="view-links">
             View images externally:{' '}
