@@ -7,6 +7,8 @@ const ANATOMIES: Anatomy[] = [
   'Hip',
   'Knee',
   'Shoulder',
+  'Ankle',
+  'Elbow',
   'Trauma / Fracture fixation',
   'Sports medicine / Soft tissue',
 ];
@@ -16,7 +18,6 @@ const MANUFACTURERS: (Manufacturer | 'Any / unknown')[] = [
   'Zimmer Biomet',
   'Stryker',
   'Smith & Nephew',
-  'Arthrex',
   'DePuy Synthes',
 ];
 

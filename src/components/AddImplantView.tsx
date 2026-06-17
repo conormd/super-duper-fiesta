@@ -13,7 +13,6 @@ const MANUFACTURERS: Manufacturer[] = [
   'Zimmer Biomet',
   'Stryker',
   'Smith & Nephew',
-  'Arthrex',
   'DePuy Synthes',
 ];
 
