@@ -68,6 +68,24 @@ const RBK_AOANJRR_REF: Reference = {
   doi: '10.1055/s-0039-1678679',
 };
 
+// Single-centre cohort studies (NOT registry CPR) located via PubMed full text;
+// useful clinical context alongside the registry report tables.
+const TRIATHLON_10YR_REF: Reference = {
+  title:
+    'Ten-Year Results of the Triathlon Knee Replacement: A Cohort Study (95.4% all-cause survivorship at 10 yr; single-centre)',
+  source: 'Cureus, 2021',
+  pmid: '34178530',
+  doi: '10.7759/cureus.15211',
+};
+
+const ATTUNE_TRIATHLON_RLL_REF: Reference = {
+  title:
+    'Does radiolucency equate to revision? A comparison of the ATTUNE and Triathlon TKA (single-centre)',
+  source: 'Knee Surg Sports Traumatol Arthrosc, 2023',
+  pmid: '37516985',
+  doi: '10.1007/s00167-023-07509-6',
+};
+
 // ──────────────────────────────── Dataset ──────────────────────────────────
 
 export const survivorshipImplants: SurvivorshipImplant[] = [
@@ -255,6 +273,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     descriptor: 'Single-radius TKA; CR/PS/CS bearings; cemented and Tritanium cementless.',
     figures: [],
     registryLinks: registryLinks('Total knee'),
+    literature: [TRIATHLON_10YR_REF, ATTUNE_TRIATHLON_RLL_REF],
     notes:
       'High-volume system in both registries. CPR is reported separately by bearing (CR/PS) and by cemented vs cementless Tritanium fixation — read the matching cohort.',
   },
@@ -268,6 +287,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     descriptor: 'Gradually-reducing-radius TKA; CR/PS/rotating-platform; cemented & S+ cementless.',
     figures: [],
     registryLinks: registryLinks('Total knee'),
+    literature: [ATTUNE_TRIATHLON_RLL_REF],
     notes:
       'AOANJRR tracks ATTUNE base-plate variants closely; early vs later tibial baseplate cohorts differ. Confirm the variant in the registry table.',
   },
