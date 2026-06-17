@@ -80,3 +80,70 @@ export interface Implant {
 
 /** A yes/no/unsure answer used by the guided identification flow. */
 export type Answer = 'yes' | 'no' | 'unsure';
+
+// ──────────────────────────── Survivorship data ────────────────────────────
+
+/** Arthroplasty procedure type covered by the survivorship reference. */
+export type ProcedureType = 'Total hip' | 'Total knee' | 'Partial knee';
+
+/** Fixation method, as the registries stratify their survival analyses. */
+export type SurvivorshipFixation = 'Cemented' | 'Cementless' | 'Hybrid';
+
+/** A national joint replacement registry that publishes survivorship data. */
+export type Registry = 'AOANJRR' | 'Norwegian (NAR)';
+
+/**
+ * A single published survivorship data point for an implant, taken from a
+ * registry report or a peer-reviewed registry analysis. Numeric values are only
+ * populated (`verified: true`) when transcribed and checked against the cited
+ * primary source — never estimated. When a value has not been verified, the
+ * entry still records where to read it (`sourceUrl`).
+ */
+export interface SurvivorshipFigure {
+  registry: Registry;
+  /** Metric as published, e.g. 'Cumulative percent revision' or 'KM survival'. */
+  metric: string;
+  /** Follow-up interval in years (e.g. 5, 10, 15). */
+  followUpYears: number;
+  /** Fixation cohort this figure applies to, where the registry stratifies it. */
+  fixation?: SurvivorshipFixation;
+  /** Published value as a percentage. Omitted until verified against source. */
+  value?: number;
+  /** 95% confidence interval as [low, high] percentages, where published. */
+  ci95?: [number, number];
+  /** Source document, e.g. 'AOANJRR 2024 Annual Report'. */
+  source: string;
+  /** Direct link to the primary source document. */
+  sourceUrl: string;
+  /** True only when `value` was transcribed and checked against the source. */
+  verified: boolean;
+  /** Cohort caveat, bearing/variant note, etc. */
+  note?: string;
+}
+
+/**
+ * An implant family with quick links to its published registry survivorship.
+ * This is a reference aid: where a numeric figure has not been verified against
+ * a primary source in this build, the entry links out to the exact registry
+ * report so the current cumulative-percent-revision table can be read directly.
+ */
+export interface SurvivorshipImplant {
+  id: string;
+  name: string;
+  manufacturer: Manufacturer;
+  procedure: ProcedureType;
+  /** e.g. 'Femoral stem', 'Acetabular cup', 'Total knee system'. */
+  component: string;
+  /** Fixation option(s) the family is offered in. */
+  fixation: SurvivorshipFixation[];
+  /** One-line descriptor shown in the card. */
+  descriptor: string;
+  /** Verified registry figures; may be empty pending source transcription. */
+  figures: SurvivorshipFigure[];
+  /** Deep links to the primary registry reports where the CPR table is found. */
+  registryLinks: { label: string; url: string }[];
+  /** Supporting registry-based literature (via PubMed), where available. */
+  literature?: Reference[];
+  /** Free-text caveats specific to this entry. */
+  notes?: string;
+}
