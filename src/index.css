@@ -432,3 +432,89 @@ footer.foot {
   color: var(--text-dim);
   font-size: 0.8rem;
 }
+
+/* Survivorship cards */
+.sv-card {
+  gap: 10px;
+}
+
+.badge.fix {
+  border-color: var(--accent-dim);
+  color: var(--text);
+}
+
+.badge.fix-cemented {
+  background: #2a1f3a;
+  border-color: #6a4fa0;
+  color: #d6c4f0;
+}
+
+.badge.fix-cementless {
+  background: #14302a;
+  border-color: #2f7a64;
+  color: #b6e8d6;
+}
+
+.badge.fix-hybrid {
+  background: #2f2a14;
+  border-color: #7a6a2f;
+  color: #ecdca0;
+}
+
+.sv-figures {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
+.sv-figure-list {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  font-size: 0.82rem;
+  color: var(--text-dim);
+}
+
+.sv-figure-list li {
+  margin-bottom: 8px;
+}
+
+.sv-figure-list strong {
+  color: var(--text);
+}
+
+.sv-ci {
+  color: var(--text-dim);
+  font-weight: 400;
+}
+
+.sv-note {
+  color: var(--text-dim);
+}
+
+.sv-pending {
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin: 6px 0 8px;
+}
+
+.sv-links {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+.sv-links a {
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.sv-links a:hover {
+  text-decoration: underline;
+}
+
+.sv-lit {
+  width: 100%;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}

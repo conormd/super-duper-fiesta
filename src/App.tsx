@@ -4,8 +4,9 @@ import { Disclaimer } from './components/Disclaimer';
 import { BrowseView } from './components/BrowseView';
 import { IdentifyView } from './components/IdentifyView';
 import { ImplantDetail } from './components/ImplantDetail';
+import { SurvivorshipView } from './components/SurvivorshipView';
 
-type Tab = 'identify' | 'browse';
+type Tab = 'identify' | 'browse' | 'survivorship';
 
 export default function App() {
   const [tab, setTab] = useState<Tab>('identify');
@@ -36,13 +37,17 @@ export default function App() {
         >
           Browse catalogue
         </button>
+        <button
+          className={`tab ${tab === 'survivorship' ? 'active' : ''}`}
+          onClick={() => setTab('survivorship')}
+        >
+          Survivorship data
+        </button>
       </nav>
 
-      {tab === 'identify' ? (
-        <IdentifyView onSelect={setSelected} />
-      ) : (
-        <BrowseView onSelect={setSelected} />
-      )}
+      {tab === 'identify' && <IdentifyView onSelect={setSelected} />}
+      {tab === 'browse' && <BrowseView onSelect={setSelected} />}
+      {tab === 'survivorship' && <SurvivorshipView />}
 
       {selected && <ImplantDetail implant={selected} onClose={() => setSelected(null)} />}
 
