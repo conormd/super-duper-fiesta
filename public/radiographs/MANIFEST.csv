@@ -15,6 +15,9 @@ zb-arcos,Zimmer Biomet,Hip,Arcos Modular Femoral Revision,zb-arcos-ap.jpg,zb-arc
 zb-versys-fm-taper,Zimmer Biomet,Hip,VerSys Fiber Metal Taper,zb-versys-fm-taper-ap.jpg,zb-versys-fm-taper-lat.jpg,zb-versys-fm-taper-tmpl.jpg
 zb-versys-fm-midcoat,Zimmer Biomet,Hip,VerSys Fiber Metal MidCoat,zb-versys-fm-midcoat-ap.jpg,zb-versys-fm-midcoat-lat.jpg,zb-versys-fm-midcoat-tmpl.jpg
 zb-versys-fullcoat,Zimmer Biomet,Hip,VerSys Beaded FullCoat,zb-versys-fullcoat-ap.jpg,zb-versys-fullcoat-lat.jpg,zb-versys-fullcoat-tmpl.jpg
+zb-avenir,Zimmer Biomet,Hip,Avenir Complete,zb-avenir-ap.jpg,zb-avenir-lat.jpg,zb-avenir-tmpl.jpg
+zb-fitmore,Zimmer Biomet,Hip,Fitmore,zb-fitmore-ap.jpg,zb-fitmore-lat.jpg,zb-fitmore-tmpl.jpg
+zb-alloclassic,Zimmer Biomet,Hip,Alloclassic Zweymüller,zb-alloclassic-ap.jpg,zb-alloclassic-lat.jpg,zb-alloclassic-tmpl.jpg
 st-triathlon,Stryker,Knee,Triathlon,st-triathlon-ap.jpg,st-triathlon-lat.jpg,st-triathlon-tmpl.jpg
 st-scorpio,Stryker,Knee,Scorpio,st-scorpio-ap.jpg,st-scorpio-lat.jpg,st-scorpio-tmpl.jpg
 st-accolade,Stryker,Hip,Accolade,st-accolade-ap.jpg,st-accolade-lat.jpg,st-accolade-tmpl.jpg
@@ -30,6 +33,8 @@ st-gamma,Stryker,Trauma / Fracture fixation,Gamma Nail,st-gamma-ap.jpg,st-gamma-
 st-t2,Stryker,Trauma / Fracture fixation,T2 Nailing System,st-t2-ap.jpg,st-t2-lat.jpg,st-t2-tmpl.jpg
 st-simpliciti,Stryker,Shoulder,Simpliciti,st-simpliciti-ap.jpg,st-simpliciti-lat.jpg,st-simpliciti-tmpl.jpg
 st-aequalis,Stryker,Shoulder,Aequalis,st-aequalis-ap.jpg,st-aequalis-lat.jpg,st-aequalis-tmpl.jpg
+st-omnifit,Stryker,Hip,Omnifit,st-omnifit-ap.jpg,st-omnifit-lat.jpg,st-omnifit-tmpl.jpg
+st-triathlon-ts,Stryker,Knee,Triathlon TS,st-triathlon-ts-ap.jpg,st-triathlon-ts-lat.jpg,st-triathlon-ts-tmpl.jpg
 sn-genesis-ii,Smith & Nephew,Knee,Genesis II,sn-genesis-ii-ap.jpg,sn-genesis-ii-lat.jpg,sn-genesis-ii-tmpl.jpg
 sn-legion,Smith & Nephew,Knee,Legion,sn-legion-ap.jpg,sn-legion-lat.jpg,sn-legion-tmpl.jpg
 sn-journey,Smith & Nephew,Knee,Journey II,sn-journey-ap.jpg,sn-journey-lat.jpg,sn-journey-tmpl.jpg
@@ -43,6 +48,8 @@ sn-intertan,Smith & Nephew,Trauma / Fracture fixation,TRIGEN INTERTAN,sn-interta
 sn-trigen,Smith & Nephew,Trauma / Fracture fixation,TRIGEN Intramedullary Nails,sn-trigen-ap.jpg,sn-trigen-lat.jpg,sn-trigen-tmpl.jpg
 sn-peri-loc,Smith & Nephew,Trauma / Fracture fixation,PERI-LOC Locking Plates,sn-peri-loc-ap.jpg,sn-peri-loc-lat.jpg,sn-peri-loc-tmpl.jpg
 sn-profix,Smith & Nephew,Knee,Profix,sn-profix-ap.jpg,sn-profix-lat.jpg,sn-profix-tmpl.jpg
+sn-spectron,Smith & Nephew,Hip,Spectron EF,sn-spectron-ap.jpg,sn-spectron-lat.jpg,sn-spectron-tmpl.jpg
+sn-emperion,Smith & Nephew,Hip,EMPERION,sn-emperion-ap.jpg,sn-emperion-lat.jpg,sn-emperion-tmpl.jpg
 ax-swivelock,Arthrex,Sports medicine / Soft tissue,SwiveLock,ax-swivelock-ap.jpg,ax-swivelock-lat.jpg,ax-swivelock-tmpl.jpg
 ax-corkscrew,Arthrex,Sports medicine / Soft tissue,Corkscrew / FT (FiberTak),ax-corkscrew-ap.jpg,ax-corkscrew-lat.jpg,ax-corkscrew-tmpl.jpg
 ax-tightrope,Arthrex,Sports medicine / Soft tissue,TightRope,ax-tightrope-ap.jpg,ax-tightrope-lat.jpg,ax-tightrope-tmpl.jpg
@@ -70,3 +77,5 @@ dp-elite-plus,DePuy Synthes,Hip,Charnley Elite Plus,dp-elite-plus-ap.jpg,dp-elit
 dp-duraloc,DePuy Synthes,Hip,Duraloc Acetabular System,dp-duraloc-ap.jpg,dp-duraloc-lat.jpg,dp-duraloc-tmpl.jpg
 dp-philos,DePuy Synthes,Trauma / Fracture fixation,PHILOS (Proximal Humeral Plate),dp-philos-ap.jpg,dp-philos-lat.jpg,dp-philos-tmpl.jpg
 dp-cannulated-screws,DePuy Synthes,Trauma / Fracture fixation,Cannulated Screw Fixation,dp-cannulated-screws-ap.jpg,dp-cannulated-screws-lat.jpg,dp-cannulated-screws-tmpl.jpg
+dp-delta-xtend,DePuy Synthes,Shoulder,Delta Xtend,dp-delta-xtend-ap.jpg,dp-delta-xtend-lat.jpg,dp-delta-xtend-tmpl.jpg
+dp-sigma-tc3,DePuy Synthes,Knee,P.F.C. Sigma TC3,dp-sigma-tc3-ap.jpg,dp-sigma-tc3-lat.jpg,dp-sigma-tc3-tmpl.jpg
