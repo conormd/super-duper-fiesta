@@ -9,19 +9,23 @@ export type Anatomy =
   | 'Hip'
   | 'Knee'
   | 'Shoulder'
+  | 'Ankle'
+  | 'Elbow'
   | 'Trauma / Fracture fixation'
   | 'Sports medicine / Soft tissue';
 
 export type Fixation = 'Cemented' | 'Cementless' | 'Hybrid' | 'Either' | 'N/A';
 
-/** Standard radiographic projections used for implant assessment. */
-export type RadiographView = 'AP' | 'Lateral';
+/** Standard radiographic projections used for implant assessment, plus
+ *  templating images (e.g. exported from hospital templating software). */
+export type RadiographView = 'AP' | 'Lateral' | 'Templating';
 
 /**
- * A reference radiograph for an implant. Implants are ideally documented in
- * both the AP and lateral (mediolateral) planes for more reliable recognition.
- * Any real radiograph MUST carry attribution and a license — do not embed
- * copyrighted images. `src` may be a URL or a path under `public/`.
+ * A reference image for an implant. Implants are ideally documented in both the
+ * AP and lateral (mediolateral) planes for more reliable recognition, with an
+ * optional templating image. Any real radiograph MUST carry attribution and a
+ * license — do not embed copyrighted images. `src` may be a URL or a path under
+ * `public/`.
  */
 export interface ImplantImage {
   view: RadiographView;
@@ -33,6 +37,14 @@ export interface ImplantImage {
   license?: string;
   /** Link to the original, licensed source. */
   sourceUrl?: string;
+}
+
+/** A non-radiograph image (e.g. a photo of the physical implant). */
+export interface ProductPhoto {
+  src: string;
+  caption?: string;
+  credit?: string;
+  license?: string;
 }
 
 /** A literature reference supporting an entry. Sourced from PubMed. */
@@ -76,6 +88,10 @@ export interface Implant {
   views?: ImplantImage[];
   /** Curated external links to view radiographs (atlases, technique guides). */
   imageLinks?: { label: string; url: string }[];
+  /** Photos of the physical implant or product imagery. */
+  photos?: ProductPhoto[];
+  /** 'user' for entries added through the in-app form; built-in entries omit this. */
+  source?: 'user';
 }
 
 /** A yes/no/unsure answer used by the guided identification flow. */

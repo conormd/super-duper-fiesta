@@ -5,11 +5,13 @@ import { radiopaediaSearchUrl } from '../lib/search';
 interface Props {
   implant: Implant;
   onClose: () => void;
+  onEdit?: (implant: Implant) => void;
 }
 
 const VIEW_LABELS: Record<RadiographView, string> = {
   AP: 'AP (anteroposterior)',
   Lateral: 'Lateral (mediolateral)',
+  Templating: 'Templating',
 };
 
 function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView }) {
@@ -43,7 +45,7 @@ function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView })
   );
 }
 
-export function ImplantDetail({ implant, onClose }: Props) {
+export function ImplantDetail({ implant, onClose, onEdit }: Props) {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
@@ -58,12 +60,18 @@ export function ImplantDetail({ implant, onClose }: Props) {
         <button className="close" onClick={onClose} aria-label="Close">
           ✕
         </button>
+        {onEdit && (
+          <button className="edit-btn" onClick={() => onEdit(implant)}>
+            ✎ Edit
+          </button>
+        )}
         <h2>{implant.name}</h2>
         <div className="badges">
           <span className="badge mfr">{implant.manufacturer}</span>
           <span className="badge">{implant.anatomy}</span>
           <span className="badge">{implant.category}</span>
           {implant.fixation !== 'N/A' && <span className="badge">{implant.fixation}</span>}
+          {implant.source === 'user' && <span className="badge user">Added by you</span>}
         </div>
         <div className="meta-row">
           {implant.era && <span>Market period: {implant.era}</span>}
@@ -75,10 +83,11 @@ export function ImplantDetail({ implant, onClose }: Props) {
         </section>
 
         <section>
-          <h4>Reference radiographs</h4>
+          <h4>Reference imaging</h4>
           <div className="views">
             <ViewSlot implant={implant} view="AP" />
             <ViewSlot implant={implant} view="Lateral" />
+            <ViewSlot implant={implant} view="Templating" />
           </div>
           <p className="view-links">
             View images externally:{' '}
@@ -95,6 +104,25 @@ export function ImplantDetail({ implant, onClose }: Props) {
             ))}
           </p>
         </section>
+
+        {implant.photos && implant.photos.length > 0 && (
+          <section>
+            <h4>Photos</h4>
+            <div className="photo-grid">
+              {implant.photos.map((p, i) => (
+                <figure key={i} className="photo-item">
+                  <img src={p.src} alt={p.caption ?? `${implant.name} photo ${i + 1}`} />
+                  {(p.caption || p.credit) && (
+                    <figcaption>
+                      {p.caption}
+                      {p.credit && <span className="credit"> {p.credit}</span>}
+                    </figcaption>
+                  )}
+                </figure>
+              ))}
+            </div>
+          </section>
+        )}
 
         <section>
           <h4>Radiographic identifying features</h4>

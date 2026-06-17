@@ -19,9 +19,26 @@ Biomet, Stryker, Smith & Nephew, Arthrex, and DePuy Synthes.
   match their known identifying features.
 - **Browse catalogue** — search and filter the full reference set by
   manufacturer, anatomical region, and keyword.
-- **Implant detail** — overview, paired AP and lateral (mediolateral) reference
-  radiograph slots, radiographic identifying features, notable variants, market
-  period, supporting references, and entry-specific caveats.
+- **Implant detail** — overview, three reference-imaging slots (AP, lateral
+  (mediolateral), and templating), radiographic identifying features, notable
+  variants, market period, supporting references, and entry-specific caveats.
+
+## Adding and editing implants from the app
+
+An **Add / edit** tab lets you add your own products and photos (AP/lateral
+radiographs and product photos) directly through the interface — no code
+editing. You can also **edit any entry**, including the built-in ones: open an
+implant and choose **✎ Edit** to load it into the form. Editing a built-in
+entry creates a local override that shadows it; "Reset to built-in" removes the
+override and restores the original. Entries are stored **on your device only**
+(in the browser's IndexedDB); nothing is uploaded, which keeps clinical images
+private. Your additions and edits are merged into the catalogue and the guided
+flow alongside the built-in data and tagged "Added by you".
+
+Use **Export all (JSON)** to back up your entries or to share them so they can
+be reviewed and folded into the shared built-in catalogue
+(`src/data/implants.ts`). Only upload images you have the right to use, and
+ensure any clinical images are de-identified.
 
 ## Anatomical regions covered
 
@@ -73,14 +90,15 @@ field for any entry-specific caveats. Entries may include an optional
 render as PubMed/DOI links in the detail view. The guided flow and catalogue
 update automatically from the data — no other code changes are needed.
 
-### Reference radiographs
+### Reference imaging
 
-Each implant detail view shows two slots — **AP** and **lateral (mediolateral)**
-— since documenting both planes improves recognition. There are three ways to
-populate them, and all are supported:
+Each implant detail view shows three slots — **AP**, **lateral (mediolateral)**,
+and **templating** (e.g. an image exported from hospital templating software).
+There are three ways to populate them, and all are supported:
 
-1. **Host an image** (open-access CC BY figure or institution-owned/permissioned
-   file): add a `views` entry (`view`, `src`, `caption`, `credit`, `license`,
+1. **Host an image** (open-access CC BY figure, institution-owned/permissioned
+   file, or a licensed templating export): add a `views` entry (`view` is `AP`,
+   `Lateral`, or `Templating`; plus `src`, `caption`, `credit`, `license`,
    `sourceUrl`). Drop local files in `public/radiographs/` — see
    [`public/radiographs/README.md`](public/radiographs/README.md) for the
    convention and licensing rules. `src` may be a URL or a `/radiographs/…` path.
