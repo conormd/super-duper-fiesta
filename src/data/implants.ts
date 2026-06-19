@@ -105,6 +105,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-taperloc',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-taperloc-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Taperloc',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -168,6 +177,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-ml-taper',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-ml-taper-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'M/L Taper',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -244,6 +262,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-arcos',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-arcos-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Arcos Modular Femoral Revision',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -258,6 +285,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-versys-fm-taper',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-versys-fm-taper-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'VerSys Fiber Metal Taper',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -274,6 +310,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-versys-fm-midcoat',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-versys-fm-midcoat-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'VerSys Fiber Metal MidCoat',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -306,6 +351,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-avenir',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-avenir-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Avenir Complete',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -321,6 +375,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-fitmore',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-fitmore-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Fitmore',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -386,6 +449,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-accolade',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/st-accolade-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Accolade',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -402,6 +474,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-exeter',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/st-exeter-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Exeter',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -434,6 +515,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-restoration',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/st-restoration-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Restoration',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -584,6 +674,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-omnifit',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/st-omnifit-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Omnifit',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -750,6 +849,22 @@ export const implants: Implant[] = [
     era: '2010s–present',
   },
   {
+    id: 'sn-echelon',
+    name: 'Echelon',
+    manufacturer: 'Smith & Nephew',
+    anatomy: 'Hip',
+    category: 'Revision femoral stem',
+    fixation: 'Cementless',
+    summary: 'Cementless revision femoral stem with distal interlocking fixation (Smith & Nephew).',
+    identifyingFeatures: [
+      'Long stem for diaphyseal fixation, often with one or more transverse distal interlocking screws/bolts',
+      'Straight, extensively coated stem body',
+      'Used for revision and complex primary reconstruction',
+    ],
+    era: '1990s–2000s',
+    notes: 'The transverse distal interlocking screw is a useful cue. Compiled from general references — confirm against operative records.',
+  },
+  {
     id: 'sn-intertan',
     name: 'TRIGEN INTERTAN',
     manufacturer: 'Smith & Nephew',
@@ -900,6 +1015,21 @@ export const implants: Implant[] = [
     variants: ['Corail Standard', 'Corail Collared', 'Corail Revision'],
     era: '1986–present',
     references: HIP_REFS,
+  },
+  {
+    id: 'dp-actis',
+    name: 'ACTIS',
+    manufacturer: 'DePuy Synthes',
+    anatomy: 'Hip',
+    category: 'Cementless femoral stem',
+    fixation: 'Cementless',
+    summary: 'Proximally coated triple-taper cementless stem for primary THA (DePuy Synthes).',
+    identifyingFeatures: [
+      'Triple-tapered stem geometry with proximal porous/HA coating and a polished distal portion',
+      'Collared design seating on the calcar; bone-preserving primary stem',
+      'Frequently paired with a Pinnacle/ACTIS acetabular cup',
+    ],
+    era: '2015–present',
   },
   {
     id: 'dp-summit',
