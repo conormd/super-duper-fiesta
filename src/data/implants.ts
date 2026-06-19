@@ -162,6 +162,15 @@ export const implants: Implant[] = [
 
   {
     id: 'zb-cls-spotorno',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-cls-spotorno-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'CLS Spotorno',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -202,6 +211,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-wagner-cone',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-wagner-cone-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Wagner Cone',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -335,6 +353,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-versys-fullcoat',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-versys-fullcoat-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'VerSys Beaded FullCoat',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -640,6 +667,155 @@ export const implants: Implant[] = [
     era: "1990s–2000s",
     notes: "Sibling to the VerSys Beaded FullCoat (full-length coating). Compiled from general references — confirm against operative records.",
   },
+  {
+    id: 'zb-mueller',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-mueller-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: "Avenir Müller",
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: "Cemented femoral stem",
+    fixation: 'Either',
+    summary: "Straight, tapered stem with a stepped medial (calcar) border (Müller-type), in cemented and cementless options.",
+    identifyingFeatures: [
+      "Straight, tapered stem with a characteristic stepped/serrated medial (calcar) border",
+      "Collar seating on the femoral neck cut",
+      "Cemented and cementless variants",
+    ],
+    era: "1990s–2000s",
+    notes: "Name per local templating software. Compiled from general references — confirm against operative records.",
+  },
+  {
+    id: 'zb-cdh',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-cdh-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: "CDH Stem",
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: "Cementless femoral stem",
+    fixation: 'Either',
+    summary: "Small-geometry femoral stem for the dysplastic or narrow femur (congenital dysplasia of the hip).",
+    identifyingFeatures: [
+      "Short, narrow tapered stem designed for a small/dysplastic femoral canal",
+      "Reduced proximal dimensions",
+      "Used in developmental dysplasia or small native anatomy",
+    ],
+    era: "1990s–2000s",
+    notes: "CDH = congenital dysplasia of the hip. Compiled from general references — confirm against operative records.",
+  },
+  {
+    id: 'zb-versys-crc',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-versys-crc-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: "VerSys CRC",
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: "Cemented femoral stem",
+    fixation: 'Cemented',
+    summary: "Collared, smooth tapered cemented stem in the VerSys family (Zimmer).",
+    identifyingFeatures: [
+      "Collared, smooth tapered stem within a cement mantle",
+      "Radiolucent cement mantle between stem and bone",
+    ],
+    era: "1990s–2000s",
+    notes: "Name per local templating software. Compiled from general references — confirm against operative records.",
+  },
+  {
+    id: 'zb-versys-advocate',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-versys-advocate-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: "VerSys Advocate",
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: "Cemented femoral stem",
+    fixation: 'Cemented',
+    summary: "Collared cemented stem with a stepped medial border in the VerSys family (Zimmer).",
+    identifyingFeatures: [
+      "Collared stem with a stepped/serrated medial border",
+      "Tapered geometry within a cement mantle",
+      "Radiolucent cement mantle between stem and bone",
+    ],
+    era: "1990s–2000s",
+    notes: "Name per local templating software. Compiled from general references — confirm against operative records.",
+  },
+  {
+    id: 'zb-wagner-sl',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-wagner-sl-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: "Wagner SL Revision",
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: "Revision femoral stem",
+    fixation: 'Cementless',
+    summary: "Long, conically tapered, splined monoblock cementless revision stem (Zimmer Wagner SL).",
+    identifyingFeatures: [
+      "Long, conically tapered monoblock stem with fine longitudinal splines/flutes",
+      "Relies on diaphyseal taper-and-spline fixation",
+      "No modular junction (one-piece)",
+    ],
+    era: "1990s–present",
+    notes: "The splined conical monoblock design is a strong identifying cue. Compiled from general references — confirm against operative records.",
+  },
+  {
+    id: 'zb-zmr',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-zmr-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: "ZMR (Zimmer Modular Revision)",
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: "Modular revision femoral stem",
+    fixation: 'Cementless',
+    summary: "Modular revision hip stem with a proximal cone/body segment and a fluted distal stem (Zimmer ZMR).",
+    identifyingFeatures: [
+      "Visible modular junction between a proximal cone/body and the distal stem",
+      "Fluted/splined distal stem for diaphyseal fixation",
+      "Multiple proximal body and distal stem options",
+    ],
+    era: "2000s–present",
+    notes: "Compiled from general references — confirm against operative records.",
+  },
   // ──────────────────────────────── Stryker ────────────────────────────────
   {
     id: 'st-triathlon',
@@ -765,6 +941,15 @@ export const implants: Implant[] = [
 
   {
     id: 'st-secur-fit',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/st-secur-fit-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Secur-Fit',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -812,6 +997,15 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-insignia',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/st-insignia-tmpl.jpg',
+        caption: 'Preoperative templating outline',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
     name: 'Insignia',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
