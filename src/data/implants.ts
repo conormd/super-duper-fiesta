@@ -966,6 +966,56 @@ export const implants: Implant[] = [
     era: "2000s–present",
     notes: "FX (fracture) variant of the Echo Bi-Metric family. Compiled from general references — confirm against operative records.",
   },
+  {
+    id: 'zb-wagner-cone-original',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-wagner-cone-original-tmpl.jpg',
+        caption: 'Zimmer Wagner Cone (original)',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: 'Wagner Cone (Original)',
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: 'Cementless femoral stem',
+    fixation: 'Cementless',
+    summary: 'Original-generation Wagner Cone — an earlier stem whose shape differs from the current conical, splined Wagner Cone (Zimmer).',
+    identifyingFeatures: [
+      'Original Wagner Cone generation; overall shape differs from the current fluted conical design',
+      'Collared, tapered stem outline on templating (not the modern splined cone)',
+      'Monoblock cementless stem',
+    ],
+    era: '1980s–2000s',
+    notes: 'Shape differs from the current Wagner Cone (a fluted conical stem) — kept as a separate entry to differentiate the original from the contemporary design. Compiled from general references — confirm against operative records.',
+  },
+  {
+    id: 'zb-sirius',
+    views: [
+      {
+        view: 'Templating',
+        src: 'radiographs/zb-sirius-tmpl.jpg',
+        caption: 'Biomet Sirius Cemented Stem',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+    ],
+    name: 'Sirius',
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: 'Cemented femoral stem',
+    fixation: 'Cemented',
+    summary: 'Polished, tapered cemented femoral stem (Biomet Sirius).',
+    identifyingFeatures: [
+      'Smooth, polished tapered stem within a cement mantle',
+      'Radiolucent cement mantle between stem and bone',
+      'Collarless, taper-slip-style cemented stem',
+    ],
+    era: '1990s–2000s',
+    notes: 'Compiled from general references — confirm against operative records.',
+  },
   // ──────────────────────────────── Stryker ────────────────────────────────
   {
     id: 'st-triathlon',
