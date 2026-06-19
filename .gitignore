@@ -11,3 +11,7 @@ dist-ssr
 *.tsbuildinfo
 vite.config.js
 vite.config.d.ts
+
+# transient image-import staging
+/decode-resize.mjs
+public/radiographs/_incoming/
