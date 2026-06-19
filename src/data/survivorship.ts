@@ -413,7 +413,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     registryLinks: registryLinks('Total knee'),
     literature: [TRIATHLON_10YR_REF, ATTUNE_TRIATHLON_RLL_REF],
     notes:
-      'High-volume system in both registries. Figures are the CR (minimally stabilised) and PS combinations from Table BM6 (primary OA). The combination tables are not split by cemented vs cementless Tritanium fixation — read the fixation-stratified knee chapter for that.',
+      'High-volume system in both registries. Headline figures are the CR (minimally stabilised) and PS combinations from Table BM6 (primary OA). By fixation at 10 yr (Triathlon CR; Tables KT9/10/11): cemented 3.5%, cementless 4.0%, hybrid 3.1%.',
   },
   {
     id: 'sv-knee-attune',
@@ -434,7 +434,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     registryLinks: registryLinks('Total knee'),
     literature: [ATTUNE_TRIATHLON_RLL_REF],
     notes:
-      'Figures are the Attune CR and PS combinations (Table BM2, 2/5/10-yr, primary OA). The combination table is not split by cemented vs S+ cementless baseplate — read the fixation-stratified knee chapter for that.',
+      'Headline figures are the Attune CR and PS combinations (Table BM2, 2/5/10-yr, primary OA). By fixation (Attune CR; Tables KT9/10/11): cemented 3.5% at 10 yr; cementless 2.2% and hybrid 2.1% at 5 yr (cementless/hybrid have shorter follow-up).',
   },
   {
     id: 'sv-knee-pfc',
@@ -466,7 +466,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     registryLinks: registryLinks('Total knee'),
     literature: [NEXGEN_TM_REF],
     notes:
-      'Embedded figures are the NexGen LPS-Flex combination. AOANJRR also lists NexGen LCCK (constrained: 5/10/15-yr 4.6/5.9/9.2) and analyses the cementless Trabecular Metal cohort separately (see literature).',
+      'Headline figures are the NexGen LPS-Flex combination. By fixation at 10 yr (Tables KT9/10/11): cemented 4.9%, cementless 4.8%, hybrid 6.8%. AOANJRR also lists NexGen LCCK (constrained: 5/10/15-yr 4.6/5.9/9.2) and analyses the cementless Trabecular Metal cohort separately (see literature).',
   },
   {
     id: 'sv-knee-persona',
@@ -485,7 +485,8 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
       cpr(10, 3.4, [2.8, 4.0], 'Table BM2 — Persona PS/Persona (primary TKR, OA)'),
     ],
     registryLinks: registryLinks('Total knee'),
-    notes: 'Figures are the Persona CR and PS combinations (Table BM2, 2/5/10-yr, primary OA).',
+    notes:
+      'Headline figures are the Persona CR and PS combinations (Table BM2, 2/5/10-yr, primary OA). By fixation (Persona CR; Tables KT9/10/11): cemented 2.6% at 10 yr; cementless 3.0% and hybrid 2.3% at 5 yr (cementless/hybrid have shorter follow-up).',
   },
   {
     id: 'sv-knee-vanguard',
@@ -508,7 +509,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
       },
     ],
     notes:
-      'Embedded figure is the Vanguard CR combination (Table BM6). Specific Vanguard PS/Regenerex combinations have been the subject of AOANJRR prosthesis-specific investigation reports — review those for the flagged cohorts.',
+      'Headline figure is the Vanguard CR combination (Table BM6). By fixation at 10 yr (Tables KT9/10/11): cemented 4.4%, cementless 6.4%, hybrid 4.6%. Specific Vanguard PS/Regenerex combinations have been the subject of AOANJRR prosthesis-specific investigation reports — review those for the flagged cohorts.',
   },
   {
     id: 'sv-knee-genesis',
@@ -530,7 +531,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     ],
     registryLinks: registryLinks('Total knee'),
     notes:
-      'Figures are the standard (CoCr) Genesis II CR and PS combinations. The Oxinium femoral variants show higher CPR: Oxinium CR 5/10/15/20-yr 3.5/5.9/8.4/10.6; Oxinium PS 4.9/7.0/9.3/11.9 [Tables BM6/BM8].',
+      'Headline figures are the standard (CoCr) Genesis II CR and PS combinations. By fixation at 10 yr (Genesis II CR; Tables KT9/10/11): cemented 4.4%, cementless 6.9%, hybrid 6.0%. The Oxinium femoral variants show higher CPR: Oxinium CR 5/10/15/20-yr 3.5/5.9/8.4/10.6; Oxinium PS 4.9/7.0/9.3/11.9 [Tables BM6/BM8].',
   },
   {
     id: 'sv-knee-legion',
@@ -550,7 +551,7 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     ],
     registryLinks: registryLinks('Total knee'),
     notes:
-      'Figures are the standard Legion CR and PS combinations. The Oxinium variants: Legion Oxinium CR 5/10/15-yr 3.1/4.3/5.7; Legion Oxinium PS 3.8/5.2/7.9 [Table BM6].',
+      'Headline figures are the standard Legion CR and PS combinations. By fixation at 10 yr (Legion CR; Tables KT9/11): cemented 3.9%, hybrid 6.7% (cementless not reported at 10 yr). The Oxinium variants: Legion Oxinium CR 5/10/15-yr 3.1/4.3/5.7; Legion Oxinium PS 3.8/5.2/7.9 [Table BM6].',
   },
   {
     id: 'sv-knee-journey',
@@ -590,6 +591,8 @@ export const survivorshipImplants: SurvivorshipImplant[] = [
     ],
     registryLinks: registryLinks('Total knee'),
     literature: [RBK_AOANJRR_REF],
+    notes:
+      'Headline figures are the LCS CR/LCS combination (Tables BM6/BM8). By fixation at 10 yr (LCS CR/LCS; Tables KT9/10/11): cemented 7.3%, cementless 6.2%, hybrid 5.5%.',
   },
   {
     id: 'sv-knee-profix',
