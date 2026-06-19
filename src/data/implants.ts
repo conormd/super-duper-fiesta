@@ -109,7 +109,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Biomet Taperloc Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -166,7 +166,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-cls-spotorno-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer CLS Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -190,7 +190,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-ml-taper-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer M/L Taper",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -215,7 +215,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-wagner-cone-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer Wagner Cone 135",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -284,7 +284,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-arcos-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Arcos 1-piece",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -307,7 +307,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-taper-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys FM Taper (Std body)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -332,7 +332,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-midcoat-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys FM MidCoat (Std body)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -357,7 +357,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-fullcoat-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys Beaded FullCoat (Std body)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -382,7 +382,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-avenir-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Avenir Complete",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -406,7 +406,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-fitmore-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer Fitmore Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -448,7 +448,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-bimetric-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Bi-Metric X-series Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -473,7 +473,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-cpt-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer CPT Stem (x-offset)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -498,7 +498,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-echo-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer Echo Microplasty Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -523,7 +523,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-integral-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer Integral 180 Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -548,7 +548,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Biomet Mallory-Head 1-piece Calcar Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -574,7 +574,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-oss-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Biomet OSS Fin Proximal Body",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -599,7 +599,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-zss-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer ZSS Proximal Femur (basic)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -624,7 +624,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-heritage-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys Heritage Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -648,7 +648,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-beaded-midcoat-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys Beaded MidCoat (LM body)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -673,7 +673,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-mueller-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Avenir Müller (cementless)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -698,7 +698,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-cdh-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer CDH Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -723,7 +723,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-crc-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys CRC Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -747,7 +747,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-advocate-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer VerSys Advocate Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -772,7 +772,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-wagner-sl-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer Wagner SL Revision Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -797,7 +797,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-zmr-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer ZMR Cone",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -822,7 +822,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-cementless-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Biomet Mallory-Head Cementless Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -847,7 +847,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-modular-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Biomet Mallory-Head Modular Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -872,7 +872,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-cpt-revision-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer CPT Revision Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -897,7 +897,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-zmr-xl-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer ZMR XL Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -922,7 +922,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-complete-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Biomet Taperloc Complete (reduced distal)",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -947,7 +947,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/zb-echo-fx-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Zimmer Echo FX Hip Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1004,7 +1004,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-accolade-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Accolade II Hip Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1029,7 +1029,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-exeter-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Exeter Primary Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1070,7 +1070,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-restoration-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Restoration Modular Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1095,7 +1095,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-secur-fit-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Secur-Fit Advanced Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1151,7 +1151,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-insignia-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Insignia Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1247,7 +1247,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-omnifit-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Omnifit Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1289,7 +1289,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-meridian-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker Meridian Stem",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
@@ -1314,7 +1314,7 @@ export const implants: Implant[] = [
       {
         view: 'Templating',
         src: 'radiographs/st-gmrs-tmpl.jpg',
-        caption: 'Preoperative templating outline',
+        caption: "Stryker GMRS Proximal Body",
         credit: 'Hospital templating software',
         license: 'Licensed for institutional/educational use',
       },
