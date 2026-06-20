@@ -121,6 +121,27 @@ input[type='search'] {
   margin-bottom: 12px;
 }
 
+.needs-img-toggle {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text-dim);
+  padding: 9px 14px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.needs-img-toggle:hover {
+  border-color: var(--accent);
+}
+
+.needs-img-toggle.active {
+  background: var(--accent-dim);
+  border-color: var(--accent);
+  color: #fff;
+}
+
 /* Cards grid */
 .grid {
   display: grid;

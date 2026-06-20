@@ -22,6 +22,8 @@ const ANATOMIES: (Anatomy | 'All')[] = [
   'Sports medicine / Soft tissue',
 ];
 
+const hasImage = (i: Implant) => !!i.views?.some((v) => v.src);
+
 interface Props {
   implants: Implant[];
   onSelect: (implant: Implant) => void;
@@ -31,8 +33,9 @@ export function BrowseView({ implants, onSelect }: Props) {
   const [query, setQuery] = useState('');
   const [manufacturer, setManufacturer] = useState<Manufacturer | 'All'>('All');
   const [anatomy, setAnatomy] = useState<Anatomy | 'All'>('All');
+  const [needsImageOnly, setNeedsImageOnly] = useState(false);
 
-  const results = useMemo(() => {
+  const base = useMemo(() => {
     const q = query.trim().toLowerCase();
     return implants
       .filter((i) => manufacturer === 'All' || i.manufacturer === manufacturer)
@@ -40,6 +43,9 @@ export function BrowseView({ implants, onSelect }: Props) {
       .filter((i) => q === '' || searchableText(i).includes(q))
       .sort((a, b) => a.name.localeCompare(b.name));
   }, [implants, query, manufacturer, anatomy]);
+
+  const missingCount = base.filter((i) => !hasImage(i)).length;
+  const results = needsImageOnly ? base.filter((i) => !hasImage(i)) : base;
 
   return (
     <div>
@@ -64,14 +70,26 @@ export function BrowseView({ implants, onSelect }: Props) {
             </option>
           ))}
         </select>
+        <button
+          type="button"
+          className={`needs-img-toggle ${needsImageOnly ? 'active' : ''}`}
+          onClick={() => setNeedsImageOnly((v) => !v)}
+          aria-pressed={needsImageOnly}
+          title="Show only implants still missing an image"
+        >
+          Needs image{missingCount > 0 ? ` (${missingCount})` : ''}
+        </button>
       </div>
 
       <p className="result-count">
         {results.length} implant{results.length === 1 ? '' : 's'}
+        {!needsImageOnly && missingCount > 0 && ` · ${missingCount} need an image`}
       </p>
 
       {results.length === 0 ? (
-        <p className="empty">No implants match these filters.</p>
+        <p className="empty">
+          {needsImageOnly ? 'Every implant in this view has an image. 🎉' : 'No implants match these filters.'}
+        </p>
       ) : (
         <div className="grid">
           {results.map((i) => (
