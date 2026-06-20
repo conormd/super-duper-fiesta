@@ -8,9 +8,24 @@ interface Props {
 }
 
 export function ImplantCard({ implant, score, onSelect }: Props) {
+  const cardImage =
+    implant.views?.find((v) => v.view === 'AP')?.src ??
+    implant.views?.find((v) => v.view === 'Templating')?.src ??
+    implant.views?.[0]?.src;
+
   return (
     <div className="card">
       <button className="card-main" onClick={() => onSelect(implant)}>
+        {cardImage ? (
+          <img
+            className="card-thumb"
+            src={cardImage}
+            alt={`${implant.name} radiograph`}
+            loading="lazy"
+          />
+        ) : (
+          <div className="card-thumb card-thumb--empty">No image yet</div>
+        )}
         <h3>
           {implant.name}
           {score !== undefined && score > 0 && (
