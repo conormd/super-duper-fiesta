@@ -104,13 +104,10 @@ There are three ways to populate them, and all are supported:
    convention and licensing rules. `src` may be a URL or a `/radiographs/…` path.
 2. **Curated external links**: add an `imageLinks` array (`{ label, url }`) to
    point at specific atlases or manufacturer technique guides.
-3. **Automatic atlas search**: every implant detail view links out to a
-   Radiopaedia search for that product — no data entry required.
 
 > **Do not embed copyrighted radiographs.** Only host images you have the right
 > to display, always fill in `credit` and `license`, and ensure any clinical
-> images are de-identified. Slots with no hosted image show a placeholder while
-> still offering the external links above.
+> images are de-identified. Slots with no hosted image show a placeholder.
 
 ## Disclaimer & data provenance
 

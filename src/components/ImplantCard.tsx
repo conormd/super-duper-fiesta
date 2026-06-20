@@ -1,5 +1,5 @@
+import { useEffect, useState } from 'react';
 import type { Implant } from '../types';
-import { radiopaediaSearchUrl } from '../lib/search';
 
 interface Props {
   implant: Implant;
@@ -8,24 +8,41 @@ interface Props {
 }
 
 export function ImplantCard({ implant, score, onSelect }: Props) {
+  const [zoom, setZoom] = useState(false);
+
   const cardImage =
     implant.views?.find((v) => v.view === 'AP')?.src ??
     implant.views?.find((v) => v.view === 'Templating')?.src ??
     implant.views?.[0]?.src;
 
+  useEffect(() => {
+    if (!zoom) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setZoom(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [zoom]);
+
   return (
     <div className="card">
-      <button className="card-main" onClick={() => onSelect(implant)}>
-        {cardImage ? (
+      {cardImage ? (
+        <button
+          className="card-thumb-btn"
+          onClick={() => setZoom(true)}
+          aria-label={`Enlarge ${implant.name} image`}
+        >
           <img
             className="card-thumb"
             src={cardImage}
             alt={`${implant.name} radiograph`}
             loading="lazy"
           />
-        ) : (
-          <div className="card-thumb card-thumb--empty">No image yet</div>
-        )}
+        </button>
+      ) : (
+        <div className="card-thumb card-thumb--empty">No image yet</div>
+      )}
+      <button className="card-main" onClick={() => onSelect(implant)}>
         <h3>
           {implant.name}
           {score !== undefined && score > 0 && (
@@ -40,14 +57,21 @@ export function ImplantCard({ implant, score, onSelect }: Props) {
         </div>
         <p className="summary">{implant.summary}</p>
       </button>
-      <a
-        className="card-link"
-        href={radiopaediaSearchUrl(implant)}
-        target="_blank"
-        rel="noreferrer"
-      >
-        Radiopaedia ↗
-      </a>
+
+      {zoom && cardImage && (
+        <div className="lightbox" onClick={() => setZoom(false)} role="dialog" aria-modal="true">
+          <button className="lightbox-close" onClick={() => setZoom(false)} aria-label="Close">
+            ✕
+          </button>
+          <img
+            className="lightbox-img"
+            src={cardImage}
+            alt={`${implant.name} radiograph`}
+            onClick={(e) => e.stopPropagation()}
+          />
+          <div className="lightbox-cap">{implant.name}</div>
+        </div>
+      )}
     </div>
   );
 }
