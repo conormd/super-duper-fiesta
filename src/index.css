@@ -510,6 +510,50 @@ input[type='search'] {
   margin-left: 8px;
 }
 
+.upload-drop {
+  width: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 20px;
+  background: var(--surface-2);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.upload-drop:hover,
+.upload-drop.dragging {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.upload-preview {
+  max-height: 320px;
+  max-width: 100%;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+.match-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sim-pill {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: #fff;
+}
+
 .empty {
   color: var(--text-dim);
   padding: 24px 0;

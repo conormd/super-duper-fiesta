@@ -5,10 +5,11 @@ import { loadUserImplants } from './lib/userImplants';
 import { Disclaimer } from './components/Disclaimer';
 import { BrowseView } from './components/BrowseView';
 import { IdentifyView } from './components/IdentifyView';
+import { IdentifyByImageView } from './components/IdentifyByImageView';
 import { AddImplantView } from './components/AddImplantView';
 import { ImplantDetail } from './components/ImplantDetail';
 
-type Tab = 'identify' | 'browse' | 'add';
+type Tab = 'identify' | 'image' | 'browse' | 'add';
 
 /** Merge user entries over the built-in set; a user entry with the same id
  *  replaces (overrides) the built-in one, keeping its position. */
@@ -63,6 +64,12 @@ export default function App() {
           Guided identification
         </button>
         <button
+          className={`tab ${tab === 'image' ? 'active' : ''}`}
+          onClick={() => setTab('image')}
+        >
+          Identify by image
+        </button>
+        <button
           className={`tab ${tab === 'browse' ? 'active' : ''}`}
           onClick={() => setTab('browse')}
         >
@@ -77,6 +84,7 @@ export default function App() {
       </nav>
 
       {tab === 'identify' && <IdentifyView implants={allImplants} onSelect={setSelected} />}
+      {tab === 'image' && <IdentifyByImageView implants={allImplants} onSelect={setSelected} />}
       {tab === 'browse' && <BrowseView implants={allImplants} onSelect={setSelected} />}
       {tab === 'add' && (
         <AddImplantView
