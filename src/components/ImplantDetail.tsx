@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import type { Implant, RadiographView } from '../types';
-import { radiopaediaSearchUrl } from '../lib/search';
 
 interface Props {
   implant: Implant;
@@ -89,20 +88,19 @@ export function ImplantDetail({ implant, onClose, onEdit }: Props) {
             <ViewSlot implant={implant} view="Lateral" />
             <ViewSlot implant={implant} view="Templating" />
           </div>
-          <p className="view-links">
-            View images externally:{' '}
-            <a href={radiopaediaSearchUrl(implant)} target="_blank" rel="noreferrer">
-              Radiopaedia
-            </a>
-            {implant.imageLinks?.map((link) => (
-              <span key={link.url}>
-                {' · '}
-                <a href={link.url} target="_blank" rel="noreferrer">
-                  {link.label}
-                </a>
-              </span>
-            ))}
-          </p>
+          {implant.imageLinks && implant.imageLinks.length > 0 && (
+            <p className="view-links">
+              View images externally:{' '}
+              {implant.imageLinks.map((link, i) => (
+                <span key={link.url}>
+                  {i > 0 && ' · '}
+                  <a href={link.url} target="_blank" rel="noreferrer">
+                    {link.label}
+                  </a>
+                </span>
+              ))}
+            </p>
+          )}
         </section>
 
         {implant.photos && implant.photos.length > 0 && (

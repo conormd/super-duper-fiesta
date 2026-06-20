@@ -50,5 +50,4 @@ display:
 - Images you have explicit written permission to use.
 
 Always populate `credit` and `license` in the `views` entry. Slots with no
-image render a placeholder, and every implant also links out to Radiopaedia
-from the detail view.
+image render a placeholder.
