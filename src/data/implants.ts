@@ -107,6 +107,13 @@ export const implants: Implant[] = [
     id: 'zb-taperloc',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-taperloc-ap.jpg',
+        caption: 'Biomet Taperloc — AP',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-tmpl.jpg',
         caption: "Biomet Taperloc Stem",
@@ -163,6 +170,13 @@ export const implants: Implant[] = [
   {
     id: 'zb-cls-spotorno',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cls-spotorno-ap.jpg',
+        caption: 'Zimmer CLS Spotorno — AP',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-cls-spotorno-tmpl.jpg',
@@ -1051,6 +1065,13 @@ export const implants: Implant[] = [
   {
     id: 'st-accolade',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-accolade-ap.jpg',
+        caption: 'Stryker Accolade — AP',
+        credit: 'Hospital templating software',
+        license: 'Licensed for institutional/educational use',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-accolade-tmpl.jpg',
