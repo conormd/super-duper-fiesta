@@ -138,6 +138,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-taperloc-microplasty.jpg',
+        caption: 'Taperloc — Microplasty, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-tmpl.jpg',
         caption: "Biomet Taperloc Stem",
@@ -228,6 +235,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-ml-taper-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-ml-taper-alt.jpg',
+        caption: 'M/L Taper — AP (alternate)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -338,6 +352,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-arcos-1piece.jpg',
+        caption: 'Arcos — one-piece body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-arcos-tmpl.jpg',
         caption: "Arcos 1-piece",
@@ -363,6 +384,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-versys-fm-taper-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-taper-std.jpg',
+        caption: 'VerSys FM Taper — standard body, AP',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -398,6 +426,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-midcoat-std.jpg',
+        caption: 'VerSys FM MidCoat — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-midcoat-tmpl.jpg',
         caption: "Zimmer VerSys FM MidCoat (Std body)",
@@ -429,6 +464,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fullcoat-std.jpg',
+        caption: 'VerSys Beaded FullCoat — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-fullcoat-tmpl.jpg',
         caption: "Zimmer VerSys Beaded FullCoat (Std body)",
@@ -456,6 +498,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-avenir-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-avenir-alt.jpg',
+        caption: 'Avenir Complete — AP (alternate)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -600,6 +649,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-echo-microplasty.jpg',
+        caption: 'Echo Bi-Metric — Microplasty, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-echo-tmpl.jpg',
         caption: "Zimmer Echo Microplasty Stem",
@@ -694,6 +750,20 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-oss-letson-femur.jpg',
+        caption: 'OSS — Letson proximal femur, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-oss-letson-body.jpg',
+        caption: 'OSS — Letson proximal body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-oss-tmpl.jpg',
         caption: "Biomet OSS Fin Proximal Body",
@@ -721,6 +791,20 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-zss-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zss-body-ext.jpg',
+        caption: 'ZSS — TM proximal body extension, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zss-std-offset.jpg',
+        caption: 'ZSS — TM proximal femur, standard offset, AP',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -786,6 +870,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-beaded-midcoat-std.jpg',
+        caption: 'VerSys Beaded MidCoat — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-beaded-midcoat-tmpl.jpg',
         caption: "Zimmer VerSys Beaded MidCoat (LM body)",
@@ -813,6 +904,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-mueller-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mueller-cemented.jpg',
+        caption: 'Avenir Müller — cemented, AP',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -1285,6 +1383,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/st-accolade-2.jpg',
+        caption: 'Accolade II — AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-accolade-tmpl.jpg',
         caption: "Stryker Accolade II Hip Stem",
@@ -1359,6 +1464,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/st-restoration-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-restoration-alt.jpg',
+        caption: 'Restoration Modular — AP (alternate)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -1719,6 +1831,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/sn-journey-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/sn-journey-uni.jpg',
+        caption: 'Journey — unicompartmental, AP/lateral',
         credit: "Author's own collection",
         license: 'Educational use only',
       },

@@ -19,3 +19,4 @@ public/radiographs/_incoming/
 # transient image-import helpers
 /import-aps.mjs
 /inject-ap-views.mjs
+/process-alts.mjs
