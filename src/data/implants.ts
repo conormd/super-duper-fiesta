@@ -57,6 +57,14 @@ export const implants: Implant[] = [
   // ───────────────────────────── Zimmer Biomet ─────────────────────────────
   {
     id: 'zb-nexgen',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-nexgen-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'NexGen',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -74,6 +82,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-persona',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-persona-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Persona',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -90,6 +106,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-oxford',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-oxford-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Oxford Partial Knee',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -110,8 +134,8 @@ export const implants: Implant[] = [
         view: 'AP',
         src: 'radiographs/zb-taperloc-ap.jpg',
         caption: 'Biomet Taperloc — AP',
-        credit: 'Hospital templating software',
-        license: 'Licensed for institutional/educational use',
+        credit: "Author's own collection",
+        license: 'Educational use only',
       },
       {
         view: 'Templating',
@@ -174,8 +198,8 @@ export const implants: Implant[] = [
         view: 'AP',
         src: 'radiographs/zb-cls-spotorno-ap.jpg',
         caption: 'Zimmer CLS Spotorno — AP',
-        credit: 'Hospital templating software',
-        license: 'Licensed for institutional/educational use',
+        credit: "Author's own collection",
+        license: 'Educational use only',
       },
       {
         view: 'Templating',
@@ -202,6 +226,12 @@ export const implants: Implant[] = [
     id: 'zb-ml-taper',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-ml-taper-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-ml-taper-tmpl.jpg',
         caption: "Zimmer M/L Taper",
@@ -226,6 +256,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-wagner-cone',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-wagner-cone-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-wagner-cone-tmpl.jpg',
@@ -296,6 +332,12 @@ export const implants: Implant[] = [
     id: 'zb-arcos',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-arcos-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-arcos-tmpl.jpg',
         caption: "Arcos 1-piece",
@@ -318,6 +360,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-fm-taper',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-taper-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-taper-tmpl.jpg',
@@ -344,6 +392,12 @@ export const implants: Implant[] = [
     id: 'zb-versys-fm-midcoat',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-midcoat-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-midcoat-tmpl.jpg',
         caption: "Zimmer VerSys FM MidCoat (Std body)",
@@ -368,6 +422,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-fullcoat',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fullcoat-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-fullcoat-tmpl.jpg',
@@ -394,6 +454,12 @@ export const implants: Implant[] = [
     id: 'zb-avenir',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-avenir-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-avenir-tmpl.jpg',
         caption: "Avenir Complete",
@@ -417,6 +483,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-fitmore',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-fitmore-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-fitmore-tmpl.jpg',
@@ -460,6 +532,12 @@ export const implants: Implant[] = [
     id: 'zb-bimetric',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-bimetric-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-bimetric-tmpl.jpg',
         caption: "Bi-Metric X-series Stem",
@@ -484,6 +562,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-cpt',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-cpt-tmpl.jpg',
@@ -510,6 +594,12 @@ export const implants: Implant[] = [
     id: 'zb-echo',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-echo-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-echo-tmpl.jpg',
         caption: "Zimmer Echo Microplasty Stem",
@@ -535,6 +625,12 @@ export const implants: Implant[] = [
     id: 'zb-integral',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-integral-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-integral-tmpl.jpg',
         caption: "Zimmer Integral 180 Stem",
@@ -559,6 +655,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-mallory-head',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mallory-head-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-tmpl.jpg',
@@ -586,6 +688,12 @@ export const implants: Implant[] = [
     id: 'zb-oss',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-oss-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-oss-tmpl.jpg',
         caption: "Biomet OSS Fin Proximal Body",
@@ -610,6 +718,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-zss',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zss-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-zss-tmpl.jpg',
@@ -636,6 +750,12 @@ export const implants: Implant[] = [
     id: 'zb-versys-heritage',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-heritage-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-heritage-tmpl.jpg',
         caption: "Zimmer VerSys Heritage Stem",
@@ -659,6 +779,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-beaded-midcoat',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-beaded-midcoat-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-beaded-midcoat-tmpl.jpg',
@@ -685,6 +811,12 @@ export const implants: Implant[] = [
     id: 'zb-mueller',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-mueller-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-mueller-tmpl.jpg',
         caption: "Avenir Müller (cementless)",
@@ -709,6 +841,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-cdh',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cdh-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-cdh-tmpl.jpg',
@@ -735,6 +873,12 @@ export const implants: Implant[] = [
     id: 'zb-versys-crc',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-crc-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-crc-tmpl.jpg',
         caption: "Zimmer VerSys CRC Stem",
@@ -758,6 +902,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-advocate',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-advocate-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-advocate-tmpl.jpg',
@@ -784,6 +934,12 @@ export const implants: Implant[] = [
     id: 'zb-wagner-sl',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-wagner-sl-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-wagner-sl-tmpl.jpg',
         caption: "Zimmer Wagner SL Revision Stem",
@@ -808,6 +964,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-zmr',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zmr-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-zmr-tmpl.jpg',
@@ -834,6 +996,12 @@ export const implants: Implant[] = [
     id: 'zb-mallory-head-cementless',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-mallory-head-cementless-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-cementless-tmpl.jpg',
         caption: "Biomet Mallory-Head Cementless Stem",
@@ -858,6 +1026,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-mallory-head-modular',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mallory-head-modular-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-modular-tmpl.jpg',
@@ -884,6 +1058,12 @@ export const implants: Implant[] = [
     id: 'zb-cpt-revision',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-revision-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-cpt-revision-tmpl.jpg',
         caption: "Zimmer CPT Revision Stem",
@@ -908,6 +1088,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-zmr-xl',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zmr-xl-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-zmr-xl-tmpl.jpg',
@@ -934,6 +1120,12 @@ export const implants: Implant[] = [
     id: 'zb-taperloc-complete',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-taperloc-complete-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-complete-tmpl.jpg',
         caption: "Biomet Taperloc Complete (reduced distal)",
@@ -958,6 +1150,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-echo-fx',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-fx-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-echo-fx-tmpl.jpg',
@@ -1009,6 +1207,12 @@ export const implants: Implant[] = [
     id: 'zb-sirius',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-sirius-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-sirius-tmpl.jpg',
         caption: 'Biomet Sirius Cemented Stem',
@@ -1033,6 +1237,14 @@ export const implants: Implant[] = [
   // ──────────────────────────────── Stryker ────────────────────────────────
   {
     id: 'st-triathlon',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-triathlon-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Triathlon',
     manufacturer: 'Stryker',
     anatomy: 'Knee',
@@ -1069,8 +1281,8 @@ export const implants: Implant[] = [
         view: 'AP',
         src: 'radiographs/st-accolade-ap.jpg',
         caption: 'Stryker Accolade — AP',
-        credit: 'Hospital templating software',
-        license: 'Licensed for institutional/educational use',
+        credit: "Author's own collection",
+        license: 'Educational use only',
       },
       {
         view: 'Templating',
@@ -1097,6 +1309,12 @@ export const implants: Implant[] = [
   {
     id: 'st-exeter',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-exeter-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-exeter-tmpl.jpg',
@@ -1139,6 +1357,12 @@ export const implants: Implant[] = [
     id: 'st-restoration',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/st-restoration-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-restoration-tmpl.jpg',
         caption: "Stryker Restoration Modular Stem",
@@ -1163,6 +1387,12 @@ export const implants: Implant[] = [
   {
     id: 'st-secur-fit',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-secur-fit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-secur-fit-tmpl.jpg',
@@ -1219,6 +1449,12 @@ export const implants: Implant[] = [
   {
     id: 'st-insignia',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-insignia-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-insignia-tmpl.jpg',
@@ -1316,6 +1552,12 @@ export const implants: Implant[] = [
     id: 'st-omnifit',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/st-omnifit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-omnifit-tmpl.jpg',
         caption: "Stryker Omnifit Stem",
@@ -1339,6 +1581,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-triathlon-ts',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-triathlon-ts-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Triathlon TS',
     manufacturer: 'Stryker',
     anatomy: 'Knee',
@@ -1357,6 +1607,12 @@ export const implants: Implant[] = [
   {
     id: 'st-meridian',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-meridian-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-meridian-tmpl.jpg',
@@ -1383,6 +1639,12 @@ export const implants: Implant[] = [
     id: 'st-gmrs',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/st-gmrs-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-gmrs-tmpl.jpg',
         caption: "Stryker GMRS Proximal Body",
@@ -1407,6 +1669,14 @@ export const implants: Implant[] = [
   // ───────────────────────────── Smith & Nephew ────────────────────────────
   {
     id: 'sn-genesis-ii',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-genesis-ii-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Genesis II',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1422,6 +1692,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-legion',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-legion-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Legion',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1437,6 +1715,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-journey',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-journey-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Journey II',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1452,6 +1738,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-polarstem',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-polarstem-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'POLARSTEM',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1498,6 +1792,14 @@ export const implants: Implant[] = [
 
   {
     id: 'sn-synergy',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-synergy-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'SYNERGY',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1512,6 +1814,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-anthology',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-anthology-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Anthology',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1526,6 +1836,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-redapt',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-redapt-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'REDAPT Modular Revision',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1540,6 +1858,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-echelon',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-echelon-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Echelon',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1629,6 +1955,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-emperion',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-emperion-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'EMPERION',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1646,6 +1980,14 @@ export const implants: Implant[] = [
   // ────────────────────────────── DePuy Synthes ────────────────────────────
   {
     id: 'dp-attune',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-attune-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'ATTUNE',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -1663,6 +2005,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-pfc-sigma',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-pfc-sigma-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'P.F.C. Sigma',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -1691,6 +2041,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-corail',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-corail-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Corail',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1708,6 +2066,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-actis',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-actis-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'ACTIS',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1723,6 +2089,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-summit',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-summit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Summit',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1737,6 +2111,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-trilock',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-trilock-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Tri-Lock',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1786,6 +2168,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-s-rom',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-s-rom-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'S-ROM',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1890,6 +2280,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-aml',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-aml-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'AML (Anatomic Medullary Locking)',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',

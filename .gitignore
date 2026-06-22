@@ -15,3 +15,7 @@ vite.config.d.ts
 # transient image-import staging
 /decode-resize.mjs
 public/radiographs/_incoming/
+
+# transient image-import helpers
+/import-aps.mjs
+/inject-ap-views.mjs
