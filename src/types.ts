@@ -16,6 +16,24 @@ export type Anatomy =
 
 export type Fixation = 'Cemented' | 'Cementless' | 'Hybrid' | 'Either' | 'N/A';
 
+/** Cemented femoral stem design philosophy. 'French paradox' = canal-filling,
+ *  line-to-line cementing with a thin mantle (Charnley–Kerboull archetype),
+ *  kept distinct from the broader taper-slip family. */
+export type CementedStyle = 'Taper-slip' | 'Composite beam' | 'French paradox';
+
+/** Cross-sectional geometry of a cementless (press-fit) femoral stem. */
+export type StemShape =
+  | 'Flat tapered wedge'
+  | 'Fit-and-fill'
+  | 'Quadrangular'
+  | 'Triple taper';
+
+/** Stem length class. Microplasty = short / neck-sparing variant. */
+export type StemLength = 'Standard' | 'Microplasty';
+
+/** Whether the femoral stem carries a medial collar. */
+export type Collar = 'Collared' | 'Collarless';
+
 /** Standard radiographic projections used for implant assessment, plus
  *  templating images (e.g. exported from hospital templating software). */
 export type RadiographView = 'AP' | 'Lateral' | 'Templating';
@@ -72,6 +90,14 @@ export interface Implant {
   /** e.g. "Total knee system", "Cementless femoral stem", "Suture anchor". */
   category: string;
   fixation: Fixation;
+  /** Cemented stem design philosophy (cemented femoral stems only). */
+  cementedStyle?: CementedStyle;
+  /** Cross-sectional geometry (cementless/press-fit femoral stems). */
+  stemShape?: StemShape;
+  /** Stem length class (femoral stems). */
+  stemLength?: StemLength;
+  /** Collar presence (femoral stems). */
+  collar?: Collar;
   /** One-line summary shown in cards. */
   summary: string;
   /** Cues that help distinguish this implant on imaging. */

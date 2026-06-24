@@ -157,6 +157,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Flat, dual-tapered proximally porous-coated femoral stem (Biomet).',
     identifyingFeatures: [
       'Flat wedge, dual-taper geometry',
@@ -221,6 +223,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Quadrangular',
+    collar: 'Collarless',
     summary: 'Straight, tapered, collarless cementless stem with longitudinal ribs.',
     identifyingFeatures: [
       'Straight, tapered stem with a rectangular cross-section',
@@ -258,6 +262,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Flat-wedge, proximally coated cementless femoral stem.',
     identifyingFeatures: [
       'Flat medial/lateral wedge taper geometry',
@@ -289,6 +295,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    collar: 'Collarless',
     summary: 'Conical, splined monoblock stem used in revision and dysplastic hips.',
     identifyingFeatures: [
       'Conical (tapered cone) geometry with longitudinal splines/flutes',
@@ -521,6 +528,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Proximally porous/HA-coated single-taper cementless stem with multiple offset options.',
     identifyingFeatures: [
       'Single-tapered stem with proximal porous/HA coating and a polished distal portion',
@@ -567,6 +575,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Quadrangular',
+    collar: 'Collarless',
     summary: 'Classic straight, rectangular-section grit-blasted tapered cementless stem (Zweymüller design).',
     identifyingFeatures: [
       'Straight, double-tapered stem with a sharp-edged rectangular (quadrangular) cross-section',
@@ -599,6 +609,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Collared, proximally porous-coated titanium tapered stem (Biomet).",
     identifyingFeatures: [
       "Collared design seating on the calcar",
@@ -630,6 +641,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: "Collarless, polished, double-tapered cemented stem (Zimmer CPT).",
     identifyingFeatures: [
       "Polished, double-tapered (taper-slip) geometry, collarless",
@@ -668,6 +681,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Collared, proximally coated tapered cementless stem; successor to the Bi-Metric.",
     identifyingFeatures: [
       "Collared, single-taper wedge with proximal porous/plasma coating",
@@ -699,6 +713,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: "Smooth, tapered cemented femoral stem (Zimmer Integral).",
     identifyingFeatures: [
       "Smooth, tapered stem within a cement mantle",
@@ -730,6 +746,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: "Calcar-loading, proximally porous-coated cementless stem with a distal slot (Biomet Mallory-Head).",
     identifyingFeatures: [
       "Prominent calcar collar seating on the medial femoral neck cut",
@@ -852,6 +869,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: "Collared, polished tapered cemented stem in the VerSys family (Zimmer).",
     identifyingFeatures: [
       "Collared, smooth/satin tapered stem within a cement mantle",
@@ -927,6 +946,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Either',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: "Straight, tapered stem with a stepped medial (calcar) border (Müller-type), in cemented and cementless options.",
     identifyingFeatures: [
       "Straight, tapered stem with a characteristic stepped/serrated medial (calcar) border",
@@ -989,6 +1010,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: "Collared, smooth tapered cemented stem in the VerSys family (Zimmer).",
     identifyingFeatures: [
       "Collared, smooth tapered stem within a cement mantle",
@@ -1019,6 +1042,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: "Collared cemented stem with a stepped medial border in the VerSys family (Zimmer).",
     identifyingFeatures: [
       "Collared stem with a stepped/serrated medial border",
@@ -1050,6 +1075,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Revision femoral stem",
     fixation: 'Cementless',
+    collar: 'Collarless',
     summary: "Long, conically tapered, splined monoblock cementless revision stem (Zimmer Wagner SL).",
     identifyingFeatures: [
       "Long, conically tapered monoblock stem with fine longitudinal splines/flutes",
@@ -1112,6 +1138,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: "Proximally porous-coated cementless variant of the Mallory-Head stem (Biomet).",
     identifyingFeatures: [
       "Tapered stem with a stepped/serrated proximal-medial border",
@@ -1174,6 +1201,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Revision femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
     summary: "Longer, collarless polished double-taper cemented stem for revision (Zimmer CPT).",
     identifyingFeatures: [
       "Collarless, polished double-taper (taper-slip) geometry",
@@ -1236,6 +1264,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: "Current-generation flat-wedge dual-taper cementless stem with a reduced distal geometry (Biomet Taperloc Complete).",
     identifyingFeatures: [
       "Flat wedge, dual-taper geometry",
@@ -1267,6 +1297,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Calcar / fracture variant of the Echo Bi-Metric stem with a porous proximal body (Zimmer).",
     identifyingFeatures: [
       "Tapered stem with a hatched/porous proximal body region",
@@ -1292,6 +1323,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    collar: 'Collarless',
     summary: 'Original-generation Wagner Cone — an earlier stem whose shape differs from the current conical, splined Wagner Cone (Zimmer).',
     identifyingFeatures: [
       'Original Wagner Cone generation; overall shape differs from the current fluted conical design',
@@ -1323,6 +1355,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: 'Polished, tapered cemented femoral stem (Biomet Sirius).',
     identifyingFeatures: [
       'Smooth, polished tapered stem within a cement mantle',
@@ -1402,6 +1436,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Tapered wedge proximally coated cementless femoral stem.',
     identifyingFeatures: [
       'Single-taper wedge geometry',
@@ -1433,6 +1469,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: 'Highly polished, collarless, double-tapered cemented stem.',
     identifyingFeatures: [
       'Polished surface with a smooth, bright radiographic appearance',
@@ -1518,6 +1556,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Tapered, proximally porous-coated cementless femoral stem.',
     identifyingFeatures: [
       'Tapered geometry with proximal porous/HA coating',
@@ -1533,6 +1572,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'First-generation anatomic, proximally bead-coated cementless stem (Howmedica heritage, now Stryker).',
     identifyingFeatures: [
       'Anatomic (left/right-specific) curved stem geometry',
@@ -1580,6 +1620,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Newer-generation tapered wedge cementless femoral stem.',
     identifyingFeatures: [
       'Tapered wedge geometry with proximal coating',
@@ -1738,6 +1779,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Proximally HA/porous-coated tapered cementless stem (Stryker/Howmedica Meridian).",
     identifyingFeatures: [
       "Tapered proximal body with proximal HA/porous coating",
@@ -1924,6 +1966,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Proximally porous-coated tapered titanium cementless stem.',
     identifyingFeatures: [
       'Tapered titanium stem with proximal porous coating',
@@ -1946,6 +1989,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Tapered, proximally coated cementless femoral stem.',
     identifyingFeatures: [
       'Dual-tapered geometry with proximal porous/HA coating',
@@ -2063,6 +2107,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: 'Classic collared cobalt-chrome cemented stem with a roughened proximal surface.',
     identifyingFeatures: [
       'Collared, straight cemented CoCr stem within a cement mantle',
@@ -2173,6 +2219,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Fully hydroxyapatite-coated straight tapered cementless stem.',
     identifyingFeatures: [
       'Fully HA-coated, straight, quadrangular tapered stem',
@@ -2221,6 +2268,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Proximally porous/HA-coated tapered cementless stem.',
     identifyingFeatures: [
       'Proximal porous coating with grit-blasted distal stem',
@@ -2243,6 +2291,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Flat-wedge, proximally porous-coated cementless stem; revived as the Tri-Lock Bone Preservation Stem (DePuy).',
     identifyingFeatures: [
       'Flat, dual-taper wedge geometry',
@@ -2260,6 +2310,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Extensively porous-coated cobalt-chrome stem in the AML lineage (DePuy).',
     identifyingFeatures: [
       'Extensively (fully) porous-coated, cylindrical cobalt-chrome stem for diaphyseal fixation',
@@ -2276,6 +2327,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Revision femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Extensively porous-coated bowed revision stem (AML/Solution lineage, DePuy).',
     identifyingFeatures: [
       'Long, extensively porous-coated cobalt-chrome revision stem',
@@ -2412,6 +2464,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
+    collar: 'Collared',
     summary: 'Extensively porous-coated cobalt-chrome cementless stem.',
     identifyingFeatures: [
       'Extensively (fully) porous-coated, straight cylindrical cobalt-chrome stem',
@@ -2429,6 +2483,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: 'Polished, triple-tapered cemented femoral stem.',
     identifyingFeatures: [
       'Polished, triple-tapered (taper-slip) design within a cement mantle',
@@ -2443,6 +2499,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: 'Historic low-friction cemented stem with a small-diameter head.',
     identifyingFeatures: [
       'Monoblock cemented stem with a characteristically small (~22 mm) femoral head',
@@ -2458,6 +2516,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: 'Cemented stem in the Charnley low-friction lineage (DePuy).',
     identifyingFeatures: [
       'Cemented, double-tapered stem within a radiolucent cement mantle',

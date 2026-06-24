@@ -53,6 +53,10 @@ export function ImplantCard({ implant, score, onSelect }: Props) {
           <span className="badge mfr">{implant.manufacturer}</span>
           <span className="badge">{implant.anatomy}</span>
           <span className="badge">{implant.category}</span>
+          {implant.cementedStyle && <span className="badge attr">{implant.cementedStyle}</span>}
+          {implant.stemShape && <span className="badge attr">{implant.stemShape}</span>}
+          {implant.collar && <span className="badge attr">{implant.collar}</span>}
+          {implant.stemLength === 'Microplasty' && <span className="badge attr">Microplasty</span>}
           {implant.source === 'user' && <span className="badge user">Added by you</span>}
         </div>
         <p className="summary">{implant.summary}</p>

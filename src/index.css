@@ -539,6 +539,28 @@ input[type='search'] {
   object-fit: contain;
 }
 
+.facet-group {
+  margin-bottom: 14px;
+}
+
+.facet-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.option-btn.chip {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.badge.attr {
+  background: var(--accent-dim);
+  color: #fff;
+}
+
 .match-cell {
   display: flex;
   flex-direction: column;
