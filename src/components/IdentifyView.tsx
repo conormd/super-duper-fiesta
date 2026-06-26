@@ -42,7 +42,7 @@ const HIP_FACETS: { field: keyof Implant; label: string; hint?: string; options:
     field: 'stemShape',
     label: 'Cementless stem shape',
     hint: 'Only relevant for cementless / press-fit stems.',
-    options: ['Flat tapered wedge', 'Fit-and-fill', 'Quadrangular', 'Triple taper'],
+    options: ['Flat tapered wedge', 'Fit-and-fill', 'Quadrangular', 'Triple taper', 'Conical / round'],
   },
   {
     field: 'stemLength',

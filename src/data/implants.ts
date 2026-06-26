@@ -295,6 +295,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Conical / round',
     collar: 'Collarless',
     summary: 'Conical, splined monoblock stem used in revision and dysplastic hips.',
     identifyingFeatures: [
@@ -1075,6 +1076,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Revision femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Conical / round',
     collar: 'Collarless',
     summary: "Long, conically tapered, splined monoblock cementless revision stem (Zimmer Wagner SL).",
     identifyingFeatures: [
@@ -1323,6 +1325,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Conical / round',
     collar: 'Collarless',
     summary: 'Original-generation Wagner Cone — an earlier stem whose shape differs from the current conical, splined Wagner Cone (Zimmer).',
     identifyingFeatures: [

@@ -26,7 +26,8 @@ export type StemShape =
   | 'Flat tapered wedge'
   | 'Fit-and-fill'
   | 'Quadrangular'
-  | 'Triple taper';
+  | 'Triple taper'
+  | 'Conical / round';
 
 /** Stem length class. Microplasty = short / neck-sparing variant. */
 export type StemLength = 'Standard' | 'Microplasty';
