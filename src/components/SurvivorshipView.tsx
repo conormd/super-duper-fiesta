@@ -140,14 +140,16 @@ export function SurvivorshipView() {
       <div className="disclaimer" role="note">
         <strong>How to read this.</strong> This is a quick index of published
         registry survivorship for commonly used hip and knee implants from
-        Zimmer Biomet, Stryker, Smith &amp; Nephew, and DePuy Synthes. Registry
-        cumulative-percent-revision (CPR) figures are versioned and live in the
-        primary report tables; each card links straight to the relevant{' '}
-        <strong>AOANJRR</strong> and <strong>Norwegian (NAR)</strong> report so
-        you can read the current, source-of-truth number. Numeric values are
-        shown inline only where they have been verified against the cited
-        source — never estimated. Always confirm against the registry report and
-        the specific bearing/fixation cohort before any clinical use.
+        Zimmer Biomet, Stryker, Smith &amp; Nephew, and DePuy Synthes. Embedded
+        cumulative-percent-revision (CPR) figures are from the{' '}
+        <strong>AOANJRR</strong>; each card also links to other publicly
+        available registries — <strong>NJR</strong> (UK), <strong>NZJR</strong>{' '}
+        (NZ), the Norwegian register, and <strong>ODEP</strong> implant ratings
+        — so you can cross-check at source. Numeric values are shown inline only
+        where they have been verified against the cited source — never
+        estimated. Metrics differ between registries (e.g. CPR vs revisions per
+        100 component-years), so confirm the registry, report, and the specific
+        bearing/fixation cohort before any clinical use.
       </div>
 
       <div className="controls">

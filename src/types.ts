@@ -90,7 +90,11 @@ export type ProcedureType = 'Total hip' | 'Total knee' | 'Partial knee';
 export type SurvivorshipFixation = 'Cemented' | 'Cementless' | 'Hybrid';
 
 /** A national joint replacement registry that publishes survivorship data. */
-export type Registry = 'AOANJRR' | 'Norwegian (NAR)';
+export type Registry =
+  | 'AOANJRR'
+  | 'Norwegian (NAR)'
+  | 'NJR (UK)'
+  | 'NZJR (NZ)';
 
 /**
  * A single published survivorship data point for an implant, taken from a

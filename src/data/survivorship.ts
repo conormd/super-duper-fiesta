@@ -43,12 +43,28 @@ const NAR = {
     'https://www.helse-bergen.no/48d1eb/contentassets/9f19d57711ee4e60815d6b89e8e8472b/report2024.pdf',
 };
 
+/**
+ * Additional publicly available registries / rating panels, linked per implant
+ * for at-source review. Homepages are used (not deep links) because they are
+ * stable across report cycles; navigate to the current annual report or, for
+ * ODEP, the implant rating search. No figures from these are embedded yet —
+ * supply their tables and they can be transcribed like the AOANJRR data.
+ */
+const OTHER_REGISTRIES = {
+  njr: 'https://www.njrcentre.org.uk/',
+  odep: 'https://www.odep.org.uk/',
+  nzjr: 'https://www.nzoa.org.nz/nzoa-joint-registry',
+};
+
 /** Standard registry deep-links for an implant. */
 function registryLinks(_procedure: ProcedureType): { label: string; url: string }[] {
   return [
     { label: 'AOANJRR Annual Report 2024', url: AOANJRR.annual },
     { label: 'AOANJRR Comparative Prostheses Performance', url: AOANJRR.supplementary },
     { label: 'Norwegian Register (NAR) Report 2024', url: NAR.report2024 },
+    { label: 'NJR (UK) — reports & implant performance', url: OTHER_REGISTRIES.njr },
+    { label: 'ODEP — implant benchmark ratings', url: OTHER_REGISTRIES.odep },
+    { label: 'NZ Joint Registry — annual reports', url: OTHER_REGISTRIES.nzjr },
   ];
 }
 
