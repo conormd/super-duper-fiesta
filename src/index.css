@@ -539,6 +539,21 @@ input[type='search'] {
   object-fit: contain;
 }
 
+/* Click-to-enlarge wrapper for detail-view images (radiographs and photos). */
+.zoomable {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+}
+
+.zoomable img {
+  display: block;
+  width: 100%;
+}
+
 .facet-group {
   margin-bottom: 14px;
 }

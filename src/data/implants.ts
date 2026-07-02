@@ -170,6 +170,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-g7',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-g7-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'G7 Acetabular System',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -571,6 +579,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-alloclassic',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-alloclassic-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Alloclassic Zweymüller',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -1486,6 +1502,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-trident',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-trident-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Trident Acetabular System',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1570,6 +1594,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-howmedica-pca-stem',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-howmedica-pca-stem-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Howmedica PCA Stem',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1587,6 +1619,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-howmedica-pca-cup',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-howmedica-pca-cup-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Howmedica PCA Acetabular System',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1633,6 +1673,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-mdm',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-mdm-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'MDM / Trident Dual Mobility',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1924,6 +1972,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-bhr',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-bhr-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Birmingham Hip Resurfacing (BHR)',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -2481,6 +2537,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-c-stem',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-c-stem-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'C-Stem',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
