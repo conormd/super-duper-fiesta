@@ -21,3 +21,4 @@ public/radiographs/_incoming/
 /inject-ap-views.mjs
 /process-alts.mjs
 /tag-stems.mjs
+/import-batch2.mjs

@@ -192,6 +192,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-comprehensive-shoulder',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-comprehensive-shoulder-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Comprehensive Shoulder',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Shoulder',
@@ -316,6 +324,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-continuum',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-continuum-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Continuum Acetabular System',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -330,6 +346,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-trilogy',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-trilogy-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Trilogy Acetabular System',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -345,6 +369,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-vanguard',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-vanguard-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Vanguard',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -1413,6 +1445,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-scorpio',
+    views: [
+      {
+        view: 'Lateral',
+        src: 'radiographs/st-scorpio-lat.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-scorpio-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Scorpio',
     manufacturer: 'Stryker',
     anatomy: 'Knee',
@@ -1695,6 +1741,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-gamma',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-gamma-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Gamma Nail',
     manufacturer: 'Stryker',
     anatomy: 'Trauma / Fracture fixation',
@@ -1710,6 +1764,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-t2',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-t2-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'T2 Nailing System',
     manufacturer: 'Stryker',
     anatomy: 'Trauma / Fracture fixation',
@@ -1724,6 +1786,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-simpliciti',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-simpliciti-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Simpliciti',
     manufacturer: 'Stryker',
     anatomy: 'Shoulder',
@@ -1738,6 +1808,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-aequalis',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-aequalis-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Aequalis',
     manufacturer: 'Stryker',
     anatomy: 'Shoulder',
@@ -1997,6 +2075,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-r3',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-r3-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'R3 Acetabular System',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -2104,6 +2190,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-intertan',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-intertan-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'TRIGEN INTERTAN',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Trauma / Fracture fixation',
@@ -2119,6 +2213,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-trigen',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-trigen-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'TRIGEN Intramedullary Nails',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Trauma / Fracture fixation',
@@ -2147,6 +2249,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-profix',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-profix-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Profix',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -2161,6 +2271,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-spectron',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-spectron-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Spectron EF',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -2251,6 +2369,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-lcs',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-lcs-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'LCS (Low Contact Stress)',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -2364,6 +2490,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-prodigy',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-prodigy-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Prodigy',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -2381,6 +2515,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-solution',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-solution-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Solution System',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -2435,6 +2577,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-global-shoulder',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-global-shoulder-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Global Shoulder',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Shoulder',
@@ -2451,6 +2601,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-dhs',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-dhs-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'DHS (Dynamic Hip Screw)',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Trauma / Fracture fixation',
@@ -2561,6 +2719,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-charnley',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-charnley-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Charnley',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -2578,6 +2744,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-elite-plus',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-elite-plus-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Charnley Elite Plus',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -2596,6 +2770,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-duraloc',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-duraloc-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Duraloc Acetabular System',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -2654,6 +2836,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-sigma-tc3',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-sigma-tc3-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'P.F.C. Sigma TC3',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -2672,6 +2862,14 @@ export const implants: Implant[] = [
   // ─────────────────────────────── Ankle ───────────────────────────────────
   {
     id: 'zb-tmta',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-tmta-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Trabecular Metal Total Ankle (TMTA)',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Ankle',
@@ -2688,6 +2886,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-inbone',
+    views: [
+      {
+        view: 'Lateral',
+        src: 'radiographs/st-inbone-lat.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-inbone-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'INBONE / INBONE II Total Ankle',
     manufacturer: 'Stryker',
     anatomy: 'Ankle',
@@ -2706,6 +2918,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-infinity',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-infinity-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'INFINITY Total Ankle',
     manufacturer: 'Stryker',
     anatomy: 'Ankle',
@@ -2723,6 +2943,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-invision',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-invision-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'INVISION Total Ankle (Revision)',
     manufacturer: 'Stryker',
     anatomy: 'Ankle',
@@ -2739,6 +2967,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-agility',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-agility-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Agility Total Ankle',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Ankle',
@@ -2757,6 +2993,14 @@ export const implants: Implant[] = [
   // ─────────────────────────────── Elbow ───────────────────────────────────
   {
     id: 'zb-nexel',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-nexel-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Nexel Total Elbow',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Elbow',
@@ -2774,6 +3018,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-latitude',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-latitude-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Latitude EV Total Elbow',
     manufacturer: 'Stryker',
     anatomy: 'Elbow',
