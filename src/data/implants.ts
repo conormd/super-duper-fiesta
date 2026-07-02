@@ -170,6 +170,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-g7',
+    photos: [
+      {
+        src: 'photos/zb-g7-tm-cup-photo.jpg',
+        caption: 'G7 — Trabecular Metal shell',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-g7-family-photo.jpg',
+        caption: 'G7 family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -192,6 +206,19 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-comprehensive-shoulder',
+    photos: [
+      {
+        src: 'photos/zb-comprehensive-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-comprehensive-stemless-photo.jpg',
+        caption: 'Comprehensive — stemless option',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -251,6 +278,19 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-ml-taper',
+    photos: [
+      {
+        src: 'photos/zb-ml-taper-kinectiv-photo.jpg',
+        caption: 'M/L Taper with Kinectiv',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-ml-taper-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -324,6 +364,18 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-continuum',
+    photos: [
+      {
+        src: 'photos/zb-continuum-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-continuum-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -346,6 +398,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-trilogy',
+    photos: [
+      {
+        src: 'photos/zb-trilogy-it-photo.jpg',
+        caption: 'Trilogy IT',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-trilogy-bunny-ears-photo.jpg',
+        caption: 'Trilogy — "bunny ears" cluster holes',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -369,6 +435,18 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-vanguard',
+    photos: [
+      {
+        src: 'photos/zb-vanguard-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-vanguard-photo-1.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -392,6 +470,26 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-arcos',
+    photos: [
+      {
+        src: 'photos/zb-arcos-troch-plate-photo.jpg',
+        caption: 'Arcos with trochanteric plate',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-arcos-1piece-photo.jpg',
+        caption: 'Arcos — one-piece body',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-arcos-family-photo.jpg',
+        caption: 'Arcos family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -542,6 +640,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-avenir',
+    photos: [
+      {
+        src: 'photos/zb-avenir-family-photo.jpg',
+        caption: 'Avenir Complete family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -580,6 +686,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-fitmore',
+    photos: [
+      {
+        src: 'photos/zb-fitmore-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -611,6 +724,18 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-alloclassic',
+    photos: [
+      {
+        src: 'photos/zb-alloclassic-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-alloclassic-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -638,6 +763,24 @@ export const implants: Implant[] = [
 
   {
     id: 'zb-bimetric',
+    photos: [
+      {
+        src: 'photos/zb-bimetric-stem-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-bimetric-family-photo.jpg',
+        caption: 'Bi-Metric family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-bimetric-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -703,6 +846,19 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-echo',
+    photos: [
+      {
+        src: 'photos/zb-echo-family-photo.jpg',
+        caption: 'Echo family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-echo-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -968,6 +1124,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-mueller',
+    photos: [
+      {
+        src: 'photos/zb-mueller-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1327,6 +1490,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-echo-fx',
+    photos: [
+      {
+        src: 'photos/zb-echo-fx-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1514,6 +1684,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-exeter',
+    photos: [
+      {
+        src: 'photos/st-exeter-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1548,6 +1725,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-trident',
+    photos: [
+      {
+        src: 'photos/st-trident-family-photo.jpg',
+        caption: 'Trident family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1571,6 +1756,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-restoration',
+    photos: [
+      {
+        src: 'photos/st-restoration-family-photo.jpg',
+        caption: 'Restoration Modular family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1609,6 +1802,13 @@ export const implants: Implant[] = [
 
   {
     id: 'st-secur-fit',
+    photos: [
+      {
+        src: 'photos/st-secur-fit-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1640,6 +1840,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-howmedica-pca-stem',
+    photos: [
+      {
+        src: 'photos/st-pca-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1665,6 +1872,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-howmedica-pca-cup',
+    photos: [
+      {
+        src: 'photos/st-pca-stem-cup-photo.jpg',
+        caption: 'PCA stem and cup',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1719,6 +1934,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-mdm',
+    photos: [
+      {
+        src: 'photos/st-mdm-photo.jpg',
+        caption: 'Trident dual-mobility',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1741,6 +1964,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-gamma',
+    photos: [
+      {
+        src: 'photos/st-gamma-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1764,6 +1994,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-t2',
+    photos: [
+      {
+        src: 'photos/st-t2-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1786,6 +2023,18 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-simpliciti',
+    photos: [
+      {
+        src: 'photos/st-simpliciti-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/st-simpliciti-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1808,6 +2057,19 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-aequalis',
+    photos: [
+      {
+        src: 'photos/st-aequalis-family-photo.jpg',
+        caption: 'Aequalis family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/st-aequalis-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1888,6 +2150,14 @@ export const implants: Implant[] = [
 
   {
     id: 'st-meridian',
+    photos: [
+      {
+        src: 'photos/st-meridian-photo.jpg',
+        caption: 'Secur-Fit / Meridian',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -1920,6 +2190,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-gmrs',
+    photos: [
+      {
+        src: 'photos/st-gmrs-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2050,6 +2327,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-bhr',
+    photos: [
+      {
+        src: 'photos/sn-bhr-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2075,6 +2359,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-r3',
+    photos: [
+      {
+        src: 'photos/sn-r3-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2121,6 +2412,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-anthology',
+    photos: [
+      {
+        src: 'photos/sn-anthology-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2166,6 +2464,18 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-echelon',
+    photos: [
+      {
+        src: 'photos/sn-echelon-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/sn-echelon-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2190,6 +2500,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-intertan',
+    photos: [
+      {
+        src: 'photos/sn-intertan-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2213,6 +2530,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-trigen',
+    photos: [
+      {
+        src: 'photos/sn-trigen-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2249,6 +2573,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-profix',
+    photos: [
+      {
+        src: 'photos/sn-profix-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2271,6 +2602,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-spectron',
+    photos: [
+      {
+        src: 'photos/sn-spectron-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2297,6 +2635,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-emperion',
+    photos: [
+      {
+        src: 'photos/sn-emperion-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2369,6 +2714,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-lcs',
+    photos: [
+      {
+        src: 'photos/dp-lcs-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2417,6 +2769,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-actis',
+    photos: [
+      {
+        src: 'photos/dp-actis-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2515,6 +2874,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-solution',
+    photos: [
+      {
+        src: 'photos/dp-solution-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2563,6 +2929,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-pinnacle',
+    photos: [
+      {
+        src: 'photos/dp-pinnacle-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     name: 'Pinnacle Acetabular System',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -2577,6 +2950,19 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-global-shoulder',
+    photos: [
+      {
+        src: 'photos/dp-global-family-photo.jpg',
+        caption: 'Global family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/dp-global-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2601,6 +2987,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-dhs',
+    photos: [
+      {
+        src: 'photos/dp-dhs-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2668,6 +3061,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-aml',
+    photos: [
+      {
+        src: 'photos/dp-aml-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2695,6 +3095,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-c-stem',
+    photos: [
+      {
+        src: 'photos/dp-c-stem-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2719,6 +3126,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-charnley',
+    photos: [
+      {
+        src: 'photos/dp-charnley-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2744,6 +3158,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-elite-plus',
+    photos: [
+      {
+        src: 'photos/dp-elite-plus-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2770,6 +3191,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-duraloc',
+    photos: [
+      {
+        src: 'photos/dp-duraloc-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2862,6 +3290,13 @@ export const implants: Implant[] = [
   // ─────────────────────────────── Ankle ───────────────────────────────────
   {
     id: 'zb-tmta',
+    photos: [
+      {
+        src: 'photos/zb-tmta-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2886,6 +3321,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-inbone',
+    photos: [
+      {
+        src: 'photos/st-inbone-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'Lateral',
@@ -2918,6 +3360,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-infinity',
+    photos: [
+      {
+        src: 'photos/st-infinity-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2943,6 +3392,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-invision',
+    photos: [
+      {
+        src: 'photos/st-invision-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2967,6 +3423,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-agility',
+    photos: [
+      {
+        src: 'photos/dp-agility-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -2993,6 +3456,13 @@ export const implants: Implant[] = [
   // ─────────────────────────────── Elbow ───────────────────────────────────
   {
     id: 'zb-nexel',
+    photos: [
+      {
+        src: 'photos/zb-nexel-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
@@ -3018,6 +3488,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-latitude',
+    photos: [
+      {
+        src: 'photos/st-latitude-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
       {
         view: 'AP',
