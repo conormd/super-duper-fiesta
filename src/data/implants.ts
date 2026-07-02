@@ -2120,6 +2120,41 @@ export const implants: Implant[] = [
     references: SHOULDER_REFS,
   },
   {
+    id: 'st-ascend-flex',
+    name: 'Aequalis Ascend Flex',
+    manufacturer: 'Stryker',
+    anatomy: 'Shoulder',
+    category: 'Convertible short-stem shoulder system',
+    fixation: 'Either',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-ascend-flex-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
+    photos: [
+      {
+        src: 'photos/st-ascend-flex-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    summary:
+      'Short, convertible press-fit humeral stem (Tornier/Wright, now Stryker) for anatomic and reverse shoulder arthroplasty.',
+    identifyingFeatures: [
+      'Short humeral stem (bone-preserving) with metaphyseal press-fit geometry',
+      'Proximal titanium plasma-spray coating; polished versions exist for cemented use',
+      'Convertible platform — same stem used for anatomic and reverse configurations (145° reverse angle)',
+    ],
+    variants: ['Press-fit', 'Cemented (polished)', 'Standard and long stem lengths'],
+    era: '2010s–present',
+    notes:
+      'Marketed by Tornier, then Wright Medical; part of Stryker since the 2020 Wright Medical acquisition. Successor system marketed as Tornier Flex.',
+    references: SHOULDER_REFS,
+  },
+  {
     id: 'st-omnifit',
     views: [
       {
