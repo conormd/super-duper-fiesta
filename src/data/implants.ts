@@ -1587,6 +1587,33 @@ export const implants: Implant[] = [
     era: '1990s–2000s',
     notes: 'Compiled from general references — confirm against operative records.',
   },
+  {
+    id: 'zb-z1',
+    name: 'Z1',
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: 'Cementless femoral stem',
+    fixation: 'Cementless',
+    stemShape: 'Triple taper',
+    photos: [
+      {
+        src: 'photos/zb-z1-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    summary:
+      'Triple-taper cementless femoral stem — Zimmer Biomet’s newest primary hip stem.',
+    identifyingFeatures: [
+      'Tapered in three planes (triple-taper wedge geometry)',
+      'Grit-blasted stem with titanium plasma spray and HA overcoat; polished neck region',
+      'Offered in collared and collarless versions with multiple neck/offset options',
+    ],
+    variants: ['Collared', 'Collarless', 'Standard / High Offset / Coxa Vara necks'],
+    era: '2024–present',
+    notes:
+      'Launched at AAHKS 2024; recent implant, so radiographic examples are still uncommon.',
+  },
   // ──────────────────────────────── Stryker ────────────────────────────────
   {
     id: 'st-triathlon',
