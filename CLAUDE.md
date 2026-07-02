@@ -45,8 +45,21 @@ two-tier design:
   never leaves the device. Re-run `npm run build:embeddings` whenever you add
   or change implant images — the model id must stay in sync between the script
   and `imageMatch.ts`.
-- **Tier 2 (planned):** a single serverless function that sends only the top
-  candidates + image to Claude vision for explainable re-ranking.
+- **Tier 2 (opt-in, serverless):** `api/identify.ts` (a Vercel function) sends
+  the downscaled upload + the Tier-1 candidate ids to Claude vision
+  (`claude-opus-4-8` via `@anthropic-ai/sdk`), which re-ranks the shortlist
+  against each implant's documented `identifyingFeatures` and returns
+  image-grounded reasoning (`src/lib/reRank.ts` is the client). The UI states
+  clearly that this step sends the image to a server, and falls back to the
+  Tier-1 ranking on any failure. Requires the `ANTHROPIC_API_KEY` environment
+  variable on the deployment; without it the endpoint returns 503 and the app
+  keeps working on Tier 1 alone.
+
+To deploy: push the repo to Vercel (vercel.com → New Project → import the
+GitHub repo; the Vite app and `api/` function are auto-detected), then add
+`ANTHROPIC_API_KEY` under Project Settings → Environment Variables. `npm run
+dev` alone does not serve `api/`; use `npx vercel dev` to exercise Tier 2
+locally.
 
 The CLIP weights are fetched from the Hugging Face CDN on first use (build and
 runtime), so `build:embeddings` must run in an environment with network access

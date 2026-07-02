@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/identify.ts": {
+      "maxDuration": 60
+    }
+  }
+}
