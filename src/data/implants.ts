@@ -300,6 +300,13 @@ export const implants: Implant[] = [
       },
       {
         view: 'AP',
+        src: 'radiographs/zb-ml-taper-ap-2.jpg',
+        caption: 'M/L Taper — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
         src: 'radiographs/zb-ml-taper-alt.jpg',
         caption: 'M/L Taper — AP (alternate)',
         credit: "Author's own collection",
@@ -499,6 +506,13 @@ export const implants: Implant[] = [
       },
       {
         view: 'AP',
+        src: 'radiographs/zb-arcos-ap-2.jpg',
+        caption: 'Arcos — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
         src: 'radiographs/zb-arcos-1piece.jpg',
         caption: 'Arcos — one-piece body, AP',
         credit: "Author's own collection",
@@ -657,6 +671,13 @@ export const implants: Implant[] = [
       },
       {
         view: 'AP',
+        src: 'radiographs/zb-avenir-ap-2.jpg',
+        caption: 'Avenir Complete — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
         src: 'radiographs/zb-avenir-alt.jpg',
         caption: 'Avenir Complete — AP (alternate)',
         credit: "Author's own collection",
@@ -701,6 +722,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-fitmore-ap-2.jpg',
+        caption: 'Fitmore — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-fitmore-tmpl.jpg',
         caption: "Zimmer Fitmore Stem",
@@ -740,6 +768,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-alloclassic-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-alloclassic-ap-2.jpg',
+        caption: 'Alloclassic Zweymüller — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -789,6 +824,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-bimetric-ap-2.jpg',
+        caption: 'Bi-Metric — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-bimetric-tmpl.jpg',
         caption: "Bi-Metric X-series Stem",
@@ -817,6 +859,20 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-cpt-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-ap-3.jpg',
+        caption: 'CPT — AP (alternate view 2)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-ap-2.jpg',
+        caption: 'CPT — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -863,6 +919,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-echo-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-ap-2.jpg',
+        caption: 'Echo Bi-Metric — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -1135,6 +1198,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/zb-mueller-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mueller-ap-2.jpg',
+        caption: 'Avenir Müller — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -1505,6 +1575,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/zb-echo-fx-ap-2.jpg',
+        caption: 'Echo Bi-Metric FX — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-echo-fx-tmpl.jpg',
         caption: "Zimmer Echo FX Hip Stem",
@@ -1726,6 +1803,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/st-exeter-ap-2.jpg',
+        caption: 'Exeter — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-exeter-tmpl.jpg',
         caption: "Stryker Exeter Primary Stem",
@@ -1800,6 +1884,13 @@ export const implants: Implant[] = [
       },
       {
         view: 'AP',
+        src: 'radiographs/st-restoration-ap-2.jpg',
+        caption: 'Restoration — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
         src: 'radiographs/st-restoration-alt.jpg',
         caption: 'Restoration Modular — AP (alternate)',
         credit: "Author's own collection",
@@ -1840,6 +1931,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/st-secur-fit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-secur-fit-ap-2.jpg',
+        caption: 'Secur-Fit — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -2267,6 +2365,13 @@ export const implants: Implant[] = [
         license: 'Educational use only',
       },
       {
+        view: 'AP',
+        src: 'radiographs/st-gmrs-ap-2.jpg',
+        caption: 'GMRS — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-gmrs-tmpl.jpg',
         caption: "Stryker GMRS Proximal Body",
@@ -2488,6 +2593,13 @@ export const implants: Implant[] = [
         credit: "Author's own collection",
         license: 'Educational use only',
       },
+      {
+        view: 'AP',
+        src: 'radiographs/sn-anthology-ap-2.jpg',
+        caption: 'Anthology — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
     ],
     name: 'Anthology',
     manufacturer: 'Smith & Nephew',
@@ -2542,6 +2654,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/sn-echelon-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/sn-echelon-ap-2.jpg',
+        caption: 'Echelon — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
@@ -2845,6 +2964,13 @@ export const implants: Implant[] = [
         credit: "Author's own collection",
         license: 'Educational use only',
       },
+      {
+        view: 'AP',
+        src: 'radiographs/dp-actis-ap-2.jpg',
+        caption: 'ACTIS — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
     ],
     name: 'ACTIS',
     manufacturer: 'DePuy Synthes',
@@ -3134,6 +3260,13 @@ export const implants: Implant[] = [
       {
         view: 'AP',
         src: 'radiographs/dp-aml-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/dp-aml-ap-2.jpg',
+        caption: 'AML — AP (alternate view)',
         credit: "Author's own collection",
         license: 'Educational use only',
       },
