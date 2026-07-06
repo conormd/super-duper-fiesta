@@ -96,8 +96,18 @@ export async function embedImage(file: File): Promise<Float32Array> {
  * Rank implants by visual similarity to the uploaded image. Each implant is
  * scored by its single best-matching reference view. Returns up to `topN`
  * candidates, highest similarity first.
+ *
+ * `allowedImplantIds`, when provided, restricts the search to that set —
+ * critically, this is what keeps a knee upload from being compared against
+ * hip and shoulder stems. Generic CLIP embeddings pick up on "grayscale
+ * x-ray, dark background, bright metal" style cues strongly enough that an
+ * unrelated-anatomy image can otherwise outscore the correct one.
  */
-export async function matchImage(file: File, topN = 5): Promise<ImageMatch[]> {
+export async function matchImage(
+  file: File,
+  topN = 5,
+  allowedImplantIds?: Set<string>,
+): Promise<ImageMatch[]> {
   const index = await loadIndex();
   if (!index || index.count === 0) {
     throw new Error('Reference index not built. Run `npm run build:embeddings`.');
@@ -106,6 +116,7 @@ export async function matchImage(file: File, topN = 5): Promise<ImageMatch[]> {
 
   const best = new Map<string, ImageMatch>();
   for (const item of index.items) {
+    if (allowedImplantIds && !allowedImplantIds.has(item.implantId)) continue;
     const score = dot(query, item.vector);
     const current = best.get(item.implantId);
     if (!current || score > current.score) {

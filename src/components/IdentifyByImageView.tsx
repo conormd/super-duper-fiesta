@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import type { Implant } from '../types';
+import type { Anatomy, Implant } from '../types';
+import { ANATOMIES } from '../lib/anatomy';
 import { isIndexReady, matchImage, type ImageMatch } from '../lib/imageMatch';
 import { aiCompare, type AiRanking } from '../lib/reRank';
 import { ImplantCard } from './ImplantCard';
@@ -9,14 +10,17 @@ interface Props {
   onSelect: (implant: Implant) => void;
 }
 
+type AnatomyFilter = Anatomy | 'Any / unknown';
 type Status = 'checking' | 'no-index' | 'idle' | 'matching' | 'done' | 'error';
 type AiStatus = 'idle' | 'loading' | 'done' | 'error';
 
 export function IdentifyByImageView({ implants, onSelect }: Props) {
   const [status, setStatus] = useState<Status>('checking');
+  const [anatomy, setAnatomy] = useState<AnatomyFilter | null>(null);
   const [preview, setPreview] = useState<string | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [results, setResults] = useState<ImageMatch[]>([]);
+  const [fallbackNotice, setFallbackNotice] = useState('');
   const [error, setError] = useState<string>('');
   const [dragging, setDragging] = useState(false);
   const [aiStatus, setAiStatus] = useState<AiStatus>('idle');
@@ -40,38 +44,70 @@ export function IdentifyByImageView({ implants, onSelect }: Props) {
     [implants],
   );
 
-  const handleFile = useCallback(async (file: File) => {
-    if (!file.type.startsWith('image/')) {
-      setError('Please choose an image file.');
-      setStatus('error');
-      return;
-    }
-    setError('');
-    setResults([]);
-    setFile(file);
-    setAiStatus('idle');
-    setAiResult(null);
-    setAiError('');
-    setPreview((prev) => {
-      if (prev) URL.revokeObjectURL(prev);
-      return URL.createObjectURL(file);
-    });
-    setStatus('matching');
-    try {
-      const matches = await matchImage(file, 5);
-      setResults(matches);
-      setStatus('done');
-    } catch (err) {
-      setError((err as Error).message);
-      setStatus('error');
-    }
-  }, []);
+  /** Ids of implants in the given region, or undefined for "search everything". */
+  const idsForAnatomy = useCallback(
+    (a: AnatomyFilter): Set<string> | undefined => {
+      if (a === 'Any / unknown') return undefined;
+      const ids = new Set(implants.filter((i) => i.anatomy === a).map((i) => i.id));
+      return ids.size > 0 ? ids : undefined;
+    },
+    [implants],
+  );
+
+  const runMatch = useCallback(
+    async (f: File, a: AnatomyFilter) => {
+      setStatus('matching');
+      setError('');
+      const allowedIds = idsForAnatomy(a);
+      setFallbackNotice(
+        a !== 'Any / unknown' && !allowedIds
+          ? `No reference images tagged "${a}" yet — searching the whole library instead.`
+          : '',
+      );
+      try {
+        const matches = await matchImage(f, 5, allowedIds);
+        setResults(matches);
+        setStatus('done');
+      } catch (err) {
+        setError((err as Error).message);
+        setStatus('error');
+      }
+    },
+    [idsForAnatomy],
+  );
+
+  const handleFile = useCallback(
+    async (newFile: File) => {
+      if (!newFile.type.startsWith('image/')) {
+        setError('Please choose an image file.');
+        setStatus('error');
+        return;
+      }
+      setError('');
+      setResults([]);
+      setFile(newFile);
+      setAiStatus('idle');
+      setAiResult(null);
+      setAiError('');
+      setPreview((prev) => {
+        if (prev) URL.revokeObjectURL(prev);
+        return URL.createObjectURL(newFile);
+      });
+      if (anatomy) await runMatch(newFile, anatomy);
+    },
+    [anatomy, runMatch],
+  );
+
+  const selectAnatomy = (a: AnatomyFilter) => {
+    setAnatomy(a);
+    if (file) runMatch(file, a);
+  };
 
   const onDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setDragging(false);
-    const file = e.dataTransfer.files?.[0];
-    if (file) handleFile(file);
+    const droppedFile = e.dataTransfer.files?.[0];
+    if (droppedFile) handleFile(droppedFile);
   };
 
   const runAiCompare = useCallback(async () => {
@@ -120,64 +156,93 @@ export function IdentifyByImageView({ implants, onSelect }: Props) {
   return (
     <div>
       <div className="identify-step">
-        <h3>Upload a radiograph to find visual matches</h3>
+        <h3>1. What region is the implant in?</h3>
         <p className="result-count" style={{ marginTop: 0, marginBottom: 14 }}>
-          Your image is compared on-device against the reference library and the
-          closest implant families are ranked by visual similarity. This is a
-          shortlist to speed up review — not an identification. Nothing is
-          uploaded to a server at this step.
+          Matching within the right region keeps a knee film from coming back
+          with hip or shoulder matches.
         </p>
-
-        <button
-          type="button"
-          className={`upload-drop ${dragging ? 'dragging' : ''}`}
-          onClick={() => inputRef.current?.click()}
-          onDragOver={(e) => {
-            e.preventDefault();
-            setDragging(true);
-          }}
-          onDragLeave={() => setDragging(false)}
-          onDrop={onDrop}
-        >
-          {preview ? (
-            <img className="upload-preview" src={preview} alt="Uploaded radiograph" />
-          ) : (
-            <span>
-              <strong>Choose an image</strong> or drag &amp; drop a radiograph here
-            </span>
-          )}
-        </button>
-        <input
-          ref={inputRef}
-          type="file"
-          accept="image/*"
-          hidden
-          onChange={(e) => {
-            const file = e.target.files?.[0];
-            if (file) handleFile(file);
-            e.target.value = '';
-          }}
-        />
-
-        {status === 'matching' && (
-          <p className="result-count" style={{ marginTop: 14 }}>
-            Analysing image… the matching model loads on first use and is then
-            cached.
-          </p>
-        )}
-        {status === 'error' && (
-          <p className="empty" style={{ marginTop: 14 }}>
-            {error}
-          </p>
-        )}
+        <div className="option-row">
+          {ANATOMIES.map((a) => (
+            <button
+              key={a}
+              className={`option-btn ${anatomy === a ? 'selected' : ''}`}
+              onClick={() => selectAnatomy(a)}
+            >
+              {a}
+            </button>
+          ))}
+        </div>
+        <div className="option-row" style={{ marginTop: 8 }}>
+          <button
+            className={`option-btn ${anatomy === 'Any / unknown' ? 'selected' : ''}`}
+            onClick={() => selectAnatomy('Any / unknown')}
+          >
+            Not sure — search everything
+          </button>
+        </div>
       </div>
+
+      {anatomy && (
+        <div className="identify-step">
+          <h3>2. Upload a radiograph to find visual matches</h3>
+          <p className="result-count" style={{ marginTop: 0, marginBottom: 14 }}>
+            Your image is compared on-device against the reference library and the
+            closest implant families are ranked by visual similarity. This is a
+            shortlist to speed up review — not an identification. Nothing is
+            uploaded to a server at this step.
+          </p>
+
+          <button
+            type="button"
+            className={`upload-drop ${dragging ? 'dragging' : ''}`}
+            onClick={() => inputRef.current?.click()}
+            onDragOver={(e) => {
+              e.preventDefault();
+              setDragging(true);
+            }}
+            onDragLeave={() => setDragging(false)}
+            onDrop={onDrop}
+          >
+            {preview ? (
+              <img className="upload-preview" src={preview} alt="Uploaded radiograph" />
+            ) : (
+              <span>
+                <strong>Choose an image</strong> or drag &amp; drop a radiograph here
+              </span>
+            )}
+          </button>
+          <input
+            ref={inputRef}
+            type="file"
+            accept="image/*"
+            hidden
+            onChange={(e) => {
+              const chosen = e.target.files?.[0];
+              if (chosen) handleFile(chosen);
+              e.target.value = '';
+            }}
+          />
+
+          {status === 'matching' && (
+            <p className="result-count" style={{ marginTop: 14 }}>
+              Analysing image… the matching model loads on first use and is then
+              cached.
+            </p>
+          )}
+          {status === 'error' && (
+            <p className="empty" style={{ marginTop: 14 }}>
+              {error}
+            </p>
+          )}
+        </div>
+      )}
 
       {status === 'done' && (
         <>
           <div className="controls" style={{ justifyContent: 'space-between' }}>
             <span className="result-count">
-              {results.length} closest match{results.length === 1 ? '' : 'es'},{' '}
-              {aiResult ? 'AI-ranked' : 'most similar first'}
+              {results.length} closest match{results.length === 1 ? '' : 'es'} within{' '}
+              <strong>{anatomy}</strong>, {aiResult ? 'AI-ranked' : 'most similar first'}
             </span>
             {results.length >= 2 && aiStatus !== 'done' && (
               <button
@@ -190,6 +255,11 @@ export function IdentifyByImageView({ implants, onSelect }: Props) {
             )}
           </div>
 
+          {fallbackNotice && (
+            <p className="result-count" style={{ marginTop: 0 }}>
+              {fallbackNotice}
+            </p>
+          )}
           {aiStatus === 'idle' && results.length >= 2 && (
             <p className="result-count" style={{ marginTop: 0 }}>
               Optional: have Claude compare the shortlist against each implant’s

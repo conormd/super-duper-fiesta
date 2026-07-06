@@ -1,17 +1,8 @@
 import { useMemo, useState } from 'react';
 import type { Anatomy, Fixation, Implant, Manufacturer } from '../types';
 import { featureScore, tokenize } from '../lib/search';
+import { ANATOMIES } from '../lib/anatomy';
 import { ImplantCard } from './ImplantCard';
-
-const ANATOMIES: Anatomy[] = [
-  'Hip',
-  'Knee',
-  'Shoulder',
-  'Ankle',
-  'Elbow',
-  'Trauma / Fracture fixation',
-  'Sports medicine / Soft tissue',
-];
 
 const MANUFACTURERS: (Manufacturer | 'Any / unknown')[] = [
   'Any / unknown',
