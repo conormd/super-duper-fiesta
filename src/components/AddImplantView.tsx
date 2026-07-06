@@ -56,8 +56,8 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
   const [notes, setNotes] = useState('');
   const [credit, setCredit] = useState('');
 
-  const [apImage, setApImage] = useState<string | null>(null);
-  const [latImage, setLatImage] = useState<string | null>(null);
+  const [apImages, setApImages] = useState<string[]>([]);
+  const [latImages, setLatImages] = useState<string[]>([]);
   const [tmplImage, setTmplImage] = useState<string | null>(null);
   const [photos, setPhotos] = useState<string[]>([]);
 
@@ -74,8 +74,8 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
     setEra('');
     setNotes('');
     setCredit('');
-    setApImage(null);
-    setLatImage(null);
+    setApImages([]);
+    setLatImages([]);
     setTmplImage(null);
     setPhotos([]);
   };
@@ -93,8 +93,8 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
     setVariants((impl.variants ?? []).join(', '));
     setEra(impl.era ?? '');
     setNotes(impl.notes ?? '');
-    setApImage(impl.views?.find((v) => v.view === 'AP')?.src ?? null);
-    setLatImage(impl.views?.find((v) => v.view === 'Lateral')?.src ?? null);
+    setApImages((impl.views ?? []).filter((v) => v.view === 'AP').map((v) => v.src));
+    setLatImages((impl.views ?? []).filter((v) => v.view === 'Lateral').map((v) => v.src));
     setTmplImage(impl.views?.find((v) => v.view === 'Templating')?.src ?? null);
     setPhotos((impl.photos ?? []).map((p) => p.src));
     setCredit(impl.views?.[0]?.credit ?? impl.photos?.[0]?.credit ?? '');
@@ -118,12 +118,14 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
       e.target.value = '';
     };
 
-  const onMultiFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const files = Array.from(e.target.files ?? []);
-    const urls = await Promise.all(files.map(fileToDataUrl));
-    setPhotos((prev) => [...prev, ...urls]);
-    e.target.value = '';
-  };
+  const onMultiFileFor =
+    (setter: (updater: (prev: string[]) => string[]) => void) =>
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const files = Array.from(e.target.files ?? []);
+      const urls = await Promise.all(files.map(fileToDataUrl));
+      setter((prev) => [...prev, ...urls]);
+      e.target.value = '';
+    };
 
   const canSave = name.trim() !== '' && category.trim() !== '' && summary.trim() !== '';
   const isEditing = editingId !== null;
@@ -133,11 +135,13 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
     e.preventDefault();
     if (!canSave) return;
 
-    const views = [
-      apImage && { view: 'AP' as const, src: apImage, credit: credit || undefined },
-      latImage && { view: 'Lateral' as const, src: latImage, credit: credit || undefined },
-      tmplImage && { view: 'Templating' as const, src: tmplImage, credit: credit || undefined },
-    ].filter(Boolean) as Implant['views'];
+    const views: Implant['views'] = [
+      ...apImages.map((src) => ({ view: 'AP' as const, src, credit: credit || undefined })),
+      ...latImages.map((src) => ({ view: 'Lateral' as const, src, credit: credit || undefined })),
+      ...(tmplImage
+        ? [{ view: 'Templating' as const, src: tmplImage, credit: credit || undefined }]
+        : []),
+    ];
 
     const productPhotos: ProductPhoto[] = photos.map((src) => ({
       src,
@@ -289,23 +293,45 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
           <legend>Images</legend>
           <div className="field-row">
             <div className="field">
-              <label>AP radiograph</label>
-              <input type="file" accept="image/*" onChange={onSingleFile(setApImage)} />
-              {apImage && (
-                <span className="thumb-wrap">
-                  <img className="thumb" src={apImage} alt="AP preview" />
-                  <button type="button" className="thumb-remove" onClick={() => setApImage(null)} aria-label="Remove AP image">✕</button>
-                </span>
+              <label>AP radiograph(s) — you can add several</label>
+              <input type="file" accept="image/*" multiple onChange={onMultiFileFor(setApImages)} />
+              {apImages.length > 0 && (
+                <div className="thumb-row">
+                  {apImages.map((src, i) => (
+                    <span key={i} className="thumb-wrap">
+                      <img className="thumb" src={src} alt={`AP preview ${i + 1}`} />
+                      <button
+                        type="button"
+                        className="thumb-remove"
+                        onClick={() => setApImages((prev) => prev.filter((_, j) => j !== i))}
+                        aria-label="Remove AP image"
+                      >
+                        ✕
+                      </button>
+                    </span>
+                  ))}
+                </div>
               )}
             </div>
             <div className="field">
-              <label>Lateral radiograph</label>
-              <input type="file" accept="image/*" onChange={onSingleFile(setLatImage)} />
-              {latImage && (
-                <span className="thumb-wrap">
-                  <img className="thumb" src={latImage} alt="Lateral preview" />
-                  <button type="button" className="thumb-remove" onClick={() => setLatImage(null)} aria-label="Remove lateral image">✕</button>
-                </span>
+              <label>Lateral radiograph(s) — you can add several</label>
+              <input type="file" accept="image/*" multiple onChange={onMultiFileFor(setLatImages)} />
+              {latImages.length > 0 && (
+                <div className="thumb-row">
+                  {latImages.map((src, i) => (
+                    <span key={i} className="thumb-wrap">
+                      <img className="thumb" src={src} alt={`Lateral preview ${i + 1}`} />
+                      <button
+                        type="button"
+                        className="thumb-remove"
+                        onClick={() => setLatImages((prev) => prev.filter((_, j) => j !== i))}
+                        aria-label="Remove lateral image"
+                      >
+                        ✕
+                      </button>
+                    </span>
+                  ))}
+                </div>
               )}
             </div>
             <div className="field">
@@ -321,7 +347,7 @@ export function AddImplantView({ userImplants, onChange, onSelect, editTarget, o
           </div>
           <div className="field">
             <label>Product photos (you can add several)</label>
-            <input type="file" accept="image/*" multiple onChange={onMultiFile} />
+            <input type="file" accept="image/*" multiple onChange={onMultiFileFor(setPhotos)} />
             {photos.length > 0 && (
               <div className="thumb-row">
                 {photos.map((p, i) => (

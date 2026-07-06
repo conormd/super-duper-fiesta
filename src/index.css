@@ -394,6 +394,18 @@ input[type='search'] {
   color: var(--text-dim);
 }
 
+.view-slot-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.view-slot-image {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .view-slot img {
   width: 100%;
   border-radius: 6px;

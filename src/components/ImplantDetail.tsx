@@ -27,40 +27,56 @@ function ViewSlot({
   view: RadiographView;
   onZoom: (target: ZoomTarget) => void;
 }) {
-  const image = implant.views?.find((v) => v.view === view);
+  const images = implant.views?.filter((v) => v.view === view) ?? [];
   return (
     <figure className="view-slot">
-      <span className="view-label">{VIEW_LABELS[view]}</span>
-      {image ? (
-        <>
-          <button
-            className="zoomable"
-            onClick={() =>
-              onZoom({
-                src: image.src,
-                caption: image.caption ?? `${implant.name} — ${VIEW_LABELS[view]}`,
-              })
-            }
-            aria-label={`Enlarge ${implant.name} ${VIEW_LABELS[view]} image`}
-          >
-            <img src={image.src} alt={`${implant.name} — ${VIEW_LABELS[view]} radiograph`} />
-          </button>
-          <figcaption>
-            {image.caption && <span>{image.caption}</span>}
-            {(image.credit || image.license) && (
-              <span className="credit">
-                {image.sourceUrl ? (
-                  <a href={image.sourceUrl} target="_blank" rel="noreferrer">
-                    {image.credit ?? 'Source'}
-                  </a>
-                ) : (
-                  image.credit
-                )}
-                {image.license && ` · ${image.license}`}
-              </span>
-            )}
-          </figcaption>
-        </>
+      <span className="view-label">
+        {VIEW_LABELS[view]}
+        {images.length > 1 && ` (${images.length})`}
+      </span>
+      {images.length > 0 ? (
+        <div className="view-slot-images">
+          {images.map((image, i) => (
+            <div key={i} className="view-slot-image">
+              <button
+                className="zoomable"
+                onClick={() =>
+                  onZoom({
+                    src: image.src,
+                    caption:
+                      image.caption ??
+                      `${implant.name} — ${VIEW_LABELS[view]}${
+                        images.length > 1 ? ` (${i + 1} of ${images.length})` : ''
+                      }`,
+                  })
+                }
+                aria-label={`Enlarge ${implant.name} ${VIEW_LABELS[view]} image ${i + 1}`}
+              >
+                <img
+                  src={image.src}
+                  alt={`${implant.name} — ${VIEW_LABELS[view]} radiograph ${i + 1}`}
+                />
+              </button>
+              {(image.caption || image.credit || image.license) && (
+                <figcaption>
+                  {image.caption && <span>{image.caption}</span>}
+                  {(image.credit || image.license) && (
+                    <span className="credit">
+                      {image.sourceUrl ? (
+                        <a href={image.sourceUrl} target="_blank" rel="noreferrer">
+                          {image.credit ?? 'Source'}
+                        </a>
+                      ) : (
+                        image.credit
+                      )}
+                      {image.license && ` · ${image.license}`}
+                    </span>
+                  )}
+                </figcaption>
+              )}
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="view-placeholder">No licensed {view} image yet</div>
       )}
