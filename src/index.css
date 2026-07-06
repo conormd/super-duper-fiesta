@@ -394,6 +394,18 @@ input[type='search'] {
   color: var(--text-dim);
 }
 
+.view-slot-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.view-slot-image {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
 .view-slot img {
   width: 100%;
   border-radius: 6px;
@@ -508,6 +520,99 @@ input[type='search'] {
   background: var(--accent-dim);
   color: #fff;
   margin-left: 8px;
+}
+
+.upload-drop {
+  width: 100%;
+  min-height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  padding: 20px;
+  background: var(--surface-2);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-dim);
+  cursor: pointer;
+}
+
+.upload-drop:hover,
+.upload-drop.dragging {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.upload-preview {
+  max-height: 320px;
+  max-width: 100%;
+  border-radius: var(--radius);
+  object-fit: contain;
+}
+
+/* Click-to-enlarge wrapper for detail-view images (radiographs and photos). */
+.zoomable {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: zoom-in;
+}
+
+.zoomable img {
+  display: block;
+  width: 100%;
+}
+
+/* Claude's per-candidate explanation under a match card. */
+.ai-reasoning {
+  margin: 0;
+  padding: 10px 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.45;
+}
+
+.facet-group {
+  margin-bottom: 14px;
+}
+
+.facet-label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+
+.option-btn.chip {
+  padding: 6px 12px;
+  font-size: 0.9rem;
+}
+
+.badge.attr {
+  background: var(--accent-dim);
+  color: #fff;
+}
+
+.match-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sim-pill {
+  align-self: flex-start;
+  font-size: 0.75rem;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--accent-dim);
+  color: #fff;
 }
 
 .empty {

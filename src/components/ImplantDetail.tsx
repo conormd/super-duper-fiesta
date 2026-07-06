@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import type { Implant, RadiographView } from '../types';
 
 interface Props {
@@ -13,30 +13,70 @@ const VIEW_LABELS: Record<RadiographView, string> = {
   Templating: 'Templating',
 };
 
-function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView }) {
-  const image = implant.views?.find((v) => v.view === view);
+interface ZoomTarget {
+  src: string;
+  caption: string;
+}
+
+function ViewSlot({
+  implant,
+  view,
+  onZoom,
+}: {
+  implant: Implant;
+  view: RadiographView;
+  onZoom: (target: ZoomTarget) => void;
+}) {
+  const images = implant.views?.filter((v) => v.view === view) ?? [];
   return (
     <figure className="view-slot">
-      <span className="view-label">{VIEW_LABELS[view]}</span>
-      {image ? (
-        <>
-          <img src={image.src} alt={`${implant.name} — ${VIEW_LABELS[view]} radiograph`} />
-          <figcaption>
-            {image.caption && <span>{image.caption}</span>}
-            {(image.credit || image.license) && (
-              <span className="credit">
-                {image.sourceUrl ? (
-                  <a href={image.sourceUrl} target="_blank" rel="noreferrer">
-                    {image.credit ?? 'Source'}
-                  </a>
-                ) : (
-                  image.credit
-                )}
-                {image.license && ` · ${image.license}`}
-              </span>
-            )}
-          </figcaption>
-        </>
+      <span className="view-label">
+        {VIEW_LABELS[view]}
+        {images.length > 1 && ` (${images.length})`}
+      </span>
+      {images.length > 0 ? (
+        <div className="view-slot-images">
+          {images.map((image, i) => (
+            <div key={i} className="view-slot-image">
+              <button
+                className="zoomable"
+                onClick={() =>
+                  onZoom({
+                    src: image.src,
+                    caption:
+                      image.caption ??
+                      `${implant.name} — ${VIEW_LABELS[view]}${
+                        images.length > 1 ? ` (${i + 1} of ${images.length})` : ''
+                      }`,
+                  })
+                }
+                aria-label={`Enlarge ${implant.name} ${VIEW_LABELS[view]} image ${i + 1}`}
+              >
+                <img
+                  src={image.src}
+                  alt={`${implant.name} — ${VIEW_LABELS[view]} radiograph ${i + 1}`}
+                />
+              </button>
+              {(image.caption || image.credit || image.license) && (
+                <figcaption>
+                  {image.caption && <span>{image.caption}</span>}
+                  {(image.credit || image.license) && (
+                    <span className="credit">
+                      {image.sourceUrl ? (
+                        <a href={image.sourceUrl} target="_blank" rel="noreferrer">
+                          {image.credit ?? 'Source'}
+                        </a>
+                      ) : (
+                        image.credit
+                      )}
+                      {image.license && ` · ${image.license}`}
+                    </span>
+                  )}
+                </figcaption>
+              )}
+            </div>
+          ))}
+        </div>
       ) : (
         <div className="view-placeholder">No licensed {view} image yet</div>
       )}
@@ -45,9 +85,17 @@ function ViewSlot({ implant, view }: { implant: Implant; view: RadiographView })
 }
 
 export function ImplantDetail({ implant, onClose, onEdit }: Props) {
+  const [zoom, setZoom] = useState<ZoomTarget | null>(null);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key !== 'Escape') return;
+      // Escape dismisses the lightbox first, then the modal.
+      setZoom((current) => {
+        if (current) return null;
+        onClose();
+        return current;
+      });
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
@@ -84,9 +132,9 @@ export function ImplantDetail({ implant, onClose, onEdit }: Props) {
         <section>
           <h4>Reference imaging</h4>
           <div className="views">
-            <ViewSlot implant={implant} view="AP" />
-            <ViewSlot implant={implant} view="Lateral" />
-            <ViewSlot implant={implant} view="Templating" />
+            <ViewSlot implant={implant} view="AP" onZoom={setZoom} />
+            <ViewSlot implant={implant} view="Lateral" onZoom={setZoom} />
+            <ViewSlot implant={implant} view="Templating" onZoom={setZoom} />
           </div>
           {implant.imageLinks && implant.imageLinks.length > 0 && (
             <p className="view-links">
@@ -109,7 +157,15 @@ export function ImplantDetail({ implant, onClose, onEdit }: Props) {
             <div className="photo-grid">
               {implant.photos.map((p, i) => (
                 <figure key={i} className="photo-item">
-                  <img src={p.src} alt={p.caption ?? `${implant.name} photo ${i + 1}`} />
+                  <button
+                    className="zoomable"
+                    onClick={() =>
+                      setZoom({ src: p.src, caption: p.caption ?? `${implant.name} — photo` })
+                    }
+                    aria-label={`Enlarge ${implant.name} photo ${i + 1}`}
+                  >
+                    <img src={p.src} alt={p.caption ?? `${implant.name} photo ${i + 1}`} />
+                  </button>
                   {(p.caption || p.credit) && (
                     <figcaption>
                       {p.caption}
@@ -187,6 +243,21 @@ export function ImplantDetail({ implant, onClose, onEdit }: Props) {
               ))}
             </ul>
           </section>
+        )}
+
+        {zoom && (
+          <div className="lightbox" onClick={() => setZoom(null)} role="dialog" aria-modal="true">
+            <button className="lightbox-close" onClick={() => setZoom(null)} aria-label="Close">
+              ✕
+            </button>
+            <img
+              className="lightbox-img"
+              src={zoom.src}
+              alt={zoom.caption}
+              onClick={(e) => e.stopPropagation()}
+            />
+            <div className="lightbox-cap">{zoom.caption}</div>
+          </div>
         )}
       </div>
     </div>

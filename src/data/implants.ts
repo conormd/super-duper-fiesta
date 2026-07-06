@@ -57,6 +57,14 @@ export const implants: Implant[] = [
   // ───────────────────────────── Zimmer Biomet ─────────────────────────────
   {
     id: 'zb-nexgen',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-nexgen-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'NexGen',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -74,6 +82,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-persona',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-persona-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Persona',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -90,6 +106,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-oxford',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-oxford-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Oxford Partial Knee',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -107,6 +131,20 @@ export const implants: Implant[] = [
     id: 'zb-taperloc',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-taperloc-ap.jpg',
+        caption: 'Biomet Taperloc — AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-taperloc-microplasty.jpg',
+        caption: 'Taperloc — Microplasty, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-tmpl.jpg',
         caption: "Biomet Taperloc Stem",
@@ -119,6 +157,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Flat, dual-tapered proximally porous-coated femoral stem (Biomet).',
     identifyingFeatures: [
       'Flat wedge, dual-taper geometry',
@@ -130,6 +170,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-g7',
+    photos: [
+      {
+        src: 'photos/zb-g7-tm-cup-photo.jpg',
+        caption: 'G7 — Trabecular Metal shell',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-g7-family-photo.jpg',
+        caption: 'G7 family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-g7-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'G7 Acetabular System',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -144,6 +206,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-comprehensive-shoulder',
+    photos: [
+      {
+        src: 'photos/zb-comprehensive-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-comprehensive-stemless-photo.jpg',
+        caption: 'Comprehensive — stemless option',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-comprehensive-shoulder-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Comprehensive Shoulder',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Shoulder',
@@ -164,6 +247,13 @@ export const implants: Implant[] = [
     id: 'zb-cls-spotorno',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-cls-spotorno-ap.jpg',
+        caption: 'Zimmer CLS Spotorno — AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-cls-spotorno-tmpl.jpg',
         caption: "Zimmer CLS Stem",
@@ -176,6 +266,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Quadrangular',
+    collar: 'Collarless',
     summary: 'Straight, tapered, collarless cementless stem with longitudinal ribs.',
     identifyingFeatures: [
       'Straight, tapered stem with a rectangular cross-section',
@@ -186,7 +278,40 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-ml-taper',
+    photos: [
+      {
+        src: 'photos/zb-ml-taper-kinectiv-photo.jpg',
+        caption: 'M/L Taper with Kinectiv',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-ml-taper-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-ml-taper-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-ml-taper-ap-2.jpg',
+        caption: 'M/L Taper — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-ml-taper-alt.jpg',
+        caption: 'M/L Taper — AP (alternate)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-ml-taper-tmpl.jpg',
@@ -200,6 +325,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Flat-wedge, proximally coated cementless femoral stem.',
     identifyingFeatures: [
       'Flat medial/lateral wedge taper geometry',
@@ -213,6 +340,12 @@ export const implants: Implant[] = [
     id: 'zb-wagner-cone',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-wagner-cone-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-wagner-cone-tmpl.jpg',
         caption: "Zimmer Wagner Cone 135",
@@ -225,6 +358,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Conical / round',
+    collar: 'Collarless',
     summary: 'Conical, splined monoblock stem used in revision and dysplastic hips.',
     identifyingFeatures: [
       'Conical (tapered cone) geometry with longitudinal splines/flutes',
@@ -236,6 +371,26 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-continuum',
+    photos: [
+      {
+        src: 'photos/zb-continuum-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-continuum-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-continuum-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Continuum Acetabular System',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -250,6 +405,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-trilogy',
+    photos: [
+      {
+        src: 'photos/zb-trilogy-it-photo.jpg',
+        caption: 'Trilogy IT',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-trilogy-bunny-ears-photo.jpg',
+        caption: 'Trilogy — "bunny ears" cluster holes',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-trilogy-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Trilogy Acetabular System',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
@@ -265,6 +442,26 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-vanguard',
+    photos: [
+      {
+        src: 'photos/zb-vanguard-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-vanguard-photo-1.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-vanguard-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Vanguard',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Knee',
@@ -280,7 +477,47 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-arcos',
+    photos: [
+      {
+        src: 'photos/zb-arcos-troch-plate-photo.jpg',
+        caption: 'Arcos with trochanteric plate',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-arcos-1piece-photo.jpg',
+        caption: 'Arcos — one-piece body',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-arcos-family-photo.jpg',
+        caption: 'Arcos family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-arcos-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-arcos-ap-2.jpg',
+        caption: 'Arcos — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-arcos-1piece.jpg',
+        caption: 'Arcos — one-piece body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-arcos-tmpl.jpg',
@@ -304,6 +541,19 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-fm-taper',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-taper-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-taper-std.jpg',
+        caption: 'VerSys FM Taper — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-taper-tmpl.jpg',
@@ -330,6 +580,19 @@ export const implants: Implant[] = [
     id: 'zb-versys-fm-midcoat',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-midcoat-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fm-midcoat-std.jpg',
+        caption: 'VerSys FM MidCoat — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-fm-midcoat-tmpl.jpg',
         caption: "Zimmer VerSys FM MidCoat (Std body)",
@@ -355,6 +618,19 @@ export const implants: Implant[] = [
     id: 'zb-versys-fullcoat',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fullcoat-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-fullcoat-std.jpg',
+        caption: 'VerSys Beaded FullCoat — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-fullcoat-tmpl.jpg',
         caption: "Zimmer VerSys Beaded FullCoat (Std body)",
@@ -378,7 +654,35 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-avenir',
+    photos: [
+      {
+        src: 'photos/zb-avenir-family-photo.jpg',
+        caption: 'Avenir Complete family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-avenir-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-avenir-ap-2.jpg',
+        caption: 'Avenir Complete — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-avenir-alt.jpg',
+        caption: 'Avenir Complete — AP (alternate)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-avenir-tmpl.jpg',
@@ -392,6 +696,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Proximally porous/HA-coated single-taper cementless stem with multiple offset options.',
     identifyingFeatures: [
       'Single-tapered stem with proximal porous/HA coating and a polished distal portion',
@@ -402,7 +707,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-fitmore',
+    photos: [
+      {
+        src: 'photos/zb-fitmore-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-fitmore-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-fitmore-ap-2.jpg',
+        caption: 'Fitmore — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-fitmore-tmpl.jpg',
@@ -427,11 +752,40 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-alloclassic',
+    photos: [
+      {
+        src: 'photos/zb-alloclassic-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-alloclassic-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-alloclassic-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-alloclassic-ap-2.jpg',
+        caption: 'Alloclassic Zweymüller — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Alloclassic Zweymüller',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Quadrangular',
+    collar: 'Collarless',
     summary: 'Classic straight, rectangular-section grit-blasted tapered cementless stem (Zweymüller design).',
     identifyingFeatures: [
       'Straight, double-tapered stem with a sharp-edged rectangular (quadrangular) cross-section',
@@ -444,7 +798,38 @@ export const implants: Implant[] = [
 
   {
     id: 'zb-bimetric',
+    photos: [
+      {
+        src: 'photos/zb-bimetric-stem-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-bimetric-family-photo.jpg',
+        caption: 'Bi-Metric family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-bimetric-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-bimetric-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-bimetric-ap-2.jpg',
+        caption: 'Bi-Metric — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-bimetric-tmpl.jpg',
@@ -458,6 +843,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Collared, proximally porous-coated titanium tapered stem (Biomet).",
     identifyingFeatures: [
       "Collared design seating on the calcar",
@@ -471,6 +857,26 @@ export const implants: Implant[] = [
     id: 'zb-cpt',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-ap-3.jpg',
+        caption: 'CPT — AP (alternate view 2)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-ap-2.jpg',
+        caption: 'CPT — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-cpt-tmpl.jpg',
         caption: "Zimmer CPT Stem (x-offset)",
@@ -483,6 +889,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: "Collarless, polished, double-tapered cemented stem (Zimmer CPT).",
     identifyingFeatures: [
       "Polished, double-tapered (taper-slip) geometry, collarless",
@@ -494,7 +902,40 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-echo',
+    photos: [
+      {
+        src: 'photos/zb-echo-family-photo.jpg',
+        caption: 'Echo family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/zb-echo-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-ap-2.jpg',
+        caption: 'Echo Bi-Metric — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-microplasty.jpg',
+        caption: 'Echo Bi-Metric — Microplasty, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-echo-tmpl.jpg',
@@ -508,6 +949,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Collared, proximally coated tapered cementless stem; successor to the Bi-Metric.",
     identifyingFeatures: [
       "Collared, single-taper wedge with proximal porous/plasma coating",
@@ -521,6 +963,12 @@ export const implants: Implant[] = [
     id: 'zb-integral',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-integral-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-integral-tmpl.jpg',
         caption: "Zimmer Integral 180 Stem",
@@ -533,6 +981,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: "Smooth, tapered cemented femoral stem (Zimmer Integral).",
     identifyingFeatures: [
       "Smooth, tapered stem within a cement mantle",
@@ -546,6 +996,12 @@ export const implants: Implant[] = [
     id: 'zb-mallory-head',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-mallory-head-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-tmpl.jpg',
         caption: "Biomet Mallory-Head 1-piece Calcar Stem",
@@ -558,6 +1014,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: "Calcar-loading, proximally porous-coated cementless stem with a distal slot (Biomet Mallory-Head).",
     identifyingFeatures: [
       "Prominent calcar collar seating on the medial femoral neck cut",
@@ -571,6 +1028,26 @@ export const implants: Implant[] = [
   {
     id: 'zb-oss',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-oss-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-oss-letson-femur.jpg',
+        caption: 'OSS — Letson proximal femur, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-oss-letson-body.jpg',
+        caption: 'OSS — Letson proximal body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-oss-tmpl.jpg',
@@ -597,6 +1074,26 @@ export const implants: Implant[] = [
     id: 'zb-zss',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-zss-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zss-body-ext.jpg',
+        caption: 'ZSS — TM proximal body extension, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zss-std-offset.jpg',
+        caption: 'ZSS — TM proximal femur, standard offset, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-zss-tmpl.jpg',
         caption: "Zimmer ZSS Proximal Femur (basic)",
@@ -622,6 +1119,12 @@ export const implants: Implant[] = [
     id: 'zb-versys-heritage',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-heritage-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-heritage-tmpl.jpg',
         caption: "Zimmer VerSys Heritage Stem",
@@ -634,6 +1137,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: "Collared, polished tapered cemented stem in the VerSys family (Zimmer).",
     identifyingFeatures: [
       "Collared, smooth/satin tapered stem within a cement mantle",
@@ -645,6 +1150,19 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-beaded-midcoat',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-beaded-midcoat-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-beaded-midcoat-std.jpg',
+        caption: 'VerSys Beaded MidCoat — standard body, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-beaded-midcoat-tmpl.jpg',
@@ -669,7 +1187,34 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-mueller',
+    photos: [
+      {
+        src: 'photos/zb-mueller-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mueller-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mueller-ap-2.jpg',
+        caption: 'Avenir Müller — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mueller-cemented.jpg',
+        caption: 'Avenir Müller — cemented, AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-mueller-tmpl.jpg',
@@ -683,6 +1228,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Either',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: "Straight, tapered stem with a stepped medial (calcar) border (Müller-type), in cemented and cementless options.",
     identifyingFeatures: [
       "Straight, tapered stem with a characteristic stepped/serrated medial (calcar) border",
@@ -695,6 +1242,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-cdh',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-cdh-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-cdh-tmpl.jpg',
@@ -721,6 +1274,12 @@ export const implants: Implant[] = [
     id: 'zb-versys-crc',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-versys-crc-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-versys-crc-tmpl.jpg',
         caption: "Zimmer VerSys CRC Stem",
@@ -733,6 +1292,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: "Collared, smooth tapered cemented stem in the VerSys family (Zimmer).",
     identifyingFeatures: [
       "Collared, smooth tapered stem within a cement mantle",
@@ -744,6 +1305,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-versys-advocate',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-versys-advocate-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-versys-advocate-tmpl.jpg',
@@ -757,6 +1324,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cemented femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: "Collared cemented stem with a stepped medial border in the VerSys family (Zimmer).",
     identifyingFeatures: [
       "Collared stem with a stepped/serrated medial border",
@@ -770,6 +1339,12 @@ export const implants: Implant[] = [
     id: 'zb-wagner-sl',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-wagner-sl-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-wagner-sl-tmpl.jpg',
         caption: "Zimmer Wagner SL Revision Stem",
@@ -782,6 +1357,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Revision femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Conical / round',
+    collar: 'Collarless',
     summary: "Long, conically tapered, splined monoblock cementless revision stem (Zimmer Wagner SL).",
     identifyingFeatures: [
       "Long, conically tapered monoblock stem with fine longitudinal splines/flutes",
@@ -794,6 +1371,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-zmr',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zmr-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-zmr-tmpl.jpg',
@@ -820,6 +1403,12 @@ export const implants: Implant[] = [
     id: 'zb-mallory-head-cementless',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-mallory-head-cementless-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-cementless-tmpl.jpg',
         caption: "Biomet Mallory-Head Cementless Stem",
@@ -832,6 +1421,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: "Proximally porous-coated cementless variant of the Mallory-Head stem (Biomet).",
     identifyingFeatures: [
       "Tapered stem with a stepped/serrated proximal-medial border",
@@ -844,6 +1434,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-mallory-head-modular',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-mallory-head-modular-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-mallory-head-modular-tmpl.jpg',
@@ -870,6 +1466,12 @@ export const implants: Implant[] = [
     id: 'zb-cpt-revision',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-cpt-revision-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-cpt-revision-tmpl.jpg',
         caption: "Zimmer CPT Revision Stem",
@@ -882,6 +1484,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Revision femoral stem",
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
     summary: "Longer, collarless polished double-taper cemented stem for revision (Zimmer CPT).",
     identifyingFeatures: [
       "Collarless, polished double-taper (taper-slip) geometry",
@@ -894,6 +1497,12 @@ export const implants: Implant[] = [
   {
     id: 'zb-zmr-xl',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-zmr-xl-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-zmr-xl-tmpl.jpg',
@@ -920,6 +1529,12 @@ export const implants: Implant[] = [
     id: 'zb-taperloc-complete',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-taperloc-complete-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-taperloc-complete-tmpl.jpg',
         caption: "Biomet Taperloc Complete (reduced distal)",
@@ -932,6 +1547,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: "Current-generation flat-wedge dual-taper cementless stem with a reduced distal geometry (Biomet Taperloc Complete).",
     identifyingFeatures: [
       "Flat wedge, dual-taper geometry",
@@ -943,7 +1560,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'zb-echo-fx',
+    photos: [
+      {
+        src: 'photos/zb-echo-fx-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-fx-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/zb-echo-fx-ap-2.jpg',
+        caption: 'Echo Bi-Metric FX — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/zb-echo-fx-tmpl.jpg',
@@ -957,6 +1594,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Calcar / fracture variant of the Echo Bi-Metric stem with a porous proximal body (Zimmer).",
     identifyingFeatures: [
       "Tapered stem with a hatched/porous proximal body region",
@@ -982,6 +1620,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Conical / round',
+    collar: 'Collarless',
     summary: 'Original-generation Wagner Cone — an earlier stem whose shape differs from the current conical, splined Wagner Cone (Zimmer).',
     identifyingFeatures: [
       'Original Wagner Cone generation; overall shape differs from the current fluted conical design',
@@ -995,6 +1635,12 @@ export const implants: Implant[] = [
     id: 'zb-sirius',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/zb-sirius-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/zb-sirius-tmpl.jpg',
         caption: 'Biomet Sirius Cemented Stem',
@@ -1007,6 +1653,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: 'Polished, tapered cemented femoral stem (Biomet Sirius).',
     identifyingFeatures: [
       'Smooth, polished tapered stem within a cement mantle',
@@ -1016,9 +1664,44 @@ export const implants: Implant[] = [
     era: '1990s–2000s',
     notes: 'Compiled from general references — confirm against operative records.',
   },
+  {
+    id: 'zb-z1',
+    name: 'Z1',
+    manufacturer: 'Zimmer Biomet',
+    anatomy: 'Hip',
+    category: 'Cementless femoral stem',
+    fixation: 'Cementless',
+    stemShape: 'Triple taper',
+    photos: [
+      {
+        src: 'photos/zb-z1-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    summary:
+      'Triple-taper cementless femoral stem — Zimmer Biomet’s newest primary hip stem.',
+    identifyingFeatures: [
+      'Tapered in three planes (triple-taper wedge geometry)',
+      'Grit-blasted stem with titanium plasma spray and HA overcoat; polished neck region',
+      'Offered in collared and collarless versions with multiple neck/offset options',
+    ],
+    variants: ['Collared', 'Collarless', 'Standard / High Offset / Coxa Vara necks'],
+    era: '2024–present',
+    notes:
+      'Launched at AAHKS 2024; recent implant, so radiographic examples are still uncommon.',
+  },
   // ──────────────────────────────── Stryker ────────────────────────────────
   {
     id: 'st-triathlon',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-triathlon-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Triathlon',
     manufacturer: 'Stryker',
     anatomy: 'Knee',
@@ -1036,6 +1719,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-scorpio',
+    views: [
+      {
+        view: 'Lateral',
+        src: 'radiographs/st-scorpio-lat.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-scorpio-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Scorpio',
     manufacturer: 'Stryker',
     anatomy: 'Knee',
@@ -1052,6 +1749,20 @@ export const implants: Implant[] = [
     id: 'st-accolade',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/st-accolade-ap.jpg',
+        caption: 'Stryker Accolade — AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-accolade-2.jpg',
+        caption: 'Accolade II — AP',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-accolade-tmpl.jpg',
         caption: "Stryker Accolade II Hip Stem",
@@ -1064,6 +1775,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Tapered wedge proximally coated cementless femoral stem.',
     identifyingFeatures: [
       'Single-taper wedge geometry',
@@ -1075,7 +1788,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-exeter',
+    photos: [
+      {
+        src: 'photos/st-exeter-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-exeter-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-exeter-ap-2.jpg',
+        caption: 'Exeter — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-exeter-tmpl.jpg',
@@ -1089,6 +1822,8 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: 'Highly polished, collarless, double-tapered cemented stem.',
     identifyingFeatures: [
       'Polished surface with a smooth, bright radiographic appearance',
@@ -1101,6 +1836,22 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-trident',
+    photos: [
+      {
+        src: 'photos/st-trident-family-photo.jpg',
+        caption: 'Trident family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-trident-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Trident Acetabular System',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1116,7 +1867,35 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-restoration',
+    photos: [
+      {
+        src: 'photos/st-restoration-family-photo.jpg',
+        caption: 'Restoration Modular family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-restoration-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-restoration-ap-2.jpg',
+        caption: 'Restoration — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-restoration-alt.jpg',
+        caption: 'Restoration Modular — AP (alternate)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-restoration-tmpl.jpg',
@@ -1141,7 +1920,27 @@ export const implants: Implant[] = [
 
   {
     id: 'st-secur-fit',
+    photos: [
+      {
+        src: 'photos/st-secur-fit-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-secur-fit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-secur-fit-ap-2.jpg',
+        caption: 'Secur-Fit — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-secur-fit-tmpl.jpg',
@@ -1155,6 +1954,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Tapered, proximally porous-coated cementless femoral stem.',
     identifyingFeatures: [
       'Tapered geometry with proximal porous/HA coating',
@@ -1165,11 +1965,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-howmedica-pca-stem',
+    photos: [
+      {
+        src: 'photos/st-pca-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-howmedica-pca-stem-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Howmedica PCA Stem',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'First-generation anatomic, proximally bead-coated cementless stem (Howmedica heritage, now Stryker).',
     identifyingFeatures: [
       'Anatomic (left/right-specific) curved stem geometry',
@@ -1181,6 +1997,22 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-howmedica-pca-cup',
+    photos: [
+      {
+        src: 'photos/st-pca-stem-cup-photo.jpg',
+        caption: 'PCA stem and cup',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-howmedica-pca-cup-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Howmedica PCA Acetabular System',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1199,6 +2031,12 @@ export const implants: Implant[] = [
     id: 'st-insignia',
     views: [
       {
+        view: 'AP',
+        src: 'radiographs/st-insignia-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
         view: 'Templating',
         src: 'radiographs/st-insignia-tmpl.jpg',
         caption: "Stryker Insignia Stem",
@@ -1211,6 +2049,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Newer-generation tapered wedge cementless femoral stem.',
     identifyingFeatures: [
       'Tapered wedge geometry with proximal coating',
@@ -1220,6 +2059,22 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-mdm',
+    photos: [
+      {
+        src: 'photos/st-mdm-photo.jpg',
+        caption: 'Trident dual-mobility',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-mdm-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'MDM / Trident Dual Mobility',
     manufacturer: 'Stryker',
     anatomy: 'Hip',
@@ -1234,6 +2089,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-gamma',
+    photos: [
+      {
+        src: 'photos/st-gamma-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-gamma-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Gamma Nail',
     manufacturer: 'Stryker',
     anatomy: 'Trauma / Fracture fixation',
@@ -1249,6 +2119,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-t2',
+    photos: [
+      {
+        src: 'photos/st-t2-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-t2-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'T2 Nailing System',
     manufacturer: 'Stryker',
     anatomy: 'Trauma / Fracture fixation',
@@ -1263,6 +2148,26 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-simpliciti',
+    photos: [
+      {
+        src: 'photos/st-simpliciti-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/st-simpliciti-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-simpliciti-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Simpliciti',
     manufacturer: 'Stryker',
     anatomy: 'Shoulder',
@@ -1277,6 +2182,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-aequalis',
+    photos: [
+      {
+        src: 'photos/st-aequalis-family-photo.jpg',
+        caption: 'Aequalis family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/st-aequalis-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-aequalis-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Aequalis',
     manufacturer: 'Stryker',
     anatomy: 'Shoulder',
@@ -1292,8 +2218,49 @@ export const implants: Implant[] = [
     references: SHOULDER_REFS,
   },
   {
+    id: 'st-ascend-flex',
+    name: 'Aequalis Ascend Flex',
+    manufacturer: 'Stryker',
+    anatomy: 'Shoulder',
+    category: 'Convertible short-stem shoulder system',
+    fixation: 'Either',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-ascend-flex-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
+    photos: [
+      {
+        src: 'photos/st-ascend-flex-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    summary:
+      'Short, convertible press-fit humeral stem (Tornier/Wright, now Stryker) for anatomic and reverse shoulder arthroplasty.',
+    identifyingFeatures: [
+      'Short humeral stem (bone-preserving) with metaphyseal press-fit geometry',
+      'Proximal titanium plasma-spray coating; polished versions exist for cemented use',
+      'Convertible platform — same stem used for anatomic and reverse configurations (145° reverse angle)',
+    ],
+    variants: ['Press-fit', 'Cemented (polished)', 'Standard and long stem lengths'],
+    era: '2010s–present',
+    notes:
+      'Marketed by Tornier, then Wright Medical; part of Stryker since the 2020 Wright Medical acquisition. Successor system marketed as Tornier Flex.',
+    references: SHOULDER_REFS,
+  },
+  {
     id: 'st-omnifit',
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-omnifit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-omnifit-tmpl.jpg',
@@ -1318,6 +2285,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-triathlon-ts',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-triathlon-ts-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Triathlon TS',
     manufacturer: 'Stryker',
     anatomy: 'Knee',
@@ -1335,7 +2310,21 @@ export const implants: Implant[] = [
 
   {
     id: 'st-meridian',
+    photos: [
+      {
+        src: 'photos/st-meridian-photo.jpg',
+        caption: 'Secur-Fit / Meridian',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-meridian-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-meridian-tmpl.jpg',
@@ -1349,6 +2338,7 @@ export const implants: Implant[] = [
     anatomy: 'Hip',
     category: "Cementless femoral stem",
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: "Proximally HA/porous-coated tapered cementless stem (Stryker/Howmedica Meridian).",
     identifyingFeatures: [
       "Tapered proximal body with proximal HA/porous coating",
@@ -1360,7 +2350,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-gmrs',
+    photos: [
+      {
+        src: 'photos/st-gmrs-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-gmrs-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-gmrs-ap-2.jpg',
+        caption: 'GMRS — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
       {
         view: 'Templating',
         src: 'radiographs/st-gmrs-tmpl.jpg',
@@ -1386,6 +2396,14 @@ export const implants: Implant[] = [
   // ───────────────────────────── Smith & Nephew ────────────────────────────
   {
     id: 'sn-genesis-ii',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-genesis-ii-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Genesis II',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1401,6 +2419,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-legion',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-legion-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Legion',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1416,6 +2442,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-journey',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-journey-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/sn-journey-uni.jpg',
+        caption: 'Journey — unicompartmental, AP/lateral',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Journey II',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1431,6 +2472,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-polarstem',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-polarstem-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'POLARSTEM',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1445,6 +2494,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-bhr',
+    photos: [
+      {
+        src: 'photos/sn-bhr-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-bhr-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Birmingham Hip Resurfacing (BHR)',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1462,6 +2526,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-r3',
+    photos: [
+      {
+        src: 'photos/sn-r3-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-r3-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'R3 Acetabular System',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1477,11 +2556,20 @@ export const implants: Implant[] = [
 
   {
     id: 'sn-synergy',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-synergy-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'SYNERGY',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Proximally porous-coated tapered titanium cementless stem.',
     identifyingFeatures: [
       'Tapered titanium stem with proximal porous coating',
@@ -1491,11 +2579,34 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-anthology',
+    photos: [
+      {
+        src: 'photos/sn-anthology-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-anthology-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/sn-anthology-ap-2.jpg',
+        caption: 'Anthology — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Anthology',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
     summary: 'Tapered, proximally coated cementless femoral stem.',
     identifyingFeatures: [
       'Dual-tapered geometry with proximal porous/HA coating',
@@ -1505,6 +2616,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-redapt',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-redapt-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'REDAPT Modular Revision',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1519,6 +2638,33 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-echelon',
+    photos: [
+      {
+        src: 'photos/sn-echelon-photo-2.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/sn-echelon-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-echelon-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/sn-echelon-ap-2.jpg',
+        caption: 'Echelon — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Echelon',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1535,6 +2681,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-intertan',
+    photos: [
+      {
+        src: 'photos/sn-intertan-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-intertan-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'TRIGEN INTERTAN',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Trauma / Fracture fixation',
@@ -1550,6 +2711,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-trigen',
+    photos: [
+      {
+        src: 'photos/sn-trigen-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-trigen-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'TRIGEN Intramedullary Nails',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Trauma / Fracture fixation',
@@ -1578,6 +2754,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-profix',
+    photos: [
+      {
+        src: 'photos/sn-profix-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-profix-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Profix',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Knee',
@@ -1592,11 +2783,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-spectron',
+    photos: [
+      {
+        src: 'photos/sn-spectron-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-spectron-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Spectron EF',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: 'Classic collared cobalt-chrome cemented stem with a roughened proximal surface.',
     identifyingFeatures: [
       'Collared, straight cemented CoCr stem within a cement mantle',
@@ -1608,6 +2816,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'sn-emperion',
+    photos: [
+      {
+        src: 'photos/sn-emperion-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/sn-emperion-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'EMPERION',
     manufacturer: 'Smith & Nephew',
     anatomy: 'Hip',
@@ -1625,6 +2848,14 @@ export const implants: Implant[] = [
   // ────────────────────────────── DePuy Synthes ────────────────────────────
   {
     id: 'dp-attune',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-attune-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'ATTUNE',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -1642,6 +2873,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-pfc-sigma',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-pfc-sigma-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'P.F.C. Sigma',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -1656,6 +2895,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-lcs',
+    photos: [
+      {
+        src: 'photos/dp-lcs-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-lcs-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'LCS (Low Contact Stress)',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -1670,11 +2924,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-corail',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-corail-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Corail',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Fully hydroxyapatite-coated straight tapered cementless stem.',
     identifyingFeatures: [
       'Fully HA-coated, straight, quadrangular tapered stem',
@@ -1687,6 +2950,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-actis',
+    photos: [
+      {
+        src: 'photos/dp-actis-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-actis-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/dp-actis-ap-2.jpg',
+        caption: 'ACTIS — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'ACTIS',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1702,11 +2987,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-summit',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-summit-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Summit',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Proximally porous/HA-coated tapered cementless stem.',
     identifyingFeatures: [
       'Proximal porous coating with grit-blasted distal stem',
@@ -1716,11 +3010,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-trilock',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-trilock-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Tri-Lock',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Flat tapered wedge',
+    collar: 'Collarless',
     summary: 'Flat-wedge, proximally porous-coated cementless stem; revived as the Tri-Lock Bone Preservation Stem (DePuy).',
     identifyingFeatures: [
       'Flat, dual-taper wedge geometry',
@@ -1733,11 +3037,20 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-prodigy',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-prodigy-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Prodigy',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Extensively porous-coated cobalt-chrome stem in the AML lineage (DePuy).',
     identifyingFeatures: [
       'Extensively (fully) porous-coated, cylindrical cobalt-chrome stem for diaphyseal fixation',
@@ -1749,11 +3062,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-solution',
+    photos: [
+      {
+        src: 'photos/dp-solution-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-solution-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Solution System',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Revision femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
     summary: 'Extensively porous-coated bowed revision stem (AML/Solution lineage, DePuy).',
     identifyingFeatures: [
       'Long, extensively porous-coated cobalt-chrome revision stem',
@@ -1765,6 +3094,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-s-rom',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-s-rom-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'S-ROM',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1780,6 +3117,13 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-pinnacle',
+    photos: [
+      {
+        src: 'photos/dp-pinnacle-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
     name: 'Pinnacle Acetabular System',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1794,6 +3138,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-global-shoulder',
+    photos: [
+      {
+        src: 'photos/dp-global-family-photo.jpg',
+        caption: 'Global family',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+      {
+        src: 'photos/dp-global-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-global-shoulder-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Global Shoulder',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Shoulder',
@@ -1810,6 +3175,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-dhs',
+    photos: [
+      {
+        src: 'photos/dp-dhs-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-dhs-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'DHS (Dynamic Hip Screw)',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Trauma / Fracture fixation',
@@ -1869,11 +3249,35 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-aml',
+    photos: [
+      {
+        src: 'photos/dp-aml-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-aml-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/dp-aml-ap-2.jpg',
+        caption: 'AML — AP (alternate view)',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'AML (Anatomic Medullary Locking)',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cementless femoral stem',
     fixation: 'Cementless',
+    stemShape: 'Fit-and-fill',
+    collar: 'Collared',
     summary: 'Extensively porous-coated cobalt-chrome cementless stem.',
     identifyingFeatures: [
       'Extensively (fully) porous-coated, straight cylindrical cobalt-chrome stem',
@@ -1886,11 +3290,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-c-stem',
+    photos: [
+      {
+        src: 'photos/dp-c-stem-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-c-stem-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'C-Stem',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Taper-slip',
+    collar: 'Collarless',
     summary: 'Polished, triple-tapered cemented femoral stem.',
     identifyingFeatures: [
       'Polished, triple-tapered (taper-slip) design within a cement mantle',
@@ -1900,11 +3321,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-charnley',
+    photos: [
+      {
+        src: 'photos/dp-charnley-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-charnley-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Charnley',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: 'Historic low-friction cemented stem with a small-diameter head.',
     identifyingFeatures: [
       'Monoblock cemented stem with a characteristically small (~22 mm) femoral head',
@@ -1915,11 +3353,28 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-elite-plus',
+    photos: [
+      {
+        src: 'photos/dp-elite-plus-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-elite-plus-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Charnley Elite Plus',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
     category: 'Cemented femoral stem',
     fixation: 'Cemented',
+    cementedStyle: 'Composite beam',
+    collar: 'Collared',
     summary: 'Cemented stem in the Charnley low-friction lineage (DePuy).',
     identifyingFeatures: [
       'Cemented, double-tapered stem within a radiolucent cement mantle',
@@ -1931,6 +3386,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-duraloc',
+    photos: [
+      {
+        src: 'photos/dp-duraloc-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-duraloc-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Duraloc Acetabular System',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Hip',
@@ -1989,6 +3459,14 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-sigma-tc3',
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-sigma-tc3-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'P.F.C. Sigma TC3',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Knee',
@@ -2007,6 +3485,21 @@ export const implants: Implant[] = [
   // ─────────────────────────────── Ankle ───────────────────────────────────
   {
     id: 'zb-tmta',
+    photos: [
+      {
+        src: 'photos/zb-tmta-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-tmta-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Trabecular Metal Total Ankle (TMTA)',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Ankle',
@@ -2023,6 +3516,27 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-inbone',
+    photos: [
+      {
+        src: 'photos/st-inbone-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'Lateral',
+        src: 'radiographs/st-inbone-lat.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+      {
+        view: 'AP',
+        src: 'radiographs/st-inbone-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'INBONE / INBONE II Total Ankle',
     manufacturer: 'Stryker',
     anatomy: 'Ankle',
@@ -2041,6 +3555,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-infinity',
+    photos: [
+      {
+        src: 'photos/st-infinity-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-infinity-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'INFINITY Total Ankle',
     manufacturer: 'Stryker',
     anatomy: 'Ankle',
@@ -2058,6 +3587,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-invision',
+    photos: [
+      {
+        src: 'photos/st-invision-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-invision-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'INVISION Total Ankle (Revision)',
     manufacturer: 'Stryker',
     anatomy: 'Ankle',
@@ -2074,6 +3618,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'dp-agility',
+    photos: [
+      {
+        src: 'photos/dp-agility-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/dp-agility-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Agility Total Ankle',
     manufacturer: 'DePuy Synthes',
     anatomy: 'Ankle',
@@ -2092,6 +3651,21 @@ export const implants: Implant[] = [
   // ─────────────────────────────── Elbow ───────────────────────────────────
   {
     id: 'zb-nexel',
+    photos: [
+      {
+        src: 'photos/zb-nexel-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/zb-nexel-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Nexel Total Elbow',
     manufacturer: 'Zimmer Biomet',
     anatomy: 'Elbow',
@@ -2109,6 +3683,21 @@ export const implants: Implant[] = [
   },
   {
     id: 'st-latitude',
+    photos: [
+      {
+        src: 'photos/st-latitude-photo.jpg',
+        credit: 'Manufacturer product imagery',
+        license: 'Educational use only',
+      },
+    ],
+    views: [
+      {
+        view: 'AP',
+        src: 'radiographs/st-latitude-ap.jpg',
+        credit: "Author's own collection",
+        license: 'Educational use only',
+      },
+    ],
     name: 'Latitude EV Total Elbow',
     manufacturer: 'Stryker',
     anatomy: 'Elbow',
