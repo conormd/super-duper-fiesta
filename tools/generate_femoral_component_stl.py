@@ -20,7 +20,7 @@ exactly. The solid between them is sampled as a signed distance field and
 polygonised with marching cubes.
 
 Usage:
-    python3 tools/generate_femoral_component_stl.py --size 7
+    python3 tools/generate_femoral_component_stl.py --size 10
 """
 
 from __future__ import annotations
@@ -253,7 +253,7 @@ def build_volume(g: SimpleNamespace, resolution: float):
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--size", type=int, default=7, choices=sorted(SIZES))
+    parser.add_argument("--size", type=int, default=10, choices=sorted(SIZES))
     parser.add_argument("-o", "--out", type=Path, default=None)
     parser.add_argument("-r", "--resolution", type=float, default=0.25)
     args = parser.parse_args()
