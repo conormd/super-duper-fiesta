@@ -18,11 +18,11 @@ Usage:
 from __future__ import annotations
 
 import argparse
-import struct
 from pathlib import Path
 
 import numpy as np
-from skimage import measure
+
+from sdf_mesh import check_watertight, polygonise, write_binary_stl
 
 # --- Plate parameters (millimetres) -----------------------------------------
 
@@ -108,74 +108,7 @@ def build_mesh(resolution: float):
     gx, gy, gz = np.meshgrid(xs, ys, zs, indexing="ij")
     vol = contoured_sdf(gx, gy, gz)
 
-    # The solid must not touch the sampling box, or the mesh would be open.
-    boundary = min(
-        vol[0].min(), vol[-1].min(),
-        vol[:, 0].min(), vol[:, -1].min(),
-        vol[:, :, 0].min(), vol[:, :, -1].min(),
-    )
-    if boundary <= 0:
-        raise RuntimeError("solid reaches the sampling boundary; increase margin")
-
-    verts, faces, _, _ = measure.marching_cubes(
-        vol, level=0.0, spacing=(resolution, resolution, resolution)
-    )
-    verts += np.array([xs[0], ys[0], zs[0]], dtype=verts.dtype)
-
-    # Where the surface grazes a grid vertex, marching cubes can emit two
-    # distinct vertices at the same position, leaving a few zero-area faces.
-    # Weld the coincident vertices first -- those faces then have a repeated
-    # index, so dropping them cancels both copies of their collapsed edge and
-    # the mesh stays closed. (Deleting them without welding tears holes.)
-    verts, inverse = np.unique(verts, axis=0, return_inverse=True)
-    faces = inverse.ravel()[faces]
-    repeated = (
-        (faces[:, 0] == faces[:, 1])
-        | (faces[:, 1] == faces[:, 2])
-        | (faces[:, 0] == faces[:, 2])
-    )
-    faces = faces[~repeated]
-
-    # Orient faces outward: a closed mesh with outward normals encloses a
-    # positive signed volume.
-    tris = verts[faces]
-    signed_volume = np.einsum(
-        "ij,ij->i", tris[:, 0], np.cross(tris[:, 1], tris[:, 2])
-    ).sum() / 6.0
-    if signed_volume < 0:
-        faces = faces[:, ::-1]
-        signed_volume = -signed_volume
-
-    return verts, faces, signed_volume
-
-
-def check_watertight(faces: np.ndarray) -> bool:
-    """Every edge of a closed manifold surface is shared by exactly 2 faces."""
-    edges = np.concatenate([faces[:, [0, 1]], faces[:, [1, 2]], faces[:, [2, 0]]])
-    edges = np.sort(edges, axis=1)
-    _, counts = np.unique(edges, axis=0, return_counts=True)
-    return bool((counts == 2).all())
-
-
-def write_binary_stl(path: Path, verts: np.ndarray, faces: np.ndarray) -> None:
-    tris = verts[faces].astype(np.float32)
-    normals = np.cross(tris[:, 1] - tris[:, 0], tris[:, 2] - tris[:, 0])
-    lengths = np.linalg.norm(normals, axis=1, keepdims=True)
-    normals = np.divide(normals, lengths, out=np.zeros_like(normals),
-                        where=lengths > 0).astype(np.float32)
-
-    record = np.zeros(
-        len(faces),
-        dtype=np.dtype([("n", "<f4", 3), ("v", "<f4", (3, 3)), ("attr", "<u2")]),
-    )
-    record["n"] = normals
-    record["v"] = tris
-
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("wb") as fh:
-        fh.write(b"Generic orthopaedic bone plate - educational model, not a medical device".ljust(80, b" "))
-        fh.write(struct.pack("<I", len(faces)))
-        fh.write(record.tobytes())
+    return polygonise(vol, resolution, (xs[0], ys[0], zs[0]))
 
 
 def main() -> None:
@@ -187,7 +120,10 @@ def main() -> None:
     args = parser.parse_args()
 
     verts, faces, volume = build_mesh(args.resolution)
-    write_binary_stl(args.out, verts, faces)
+    write_binary_stl(
+        args.out, verts, faces,
+        "Generic orthopaedic bone plate - educational model, not a medical device",
+    )
 
     lo, hi = verts.min(axis=0), verts.max(axis=0)
     print(f"wrote {args.out}")

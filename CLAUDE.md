@@ -38,6 +38,8 @@ super-duper-fiesta/
 ├── README.md           ← project description
 ├── index.html
 ├── package.json, tsconfig*.json, vite.config.ts
+├── models/             ← generated STL reference geometry (see models/README.md)
+├── tools/              ← Python SDF model generators for models/
 └── src/
     ├── main.tsx, App.tsx, index.css, types.ts
     ├── data/implants.ts     ← implant reference dataset
