@@ -13,6 +13,7 @@ to change the geometry.
 ```bash
 pip install numpy scikit-image
 python3 tools/generate_femoral_component_stl.py --size 10
+python3 tools/generate_femoral_component_stl.py --size 8 -o models/generic-tka-femoral-size8.stl
 python3 tools/generate_femoral_component_stl.py --size 7 -o models/generic-tka-femoral-size7.stl
 python3 tools/generate_implant_stl.py
 ```
@@ -20,9 +21,9 @@ python3 tools/generate_implant_stl.py
 Each generator prints triangle count, achieved dimensions, wall thickness and a
 watertightness check, so a regenerated mesh can be sanity-checked before use.
 
-## `generic-tka-femoral-size10.stl` / `generic-tka-femoral-size7.stl`
+## `generic-tka-femoral-size{7,8,10}.stl`
 
-A generic cruciate-retaining total-knee femoral component, committed at two
+A generic cruciate-retaining total-knee femoral component, committed at three
 sizes (each mesh is ~30–35 MB, so not every size 3–12 the generator supports
 is committed; pass `--size` and `-o` to produce another one).
 
@@ -30,27 +31,27 @@ is committed; pass `--size` and `-o` to produce another one).
 That table is the only geometry the manufacturer publishes, and it is what the
 model reproduces:
 
-| From the published table | Size 7 | Size 7 model | Size 10 | Size 10 model |
-| --- | --- | --- | --- | --- |
-| Overall A/P | 62.1 mm | 62.07 mm | 68.5 mm | 68.46 mm |
-| Functional A/P | 53.0 mm | 53.00 mm | 59.0 mm | 59.00 mm |
-| Overall M/L | 69.5 mm | 69.50 mm | 74.8 mm | 74.80 mm |
-| Distal thickness | 9 mm | 9.00 mm | 9 mm | 9.00 mm |
-| Condyle thickness | 9 mm | 9.00 mm | 9 mm | 9.00 mm |
+| From the published table | Size 7 | Size 7 model | Size 8 | Size 8 model | Size 10 | Size 10 model |
+| --- | --- | --- | --- | --- | --- | --- |
+| Overall A/P | 62.1 mm | 62.07 mm | 63.8 mm | 63.77 mm | 68.5 mm | 68.46 mm |
+| Functional A/P | 53.0 mm | 53.00 mm | 55.0 mm | 55.00 mm | 59.0 mm | 59.00 mm |
+| Overall M/L | 69.5 mm | 69.50 mm | 71.3 mm | 71.30 mm | 74.8 mm | 74.80 mm |
+| Distal thickness | 9 mm | 9.00 mm | 9 mm | 9.00 mm | 9 mm | 9.00 mm |
+| Condyle thickness | 9 mm | 9.00 mm | 9 mm | 9.00 mm | 9 mm | 9.00 mm |
 
 Everything else is a **design assumption**, invented from generic total-knee
 conventions because it is not published:
 
-| Design assumption | Size 7 value | Size 10 value |
-| --- | --- | --- |
-| Distal / posterior / anterior articular radius | 38.2 / 19.1 / 21.0 mm | 42.1 / 21.1 / 23.2 mm |
-| Anterior flange height | 47.7 mm | 53.1 mm |
-| Posterior condyle height | 25.4 mm | 28.3 mm |
-| Anterior & posterior chamfer length | 11.4 mm | 13.0 mm |
-| Intercondylar notch width | 20.9 mm | 22.4 mm |
-| Trochlear groove depth | 2.6 mm | 2.6 mm |
-| Fixation pegs | 2 × ⌀6 mm, 11 mm long | 2 × ⌀6 mm, 11 mm long |
-| Wall thickness (range) | 6.2 – 10.3 mm | 5.9 – 10.3 mm |
+| Design assumption | Size 7 value | Size 8 value | Size 10 value |
+| --- | --- | --- | --- |
+| Distal / posterior / anterior articular radius | 38.2 / 19.1 / 21.0 mm | 39.2 / 19.6 / 21.6 mm | 42.1 / 21.1 / 23.2 mm |
+| Anterior flange height | 47.7 mm | 49.5 mm | 53.1 mm |
+| Posterior condyle height | 25.4 mm | 26.4 mm | 28.3 mm |
+| Anterior & posterior chamfer length | 11.4 mm | 12.0 mm | 13.0 mm |
+| Intercondylar notch width | 20.9 mm | 21.4 mm | 22.4 mm |
+| Trochlear groove depth | 2.6 mm | 2.6 mm | 2.6 mm |
+| Fixation pegs | 2 × ⌀6 mm, 11 mm long | 2 × ⌀6 mm, 11 mm long | 2 × ⌀6 mm, 11 mm long |
+| Wall thickness (range) | 6.2 – 10.3 mm | 6.0 – 10.4 mm | 5.9 – 10.3 mm |
 
 The anterior flange height was lengthened from an initial 0.60 fraction of
 functional A/P (35.4 mm at size 10) to 0.90 so the flange sweeps past the
@@ -73,10 +74,10 @@ fixation-surface features (porous coating, cement pockets) and no box or cam.
 The articular surface is plausible, not validated — it is not suitable for
 contact-mechanics or wear work without independent verification.
 
-**Printing.** Size 7: 659,426 triangles, 51.4 cm³. Size 10: 736,218 triangles,
-61.9 cm³. Both oriented distal-surface-down with the open (bone-facing) side
-up; both will need supports under the anterior flange and the posterior
-condyles.
+**Printing.** Size 7: 659,426 triangles, 51.4 cm³. Size 8: 701,218 triangles,
+53.4 cm³. Size 10: 736,218 triangles, 61.9 cm³. All oriented
+distal-surface-down with the open (bone-facing) side up; all will need
+supports under the anterior flange and the posterior condyles.
 
 ## `generic-bone-plate.stl`
 
