@@ -43,13 +43,19 @@ conventions because it is not published:
 | Design assumption | Size 10 value |
 | --- | --- |
 | Distal / posterior / anterior articular radius | 42.1 / 21.1 / 23.2 mm |
-| Anterior flange height | 35.4 mm |
+| Anterior flange height | 53.1 mm |
 | Posterior condyle height | 28.3 mm |
 | Anterior & posterior chamfer length | 13.0 mm |
 | Intercondylar notch width | 22.4 mm |
 | Trochlear groove depth | 2.6 mm |
 | Fixation pegs | 2 × ⌀6 mm, 11 mm long |
 | Wall thickness (range) | 5.9 – 10.3 mm |
+
+The anterior flange height was lengthened from an initial 35.4 mm so the
+flange sweeps past the resection box before it's cut off (matching how the
+anterior shield reads on real CR femoral components), rather than terminating
+flush with the box. The extension is tangent-continuous with the articular
+J-curve, not a separate flat panel.
 
 Construction: the bone-facing surface is the exact five-cut resection box
 (anterior, anterior chamfer, distal, posterior chamfer, posterior). The
@@ -63,7 +69,7 @@ fixation-surface features (porous coating, cement pockets) and no box or cam.
 The articular surface is plausible, not validated — it is not suitable for
 contact-mechanics or wear work without independent verification.
 
-**Printing.** 641,666 triangles, 51.96 cm³, oriented distal-surface-down with
+**Printing.** 747,642 triangles, 63.0 cm³, oriented distal-surface-down with
 the open (bone-facing) side up. It will need supports under the anterior
 flange and the posterior condyles.
 

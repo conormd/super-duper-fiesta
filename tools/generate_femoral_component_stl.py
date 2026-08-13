@@ -54,7 +54,7 @@ CONDYLE_THICKNESS = 9.0
 # --- Design assumptions: NOT from the published table ------------------------
 ANT_CHAMFER_FRAC = 0.26     # of the box depth
 POST_CHAMFER_FRAC = 0.26
-FLANGE_HEIGHT_FRAC = 0.60   # anterior flange height, of functional A/P
+FLANGE_HEIGHT_FRAC = 0.90   # anterior flange height, of functional A/P
 PCOND_HEIGHT_FRAC = 0.48    # posterior condyle height, of functional A/P
 # Articular radius as a fraction of the largest radius, sampled at tangent
 # angles 0, 45, 90, 135, 180 deg round the J-curve. Anterior -> distal ->
