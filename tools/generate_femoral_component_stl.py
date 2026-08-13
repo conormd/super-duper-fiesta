@@ -73,6 +73,8 @@ FLANGE_TAPER = 0.10          # flange narrowing, fraction of half width
 POST_TAPER = 0.06
 EDGE_RADIUS = 4.0            # condylar edge roll-off
 RIM_RADIUS = 0.8             # break on the proximal rim
+TIP_TAPER_DEPTH = 7.0        # anterior flange tip: how far the rim dips at the M/L edges
+TIP_TAPER_START = 0.40       # fraction of the flange half width where the dip begins
 PEG_RADIUS = 3.0
 PEG_LENGTH = 11.0
 PEG_X_FRAC = 0.20
@@ -210,8 +212,8 @@ def build_volume(g: SimpleNamespace, resolution: float):
     g.min_wall, g.max_wall = wall_thickness(g, outer_poly, box_poly)
 
     hw = half_width(yy, zz, g)
-    z_clip = g.z_flange + (g.z_pcond - g.z_flange) * smoothstep(
-        (yy - 0.35 * g.y_post) / (0.30 * g.y_post))
+    flange_weight = 1.0 - smoothstep((yy - 0.35 * g.y_post) / (0.30 * g.y_post))
+    z_clip = g.z_flange + (g.z_pcond - g.z_flange) * (1.0 - flange_weight)
     troch = 1.0 - smoothstep((yy - (g.y_notch - 14.0)) / 14.0)
 
     vol = np.empty((len(xs), len(ys), len(zs)), dtype=np.float32)
@@ -227,8 +229,12 @@ def build_volume(g: SimpleNamespace, resolution: float):
                                  np.abs(x) - hw, EDGE_RADIUS)
 
         # Hollow it out on the exact resection box, and trim the proximal rim.
+        # The anterior flange's tip dips towards the M/L edges instead of
+        # cutting off flat, so it reads as a rounded rim rather than a plateau.
+        tip_dip = TIP_TAPER_DEPTH * flange_weight * smoothstep(
+            (np.abs(x) - TIP_TAPER_START * hw) / ((1.0 - TIP_TAPER_START) * hw))
         d = np.maximum(d, -d_box)
-        d = rounded_intersection(d, np.broadcast_to(zz, d.shape) - z_clip, RIM_RADIUS)
+        d = rounded_intersection(d, zz - (z_clip - tip_dip), RIM_RADIUS)
 
         # Intercondylar notch: a rounded U opening posteriorly.
         rr = 0.85 * g.notch_hw

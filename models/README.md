@@ -55,7 +55,9 @@ The anterior flange height was lengthened from an initial 35.4 mm so the
 flange sweeps past the resection box before it's cut off (matching how the
 anterior shield reads on real CR femoral components), rather than terminating
 flush with the box. The extension is tangent-continuous with the articular
-J-curve, not a separate flat panel.
+J-curve, not a separate flat panel. The flange's proximal tip is domed rather
+than cut flat: it dips 7 mm towards the M/L edges instead of ending in a
+straight line across the width.
 
 Construction: the bone-facing surface is the exact five-cut resection box
 (anterior, anterior chamfer, distal, posterior chamfer, posterior). The
@@ -69,7 +71,7 @@ fixation-surface features (porous coating, cement pockets) and no box or cam.
 The articular surface is plausible, not validated — it is not suitable for
 contact-mechanics or wear work without independent verification.
 
-**Printing.** 747,642 triangles, 63.0 cm³, oriented distal-surface-down with
+**Printing.** 736,218 triangles, 61.9 cm³, oriented distal-surface-down with
 the open (bone-facing) side up. It will need supports under the anterior
 flange and the posterior condyles.
 
