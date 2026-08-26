@@ -64,9 +64,6 @@ INSERT_ML = 70.0             # overall medial-lateral width
 INSERT_AP = 48.0             # overall anterior-posterior depth
 POST_WIDENING = 0.04         # plateau is this fraction wider posteriorly
 OUTLINE_EXPONENT = 2.6       # superellipse exponent of the plateau outline
-PCL_HALFWIDTH = 7.0          # posterior cruciate cut-out (this is a CR bearing)
-PCL_DEPTH = 8.5
-PCL_FILLET = 3.0
 Y_DISH = -1.0                # A/P position of the medial socket floor
 CLEARANCE = 0.4              # bearing gap; also the print fit at the socket
 
@@ -207,25 +204,19 @@ def to_bearing(g, x, y, z, theta, psi):
 
 
 def outline_polygon(g: SimpleNamespace, n: int = 512) -> np.ndarray:
-    """Tibial plateau outline: a superellipse, slightly wider posteriorly."""
+    """Tibial plateau outline: a superellipse, slightly wider posteriorly.
+
+    Closed all the way round, with no posterior cruciate cut-out: a congruent
+    medial socket is itself the A/P restraint, so this bearing is designed for
+    a knee with the posterior cruciate sacrificed and the posterior margin runs
+    continuously behind the intercondylar eminence.
+    """
     t = np.linspace(0.0, 2.0 * np.pi, n, endpoint=False)
     k = 2.0 / OUTLINE_EXPONENT
     x = g.half_ml * np.sign(np.cos(t)) * np.abs(np.cos(t)) ** k
     y = g.half_ap * np.sign(np.sin(t)) * np.abs(np.sin(t)) ** k
     x = x * (1.0 + POST_WIDENING * y / g.half_ap)
     return np.stack([x, y], axis=1)
-
-
-def footprint_sdf(g, x, y, outline):
-    """Plateau outline with the posterior cruciate cut-out removed."""
-    d = polygon_sdf(x, y, outline)
-    # The cut-out is the posterior notch, so `b` has to be negative *behind*
-    # the cut line, not in front of it.
-    a = np.abs(x) - PCL_HALFWIDTH + PCL_FILLET
-    b = (g.half_ap - PCL_DEPTH + PCL_FILLET) - y
-    pcl = (np.minimum(np.maximum(a, b), 0.0)
-           + np.hypot(np.maximum(a, 0.0), np.maximum(b, 0.0)) - PCL_FILLET)
-    return np.maximum(d, -pcl)
 
 
 def wall_ceiling(g, x, y):
@@ -269,7 +260,7 @@ def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField)
 
     # The footprint and the wall ceiling depend only on (x, y).
     xx, yy = np.meshgrid(xs, ys, indexing="ij")
-    d_foot = footprint_sdf(g, xx, yy, outline)
+    d_foot = polygon_sdf(xx, yy, outline)
     ceiling = wall_ceiling(g, xx, yy)
 
     sweep = poses(g)

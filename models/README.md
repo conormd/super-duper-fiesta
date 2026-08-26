@@ -132,18 +132,24 @@ the floor the medial surface has climbed 1.32 mm while the lateral has climbed
 
 | Design assumption | Value |
 | --- | --- |
-| Overall M/L x A/P | 70.2 x 47.9 mm |
+| Overall M/L x A/P | 70.2 x 48.0 mm |
 | Overall height | 16.3 mm |
 | Polyethylene thickness at the medial socket floor | 10.0 mm |
 | Bearing clearance (also the print fit at the socket) | 0.4 mm |
 | Anteromedial lip | 6.17 mm above the medial floor |
 | Posterolateral wall | 2.91 mm above the lateral floor |
 | Intercondylar eminence | 4.50 mm above the medial floor |
-| Posterior cruciate cut-out | 14 mm wide x 8.5 mm deep |
 | Lateral relief excursion | 12 mm (4 anterior, 8 posterior) |
 | Tibial internal rotation at full flexion | 15 deg |
-| Volume | 32.60 cm3 |
-| Mesh | 311,254 triangles, watertight |
+| Volume | 34.22 cm3 |
+| Mesh | 313,818 triangles, watertight |
+
+There is no posterior cruciate cut-out: the plateau outline is closed all the
+way round, and the intercondylar eminence runs continuously back to the
+posterior margin. A congruent medial socket is itself the anterior-posterior
+restraint, so the bearing is designed for a knee with the posterior cruciate
+sacrificed, even though the femoral component it articulates with is a
+cruciate-retaining one.
 
 The wall heights are the medial-congruent design in miniature: a tall
 anteromedial lip, because a congruent socket is an A/P constraint and its
