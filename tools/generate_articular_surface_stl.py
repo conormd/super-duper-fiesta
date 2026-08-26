@@ -333,7 +333,10 @@ def top_surface(vol, zs):
     last = np.clip(last, 0, inside.shape[2] - 2)
     i, j = np.indices(last.shape)
     v0, v1 = vol[i, j, last], vol[i, j, last + 1]
-    t = np.where(v1 > v0, v0 / (v0 - v1), 0.0)
+    # Flat regions of the field give v0 == v1, so guard the division rather
+    # than letting it warn and discarding the infinity afterwards.
+    den = v0 - v1
+    t = np.divide(v0, den, out=np.zeros_like(den), where=den < 0)
     return np.where(hit, zs[last] + (zs[1] - zs[0]) * np.clip(t, 0.0, 1.0),
                     np.nan)
 
