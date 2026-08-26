@@ -84,19 +84,20 @@ SPLIT_BLEND = 3.0
 # anterior femoral translation. The posterolateral wall is low, so the lateral
 # condyle can roll back over it.
 WALL_MED_ANT = 7.0
-WALL_MED_POST = 6.0
+WALL_MED_POST = 3.0
 WALL_LAT_ANT = 5.0
-WALL_LAT_POST = 3.0
-# Intercondylar eminence. The femoral component's notch is a through-cut, so
-# the carve leaves the whole central band standing at blank height; this is
-# what shapes what is left into a ridge rather than a full-length mesa.
-EMINENCE_HEIGHT = 4.5        # above the articular floor, at its peak
-EMINENCE_Y = 0.0             # A/P position of the peak
-EMINENCE_SIGMA = 13.0        # A/P fall-off
-EMINENCE_HALFWIDTH = 9.0
-EMINENCE_BLEND = 6.0
-EMINENCE_MARGIN = 4.0        # eminence trim stops this far from the A/P margin
-EMINENCE_MARGIN_BLEND = 8.0
+WALL_LAT_POST = 1.5
+# Central corridor. There is no intercondylar eminence: the femoral component's
+# notch is a through-cut, so inside its width the femoral never touches the
+# bearing and the carve leaves whatever the blank had there. Holding that band
+# down to the articular floor is what keeps the two dishes joined by a flat
+# corridor instead of a post moulded to the notch. With no eminence, all of the
+# bearing's A/P and rotational restraint comes from the medial socket -- which
+# is the medial-congruent principle taken at its word.
+CENTRAL_HALFWIDTH = 10.0     # held down out to here, i.e. the notch edge
+CENTRAL_BLEND = 6.0
+CENTRAL_MARGIN = 4.0         # released this far from the ANTERIOR margin only,
+CENTRAL_MARGIN_BLEND = 8.0   # so the anterior lip stays continuous
 WALL_FILLET = 1.5            # blend from the articular surface into the wall
 RIM_BREAK = 1.0              # break on the top edge of the wall
 BASE_CHAMFER = 0.8           # chamfer on the inferior edge
@@ -234,15 +235,16 @@ def wall_ceiling(g, x, y):
     back = WALL_LAT_POST + (WALL_MED_POST - WALL_LAT_POST) * med
     wall = ant + (back - ant) * post
 
-    # Trim the central band down to a ridge, but let go of it towards the A/P
-    # margins so the anterior and posterior walls stay continuous across the
-    # full width instead of being notched out at the midline.
+    # Hold the central corridor down to the articular floor. The hold is
+    # released towards the ANTERIOR margin only, so the anterior lip stays
+    # continuous across the full width; posteriorly it keeps governing all the
+    # way out, which is what leaves the back of the bearing open for the
+    # lateral condyle to roll back over.
     central = 1.0 - smoothstep(
-        (np.abs(x) - EMINENCE_HALFWIDTH) / EMINENCE_BLEND)
+        (np.abs(x) - CENTRAL_HALFWIDTH) / CENTRAL_BLEND)
     central = central * smoothstep(
-        (g.half_ap - EMINENCE_MARGIN - np.abs(y)) / EMINENCE_MARGIN_BLEND)
-    ridge = EMINENCE_HEIGHT * np.exp(-((y - EMINENCE_Y) / EMINENCE_SIGMA) ** 2)
-    return g.thickness + wall + np.minimum(ridge - wall, 0.0) * central
+        (y + g.half_ap - CENTRAL_MARGIN) / CENTRAL_MARGIN_BLEND)
+    return g.thickness + wall * (1.0 - central)
 
 
 def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField):
@@ -274,8 +276,8 @@ def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField)
         z = zs[None, None, :]
 
         # Blank: the plateau footprint, from the tray up to the wall ceiling.
-        d = rounded_intersection(d_foot[sl][:, :, None], -z, BASE_CHAMFER)
-        d = rounded_intersection(d, z - ceiling[sl][:, :, None], RIM_BREAK)
+        blank = rounded_intersection(d_foot[sl][:, :, None], -z, BASE_CHAMFER)
+        d = rounded_intersection(blank, z - ceiling[sl][:, :, None], RIM_BREAK)
 
         # Medial: the femoral envelope swept about its own distal centre of
         # curvature. A rotation about that centre barely enlarges the envelope,
@@ -301,7 +303,16 @@ def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField)
         # is already tangent to that plane, so the clamp only holds the floor.
         carve -= g.clearance
         carve = np.maximum(carve, g.thickness - z)
-        vol[sl] = rounded_intersection(d, -carve, WALL_FILLET)
+        d = rounded_intersection(d, -carve, WALL_FILLET)
+
+        # Everything above is subtractive, and two of those subtractions are
+        # filleted -- so where the wall ceiling meets the carve, the fillet can
+        # scoop out a shallow trench *below* the nominal floor. Unioning the
+        # solid slab back in makes the minimum thickness exact rather than
+        # nearly right. It cannot introduce interference: the femoral component
+        # never reaches below the floor plus the clearance.
+        base = np.maximum(blank, z - g.thickness)
+        vol[sl] = np.minimum(d, base)
 
     return vol, xs, ys, zs
 
@@ -462,7 +473,7 @@ def main() -> None:
     lat_cor = coronal_radius(xs, ys, h, -g.x_cond, ly)
     med_lip = wall_crest(xs, ys, h, g.x_cond, -g.half_ap, my - 6.0, mz)
     lat_wall = wall_crest(xs, ys, h, -g.x_cond, ly + 6.0, g.half_ap, lz)
-    eminence = wall_crest(xs, ys, h, 0.0, -12.0, 12.0, mz, band=4.0)
+    corridor = wall_crest(xs, ys, h, 0.0, -12.0, g.half_ap, mz, band=4.0)
     gap, gap_at = verify_clearance(g, verts, field)
     lift = F.contact_lift(g.femoral, np.arange(0.0, FLEXION_MAX + 1.0))
     tracking = float(np.interp(1.0, lift, np.arange(0.0, FLEXION_MAX + 1.0)))
@@ -489,6 +500,8 @@ def main() -> None:
     print(f"  overall A/P      : {hi[1]-lo[1]:.2f} mm")
     print(f"  overall height   : {hi[2]-lo[2]:.2f} mm")
     print(f"  thickness (floor): {mz:.2f} mm  (nominal {args.thickness:g})")
+    print(f"  thinnest anywhere: {np.nanmin(h):.2f} mm  (must not be below "
+          f"{args.thickness:g})")
     print(f"  condyle centres  : +/-{g.x_cond:.2f} mm from the midline")
     print()
     print(f"  femoral distal R : {R:.2f} mm sagittal, {fem_cor:.2f} mm coronal")
@@ -512,7 +525,8 @@ def main() -> None:
           f"within 0.25 mm of the floor")
     print(f"  anteromedial lip : {med_lip:.2f} mm above the medial floor")
     print(f"  posterolat. wall : {lat_wall:.2f} mm above the lateral floor")
-    print(f"  eminence         : {eminence:.2f} mm above the medial floor")
+    print(f"  central corridor : {corridor:.2f} mm above the medial floor "
+          f"(no eminence)")
     print()
     print(f"  pivot tracking to: {tracking:.0f} deg flexion before the femoral "
           f"lifts 1 mm off a fixed pivot")

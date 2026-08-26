@@ -137,24 +137,27 @@ the floor the medial surface has climbed 1.32 mm while the lateral has climbed
 | Polyethylene thickness at the medial socket floor | 10.0 mm |
 | Bearing clearance (also the print fit at the socket) | 0.4 mm |
 | Anteromedial lip | 6.17 mm above the medial floor |
-| Posterolateral wall | 2.91 mm above the lateral floor |
-| Intercondylar eminence | 4.50 mm above the medial floor |
+| Posterolateral wall | 1.61 mm above the lateral floor |
 | Lateral relief excursion | 12 mm (4 anterior, 8 posterior) |
 | Tibial internal rotation at full flexion | 15 deg |
-| Volume | 34.22 cm3 |
-| Mesh | 313,818 triangles, watertight |
+| Volume | 31.83 cm3 |
+| Mesh | 294,886 triangles, watertight |
 
-There is no posterior cruciate cut-out: the plateau outline is closed all the
-way round, and the intercondylar eminence runs continuously back to the
-posterior margin. A congruent medial socket is itself the anterior-posterior
-restraint, so the bearing is designed for a knee with the posterior cruciate
-sacrificed, even though the femoral component it articulates with is a
-cruciate-retaining one.
+There is no posterior cruciate cut-out and no intercondylar eminence. The
+plateau outline is closed all the way round, and the central corridor between
+the two dishes is held flat at the articular floor, so the back of the bearing
+is open: nothing stands proud where the lateral condyle has to roll back. All
+of the anterior-posterior and rotational restraint therefore comes from the
+medial socket alone, which is the medial-congruent principle taken at its word,
+and the bearing is designed for a knee with the posterior cruciate sacrificed
+even though the femoral component it articulates with is a cruciate-retaining
+one.
 
-The wall heights are the medial-congruent design in miniature: a tall
+The remaining wall heights are the medial-congruent design in miniature: a tall
 anteromedial lip, because a congruent socket is an A/P constraint and its
-anterior lip is what resists anterior femoral translation, and a low
-posterolateral wall, so the lateral condyle can roll back over it.
+anterior lip is what resists anterior femoral translation, and a
+posterolateral wall barely above the floor, so the lateral condyle can roll
+back over it unobstructed.
 
 **Minimum gap to the femoral component across the sweep: +0.34 mm.** It has to
 be >= 0 or the two parts interfere; that it lands just under the 0.4 mm nominal
