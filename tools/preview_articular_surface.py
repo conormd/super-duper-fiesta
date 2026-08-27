@@ -44,6 +44,7 @@ def main() -> None:
 
     g = A.geometry(args.thickness, A.CLEARANCE)
     field = F.ArticularField(g.femoral)
+    A.attach_coronal_radius(g, field)
     vol, xs, ys, zs = A.build_volume(g, args.resolution, field)
     h = A.top_surface(vol, zs)
     jy, jz, _, _ = F.articular_profile(g.femoral)
@@ -72,7 +73,7 @@ def main() -> None:
                                   framealpha=0.9)
 
     ax = fig.add_subplot(gs[1, 1:3])
-    for y0, c in ((-14, "0.2"), (-2, "tab:green"), (10, "tab:red")):
+    for y0, c in ((-16, "0.2"), (-2, "tab:green"), (12, "tab:red")):
         j = int(np.argmin(np.abs(ys - y0)))
         ax.plot(xs, h[:, j], c=c, lw=1.1, label=f"y = {y0:+d}")
     ax.set_title("coronal sections: walls and the intercondylar eminence")

@@ -59,13 +59,27 @@ from sdf_mesh import (check_watertight, polygon_sdf, polygonise,
 
 FEMORAL_SIZE = 8
 
-# --- Bearing envelope: design assumptions, none of this is published ---------
-INSERT_ML = 70.0             # overall medial-lateral width
-INSERT_AP = 48.0             # overall anterior-posterior depth
-POST_WIDENING = 0.04         # plateau is this fraction wider posteriorly
+# --- Published Persona Medial Congruent / tibial baseplate dimensions --------
+# From the Persona Medial Congruent Bearing Design Rationale. A size-8 CR femur
+# takes the 8-11/EF bearing, so the plateau is the size E baseplate and the lip
+# heights are the 8-11/EF row. The plateau is asymmetric: its medial half is
+# deeper front-to-back than its lateral half, which is most of what gives a
+# tibial component its kidney outline.
+INSERT_ML = 71.0             # size E overall M/L
+MEDIAL_AP = 50.2             # size E medial A/P
+LATERAL_AP = 44.6            # size E lateral A/P
+ANTERIOR_MEDIAL_LIP = 11.0   # 8-11/EF anterior medial lip height
+POSTERIOR_MEDIAL_LIP = 3.4   # 8-11/EF posterior medial lip height
+
+# --- Bearing envelope: design assumptions, not published ---------------------
 OUTLINE_EXPONENT = 2.6       # superellipse exponent of the plateau outline
 Y_DISH = -1.0                # A/P position of the medial socket floor
 CLEARANCE = 0.4              # bearing gap; also the print fit at the socket
+# Posterior cruciate cut-out. The rationale does not dimension it, so this is
+# a generic rounded notch at the posterior midline.
+PCL_HALFWIDTH = 8.0
+PCL_DEPTH = 9.0
+PCL_FILLET = 4.0
 
 # Dish radii. The bearing surface is designed from these and then verified
 # against the femoral component, rather than being carved by it: a carve is a
@@ -97,10 +111,10 @@ LATERAL_FLAT = 12.0
 # congruent socket is an A/P restraint and its anterior lip is what resists
 # anterior femoral translation, against a posterolateral wall barely off the
 # floor so the lateral condyle can roll back over it unobstructed.
-WALL_MED_ANT = 7.0
-WALL_MED_POST = 3.0
-WALL_LAT_ANT = 5.0
-WALL_LAT_POST = 1.5
+WALL_MED_ANT = ANTERIOR_MEDIAL_LIP
+WALL_MED_POST = POSTERIOR_MEDIAL_LIP
+WALL_LAT_ANT = 0.70 * ANTERIOR_MEDIAL_LIP   # lateral lips are not published
+WALL_LAT_POST = 0.45 * POSTERIOR_MEDIAL_LIP
 # The rim runs anteriorly and posteriorly only. The femoral component is wider
 # than this plateau, so it overhangs the M/L edges and there is nowhere to put
 # a wall there that it would not collide with: on those edges the dish's own
@@ -122,7 +136,8 @@ BASE_CHAMFER = 0.8           # chamfer on the inferior edge
 FLEXION_MIN = -5.0           # hyperextension, degrees
 FLEXION_MAX = 120.0
 FLEXION_STEP = 2.0
-AXIAL_ROTATION = 15.0        # tibial internal rotation at full flexion, degrees
+AXIAL_ROTATION = 14.0        # published: the lateral condyle follows a
+                             # 14 degree arcuate path
 AXIAL_SATURATION = 0.60      # reached by this fraction of the flexion range
 
 
@@ -161,7 +176,13 @@ def geometry(thickness: float, clearance: float) -> SimpleNamespace:
         thickness=thickness,
         clearance=clearance,
         half_ml=INSERT_ML / 2.0,
-        half_ap=INSERT_AP / 2.0,
+        # Anterior extent is shared; the published medial/lateral A/P
+        # difference is taken out of the posterior margin, which is where a
+        # tibial baseplate's asymmetry actually sits.
+        ap_ant=LATERAL_AP / 2.0,
+        ap_post_med=MEDIAL_AP - LATERAL_AP / 2.0,
+        ap_post_lat=LATERAL_AP / 2.0,
+        half_ap=MEDIAL_AP - LATERAL_AP / 2.0,
         radius=radius,
         # Centre line of one femoral condyle: midway between the edge of the
         # intercondylar notch and the M/L edge of the component at the contact.
@@ -244,19 +265,35 @@ def to_bearing(g, x, y, z, theta, psi):
 
 
 def outline_polygon(g: SimpleNamespace, n: int = 512) -> np.ndarray:
-    """Tibial plateau outline: a superellipse, slightly wider posteriorly.
+    """Tibial plateau outline: a superellipse, deeper on its medial half.
 
-    Closed all the way round, with no posterior cruciate cut-out: a congruent
-    medial socket is itself the A/P restraint, so this bearing is designed for
-    a knee with the posterior cruciate sacrificed and the posterior margin runs
-    continuously behind the intercondylar eminence.
+    The published medial and lateral A/P depths differ, so the posterior margin
+    sweeps back further on the medial side than the lateral. That asymmetry is
+    most of what makes a tibial component read as a kidney rather than an oval.
     """
     t = np.linspace(0.0, 2.0 * np.pi, n, endpoint=False)
     k = 2.0 / OUTLINE_EXPONENT
-    x = g.half_ml * np.sign(np.cos(t)) * np.abs(np.cos(t)) ** k
-    y = g.half_ap * np.sign(np.sin(t)) * np.abs(np.sin(t)) ** k
-    x = x * (1.0 + POST_WIDENING * y / g.half_ap)
+    cx = np.sign(np.cos(t)) * np.abs(np.cos(t)) ** k
+    cy = np.sign(np.sin(t)) * np.abs(np.sin(t)) ** k
+    x = g.half_ml * cx
+    med = smoothstep(0.5 * (cx + 1.0))          # 0 lateral -> 1 medial
+    post = g.ap_post_lat + (g.ap_post_med - g.ap_post_lat) * med
+    y = np.where(cy >= 0.0, post * cy, g.ap_ant * cy)
     return np.stack([x, y], axis=1)
+
+
+def footprint_sdf(g, x, y, outline):
+    """Plateau outline with the posterior cruciate cut-out removed.
+
+    The cut-out is the posterior notch, so `b` has to go negative *behind* the
+    cut line, not in front of it.
+    """
+    d = polygon_sdf(x, y, outline)
+    a = np.abs(x) - PCL_HALFWIDTH + PCL_FILLET
+    b = (g.ap_post_lat - PCL_DEPTH + PCL_FILLET) - y
+    pcl = (np.minimum(np.maximum(a, b), 0.0)
+           + np.hypot(np.maximum(a, 0.0), np.maximum(b, 0.0)) - PCL_FILLET)
+    return np.maximum(d, -pcl)
 
 
 CLAMP_BLEND = 2.0
@@ -379,11 +416,11 @@ def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField)
     margin = 2.0
     xs = np.arange(-(g.half_ml + margin), g.half_ml + margin + resolution,
                    resolution, dtype=np.float64)
-    ys = np.arange(-(g.half_ap + margin), g.half_ap + margin + resolution,
+    ys = np.arange(-(g.ap_ant + margin), g.ap_post_med + margin + resolution,
                    resolution, dtype=np.float64)
 
     xx, yy = np.meshgrid(xs, ys, indexing="ij")
-    d_foot = polygon_sdf(xx, yy, outline)
+    d_foot = footprint_sdf(g, xx, yy, outline)
     height = articular_height(g, xx, yy)
     height = smooth_min(height, envelope_height(g, xs, ys, field, resolution),
                         ENVELOPE_BLEND)
