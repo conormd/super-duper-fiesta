@@ -64,11 +64,23 @@ NOTCH_HALFWIDTH_FRAC = 0.15  # of overall M/L
 NOTCH_APEX_FRAC = 0.42       # of the box depth, from the anterior cut
 GROOVE_DEPTH = 2.6           # trochlear groove
 GROOVE_SIGMA_FRAC = 0.13
-CORONAL_BULGE = 1.6          # articular fall-off towards the M/L edges
+CORONAL_BULGE = 1.6          # trochlear fall-off towards the M/L edges
 # The fall-off starts this far out across the half width, so the central
 # condylar band stays at full thickness and the published envelope dimensions
 # -- which are measured on the condyles, not in the groove -- are hit exactly.
 BULGE_START = 0.55
+# Coronal radius of each condyle, about its own centre line. Posterior to the
+# trochlea the condyles are arcs of this radius rather than a flat band with
+# the edges rolled off, which is what the fall-off above gives on its own. It
+# matters well beyond appearance: a concave tibial bearing can never rise
+# faster than the convex condyle sitting in it, so this radius is the hard
+# upper limit on how tightly any mating bearing's dishes may be cupped.
+CONDYLE_CORONAL_RADIUS = 30.0
+# The arc governs the articulating band only. Carried all the way out to the
+# M/L edge it thins the shell until the articular surface meets the distal cut
+# and the rim pinches to zero thickness, so outside this fraction of the
+# condyle's half width the surface runs out flat to the edge instead.
+CONDYLE_ARC_OUTER = 0.75
 FLANGE_TAPER = 0.10          # flange narrowing, fraction of half width
 POST_TAPER = 0.06
 EDGE_RADIUS = 4.0            # condylar edge roll-off
@@ -119,6 +131,10 @@ def geometry(size: int) -> SimpleNamespace:
     g.notch_hw = NOTCH_HALFWIDTH_FRAC * overall_ml
     g.y_notch = NOTCH_APEX_FRAC * g.y_post
     g.groove_sigma = GROOVE_SIGMA_FRAC * overall_ml
+    # Each condyle runs from the edge of the notch out to the M/L edge, so its
+    # centre line and half width follow from those two rather than being set.
+    g.x_cond = 0.5 * (g.notch_hw + g.half_ml)
+    g.cond_hw = 0.5 * (g.half_ml - g.notch_hw)
     g.peg_x = PEG_X_FRAC * overall_ml
     g.peg_y = PEG_Y_FRAC * g.y_post
     return g
@@ -194,6 +210,50 @@ def half_width(y, z, g):
     return g.half_ml * f
 
 
+def trochlear_weight(g, y):
+    """1 across the trochlea, 0 behind the intercondylar notch apex."""
+    return 1.0 - smoothstep((y - (g.y_notch - 14.0)) / 14.0)
+
+
+def coronal_offset(g, x, y, hw):
+    """How far the articular surface sits inboard of the sagittal J-curve.
+
+    Anteriorly this is a broad trochlear surface with a central groove and the
+    M/L edges rolled away; posteriorly it is two condyles that are genuine arcs
+    about their own centre lines, the two blended by the trochlear weight.
+
+    This is the single definition of the component's coronal shape. Anything
+    that needs the articular surface -- the mesh here, or a mating bearing's
+    clearance check -- has to come through this function, or the two drift.
+    """
+    troch = trochlear_weight(g, y)
+    groove = GROOVE_DEPTH * np.exp(-(x / g.groove_sigma) ** 2) * troch
+    falloff = CORONAL_BULGE * smoothstep(
+        (np.abs(x) - BULGE_START * hw) / ((1.0 - BULGE_START) * hw))
+    u = np.clip(np.abs(x) - g.x_cond, -g.cond_hw, CONDYLE_ARC_OUTER * g.cond_hw)
+    arc = CONDYLE_CORONAL_RADIUS - np.sqrt(
+        np.maximum(CONDYLE_CORONAL_RADIUS ** 2 - u ** 2, 0.0))
+    return groove + arc * (1.0 - troch) + falloff * troch
+
+
+def rim_height(g, x, y, hw):
+    """Proximal rim, with the anterior flange tip dipping at the M/L edges."""
+    flange_weight = 1.0 - smoothstep((y - 0.35 * g.y_post) / (0.30 * g.y_post))
+    z_clip = g.z_flange + (g.z_pcond - g.z_flange) * (1.0 - flange_weight)
+    tip_dip = TIP_TAPER_DEPTH * flange_weight * smoothstep(
+        (np.abs(x) - TIP_TAPER_START * hw) / ((1.0 - TIP_TAPER_START) * hw))
+    return z_clip - tip_dip
+
+
+def notch_field(g, x, y):
+    """Intercondylar notch: a rounded U opening posteriorly."""
+    rr = 0.85 * g.notch_hw
+    na = np.abs(x) - g.notch_hw + rr
+    nb = (g.y_notch - y) + rr
+    return (np.minimum(np.maximum(na, nb), 0.0)
+            + np.hypot(np.maximum(na, 0.0), np.maximum(nb, 0.0)) - rr)
+
+
 def build_volume(g: SimpleNamespace, resolution: float):
     outer_poly, box_poly = build_polygons(g)
 
@@ -212,37 +272,21 @@ def build_volume(g: SimpleNamespace, resolution: float):
     g.min_wall, g.max_wall = wall_thickness(g, outer_poly, box_poly)
 
     hw = half_width(yy, zz, g)
-    flange_weight = 1.0 - smoothstep((yy - 0.35 * g.y_post) / (0.30 * g.y_post))
-    z_clip = g.z_flange + (g.z_pcond - g.z_flange) * (1.0 - flange_weight)
-    troch = 1.0 - smoothstep((yy - (g.y_notch - 14.0)) / 14.0)
 
     vol = np.empty((len(xs), len(ys), len(zs)), dtype=np.float32)
     for i0 in range(0, len(xs), 24):
         x = xs[i0:i0 + 24][:, None, None]
 
         # Articular surface, pushed in by the trochlear groove and by the
-        # coronal fall-off towards the condylar edges.
-        groove = GROOVE_DEPTH * np.exp(-(x / g.groove_sigma) ** 2) * troch
-        bulge = CORONAL_BULGE * smoothstep(
-            (np.abs(x) - BULGE_START * hw) / ((1.0 - BULGE_START) * hw))
-        d = rounded_intersection(d_articular + groove + bulge,
+        # coronal shape of the trochlea and condyles.
+        d = rounded_intersection(d_articular + coronal_offset(g, x, yy, hw),
                                  np.abs(x) - hw, EDGE_RADIUS)
 
-        # Hollow it out on the exact resection box, and trim the proximal rim.
-        # The anterior flange's tip dips towards the M/L edges instead of
-        # cutting off flat, so it reads as a rounded rim rather than a plateau.
-        tip_dip = TIP_TAPER_DEPTH * flange_weight * smoothstep(
-            (np.abs(x) - TIP_TAPER_START * hw) / ((1.0 - TIP_TAPER_START) * hw))
+        # Hollow it out on the exact resection box, then trim the proximal rim
+        # and open the intercondylar notch.
         d = np.maximum(d, -d_box)
-        d = rounded_intersection(d, zz - (z_clip - tip_dip), RIM_RADIUS)
-
-        # Intercondylar notch: a rounded U opening posteriorly.
-        rr = 0.85 * g.notch_hw
-        na = np.abs(x) - g.notch_hw + rr
-        nb = (g.y_notch - yy) + rr
-        notch = (np.minimum(np.maximum(na, nb), 0.0)
-                 + np.hypot(np.maximum(na, 0.0), np.maximum(nb, 0.0)) - rr)
-        d = np.maximum(d, -notch)
+        d = rounded_intersection(d, zz - rim_height(g, x, yy, hw), RIM_RADIUS)
+        d = np.maximum(d, -notch_field(g, x, yy))
 
         # Two fixation pegs standing off the distal cut.
         rho = np.hypot(np.abs(x) - g.peg_x, yy - g.peg_y)

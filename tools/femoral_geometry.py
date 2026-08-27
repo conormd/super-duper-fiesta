@@ -105,33 +105,22 @@ class ArticularField:
         return d + self.pitch * np.hypot(fy - cy, fz - cz)
 
     def __call__(self, x, y, z):
+        """The articular envelope, straight out of the femoral generator.
+
+        Every term here comes from `generate_femoral_component_stl`; nothing
+        about the component's shape is restated in this module. That matters:
+        this field is what a mating bearing is designed against and verified
+        with, so a local copy of any one of these formulas would let the
+        bearing be checked against a femoral component that no longer exists.
+        """
         g = self.g
-        d_art = self.sagittal(y, z)
         hw = half_width(y, z, g)
-        ax = np.abs(x)
-
-        troch = 1.0 - smoothstep((y - (g.y_notch - 14.0)) / 14.0)
-        groove = femoral.GROOVE_DEPTH * np.exp(-(x / g.groove_sigma) ** 2) * troch
-        bulge = femoral.CORONAL_BULGE * smoothstep(
-            (ax - femoral.BULGE_START * hw) / ((1.0 - femoral.BULGE_START) * hw))
-        d = rounded_intersection(d_art + groove + bulge, ax - hw,
-                                 femoral.EDGE_RADIUS)
-
-        # Proximal rim, with the anterior flange tip dipping at the M/L edges.
-        flange_weight = 1.0 - smoothstep((y - 0.35 * g.y_post) / (0.30 * g.y_post))
-        z_clip = g.z_flange + (g.z_pcond - g.z_flange) * (1.0 - flange_weight)
-        tip_dip = femoral.TIP_TAPER_DEPTH * flange_weight * smoothstep(
-            (ax - femoral.TIP_TAPER_START * hw)
-            / ((1.0 - femoral.TIP_TAPER_START) * hw))
-        d = rounded_intersection(d, z - (z_clip - tip_dip), femoral.RIM_RADIUS)
-
-        # Intercondylar notch: a rounded U opening posteriorly.
-        rr = 0.85 * g.notch_hw
-        na = ax - g.notch_hw + rr
-        nb = (g.y_notch - y) + rr
-        notch = (np.minimum(np.maximum(na, nb), 0.0)
-                 + np.hypot(np.maximum(na, 0.0), np.maximum(nb, 0.0)) - rr)
-        return np.maximum(d, -notch)
+        d = rounded_intersection(
+            self.sagittal(y, z) + femoral.coronal_offset(g, x, y, hw),
+            np.abs(x) - hw, femoral.EDGE_RADIUS)
+        d = rounded_intersection(d, z - femoral.rim_height(g, x, y, hw),
+                                 femoral.RIM_RADIUS)
+        return np.maximum(d, -femoral.notch_field(g, x, y))
 
 
 def distal_contact(g: SimpleNamespace):
