@@ -38,7 +38,7 @@ from generate_femoral_component_stl import (DISTAL_THICKNESS,  # noqa: F401
 from sdf_mesh import polygon_sdf
 
 
-def articular_profile(g: SimpleNamespace, n: int = 601):
+def articular_profile(g: SimpleNamespace, n: int = 601, shape=None):
     """The generator's sagittal J-curve, plus the tangent angle it was built on.
 
     Returns (y, z, lam, phi). The generator integrates the curve against phi but
@@ -46,13 +46,13 @@ def articular_profile(g: SimpleNamespace, n: int = 601):
     `lam * interp(phi, knots, RADIUS_SHAPE)`, which is what a bearing has to
     match, so it is returned here.
     """
-    y, z, lam = femoral.articular_profile(g, n)
+    y, z, lam = femoral.articular_profile(g, n, shape=shape)
     return y, z, lam, np.linspace(0.0, np.pi, n)
 
 
-def sagittal_polygon(g: SimpleNamespace) -> np.ndarray:
+def sagittal_polygon(g: SimpleNamespace, shape=None) -> np.ndarray:
     """The closed sagittal outline of the articular envelope, capped proximally."""
-    outer, _box = femoral.build_polygons(g)
+    outer, _box = femoral.build_polygons(g, shape=shape)
     return outer
 
 
@@ -75,7 +75,8 @@ class ArticularField:
     def __init__(self, g: SimpleNamespace, pitch: float = 0.15, margin: float = 30.0):
         self.g = g
         self.pitch = pitch
-        poly = sagittal_polygon(g)
+        polys = (sagittal_polygon(g, femoral.LATERAL_RADIUS_SHAPE),
+                 sagittal_polygon(g, femoral.MEDIAL_RADIUS_SHAPE))
         self.y0 = -g.t_ant - margin
         self.z0 = -DISTAL_THICKNESS - margin
         ny = int(np.ceil((g.functional_ap + margin - self.y0) / pitch)) + 1
@@ -83,10 +84,10 @@ class ArticularField:
         ys = self.y0 + pitch * np.arange(ny)
         zs = self.z0 + pitch * np.arange(nz)
         yy, zz = np.meshgrid(ys, zs, indexing="ij")
-        self.grid = polygon_sdf(yy, zz, poly)
+        self.grids = [polygon_sdf(yy, zz, poly) for poly in polys]
         self.shape = (ny, nz)
 
-    def sagittal(self, y, z):
+    def sagittal(self, y, z, grid):
         """Interpolated distance to the sagittal outline, valid outside the grid.
 
         Queries beyond the grid are clamped to its edge and the distance back to
@@ -100,7 +101,7 @@ class ArticularField:
         fz = (z - self.z0) / self.pitch
         cy = np.clip(fy, 0.0, self.shape[0] - 1.0)
         cz = np.clip(fz, 0.0, self.shape[1] - 1.0)
-        d = map_coordinates(self.grid, np.stack([cy.ravel(), cz.ravel()]),
+        d = map_coordinates(grid, np.stack([cy.ravel(), cz.ravel()]),
                             order=1, mode="nearest").reshape(y.shape)
         return d + self.pitch * np.hypot(fy - cy, fz - cz)
 
@@ -115,8 +116,13 @@ class ArticularField:
         """
         g = self.g
         hw = half_width(y, z, g)
+        # The two condyles no longer share a sagittal profile, so the field has
+        # to blend them exactly as the generator's mesh does.
+        lat, med = (self.sagittal(y, z, grid) for grid in self.grids)
+        w = femoral.sagittal_weight(x)
+        d_sagittal = lat + (med - lat) * w
         d = rounded_intersection(
-            self.sagittal(y, z) + femoral.coronal_offset(g, x, y, hw),
+            d_sagittal + femoral.coronal_offset(g, x, y, hw),
             np.abs(x) - hw, femoral.EDGE_RADIUS)
         d = rounded_intersection(d, z - femoral.rim_height(g, x, y, hw),
                                  femoral.RIM_RADIUS)
@@ -129,23 +135,25 @@ def distal_contact(g: SimpleNamespace):
     This is the point that rests on the bearing in full extension, and the
     centre of curvature above it is what a medial-pivot bearing pivots about.
     """
-    y, z, lam, phi = articular_profile(g)
+    shape = femoral.MEDIAL_RADIUS_SHAPE
+    y, z, lam, phi = articular_profile(g, shape=shape)
     i = int(np.argmin(z))
-    knots = np.linspace(0.0, np.pi, len(RADIUS_SHAPE))
-    radius = lam * np.interp(phi[i], knots, RADIUS_SHAPE)
+    knots = np.linspace(0.0, np.pi, len(shape))
+    radius = lam * np.interp(phi[i], knots, shape)
     return float(y[i]), float(z[i]), float(radius)
 
 
 def coronal_radius(g: SimpleNamespace, field: ArticularField,
-                   span: float = 9.0) -> float:
+                   span: float = 9.0, side: float = 1.0) -> float:
     """Radius of the condyle's coronal profile at the distal contact.
 
-    Measured off the articular field rather than assumed, because the
-    component's coronal fall-off is a smoothstep, not an arc -- the number this
-    returns is the equivalent radius a bearing has to match to conform to it.
+    Measured off the articular field rather than assumed. `side` picks the
+    condyle: +1 medial, -1 lateral. The two differ -- the medial condyle is
+    spherical so that a medial-pivot bearing's socket survives axial rotation --
+    so a bearing has to take its two dishes from the two separate numbers.
     """
     y_c, z_c, _ = distal_contact(g)
-    x_cond = 0.5 * (g.notch_hw + half_width(y_c, z_c, g))
+    x_cond = side * 0.5 * (g.notch_hw + half_width(y_c, z_c, g))
     x = np.linspace(x_cond - span, x_cond + span, 121)
     z = np.linspace(z_c - 4.0, z_c + 8.0, 481)
     d = field(x[:, None], np.full((1, 1), y_c), z[None, :])
@@ -166,7 +174,7 @@ def contact_lift(g: SimpleNamespace, flexion_deg):
     number that says how far a medial-pivot bearing can track this femoral
     before the femur has to translate or descend to stay in contact.
     """
-    y, z, lam, _ = articular_profile(g)
+    y, z, lam, _ = articular_profile(g, shape=femoral.MEDIAL_RADIUS_SHAPE)
     y_c, z_c, radius = distal_contact(g)
     d = np.hypot(y - y_c, z - (z_c + radius))
     alpha = np.arctan2(y - y_c, -(z - (z_c + radius)))

@@ -59,10 +59,42 @@ PCOND_HEIGHT_FRAC = 0.48    # posterior condyle height, of functional A/P
 # Articular radius as a fraction of the largest radius, sampled at tangent
 # angles 0, 45, 90, 135, 180 deg round the J-curve. Anterior -> distal ->
 # posterior, i.e. a large distal radius closing down over the posterior condyle.
-RADIUS_SHAPE = (0.55, 0.85, 1.00, 0.62, 0.50)
+# Sagittal radius against tangent angle, sampled at 0/45/90/135/180 degrees
+# round the J-curve, as a fraction of the largest radius. The two condyles now
+# differ, which together with their differing coronal radii is what makes this
+# component side-specific: +x is the MEDIAL side.
+#
+# The medial condyle is held at one radius across the functional arc. With the
+# coronal radius set equal to it, that condyle is a sphere over the range it
+# articulates through -- and a sphere is the only shape invariant under both
+# flexion about a medial pivot and axial rotation about a vertical axis through
+# it. A multi-radius medial condyle cannot hold a fixed pivot: it lifts off,
+# and the swept envelope a mating bearing must stay under comes out flatter
+# than the socket, which costs the bearing its medial conformity.
+#
+# The lateral condyle keeps the multi-radius profile, closing down posteriorly
+# so it can roll back along an arcuate path.
+MEDIAL_RADIUS_SHAPE = (0.60, 1.00, 1.00, 1.00, 0.80)
+LATERAL_RADIUS_SHAPE = (0.55, 0.85, 1.00, 0.62, 0.50)
+RADIUS_SHAPE = MEDIAL_RADIUS_SHAPE      # the pivot side sets the scale
+SAGITTAL_SIDE_BLEND = 14.0   # M/L width over which the two profiles cross over
 NOTCH_HALFWIDTH_FRAC = 0.15  # of overall M/L
 NOTCH_APEX_FRAC = 0.42       # of the box depth, from the anterior cut
 GROOVE_DEPTH = 2.6           # trochlear groove
+# The trochlea is set back proximally over the region that would otherwise
+# sweep low across the anterior tibial plateau. Without it the anterior flange
+# is just a continuation of the sagittal J-curve, and it leaves a mating
+# bearing no room for the anterior lip that gives it its anterior constraint.
+# The weight dies away at the flange tip and again at the distal condyle, so
+# neither the published overall A/P nor the distal thickness moves.
+TROCHLEAR_LIFT = 3.0
+TROCHLEAR_LIFT_Y = 8.0
+TROCHLEAR_LIFT_SIGMA = 7.0
+# ...and it fades out towards the M/L edges. A trochlea is a central feature,
+# so the condylar margins should not be set back with it -- and those margins
+# are where the shell is thinnest, so carrying the lift out to them pinches the
+# rim against the distal cut and the mesh stops being closed.
+TROCHLEAR_LIFT_XSTART = 0.55
 GROOVE_SIGMA_FRAC = 0.13
 CORONAL_BULGE = 1.6          # trochlear fall-off towards the M/L edges
 # The fall-off starts this far out across the half width, so the central
@@ -75,7 +107,21 @@ BULGE_START = 0.55
 # matters well beyond appearance: a concave tibial bearing can never rise
 # faster than the convex condyle sitting in it, so this radius is the hard
 # upper limit on how tightly any mating bearing's dishes may be cupped.
-CONDYLE_CORONAL_RADIUS = 30.0
+# Coronal radius of each condyle, about its own centre line. The two differ,
+# which is what makes this component side-specific: +x is the MEDIAL side.
+#
+# The medial condyle is spherical -- its coronal radius is set equal to its own
+# distal sagittal radius. That is not cosmetic. Medial-pivot kinematics rotate
+# the femur about a vertical axis through the medial condyle, and only a sphere
+# is invariant under that rotation; anything else sweeps a footprint wider than
+# itself, so the envelope a mating bearing has to stay under comes out flatter
+# than the socket and the bearing's medial conformity is lost. Real
+# medial-pivot systems make this condyle spherical for the same reason.
+#
+# The lateral condyle is free to be a tighter arc, since it is meant to roll
+# back along an arcuate path rather than pivot.
+CONDYLE_CORONAL_LATERAL = 30.0
+CORONAL_SIDE_BLEND = 14.0    # M/L width over which the two radii cross over
 # The arc governs the articulating band only. Carried all the way out to the
 # M/L edge it thins the shell until the articular surface meets the distal cut
 # and the rim pinches to zero thickness, so outside this fraction of the
@@ -135,12 +181,23 @@ def geometry(size: int) -> SimpleNamespace:
     # centre line and half width follow from those two rather than being set.
     g.x_cond = 0.5 * (g.notch_hw + g.half_ml)
     g.cond_hw = 0.5 * (g.half_ml - g.notch_hw)
+    # Sphericity of the medial condyle is a relationship, not a number: its
+    # coronal radius is whatever its own distal sagittal radius works out to.
+    _, _, lam = articular_profile(g, shape=MEDIAL_RADIUS_SHAPE)
+    g.radius_scale = lam
+    g.r_cor_med = lam * max(MEDIAL_RADIUS_SHAPE)
+    g.r_cor_lat = CONDYLE_CORONAL_LATERAL
     g.peg_x = PEG_X_FRAC * overall_ml
     g.peg_y = PEG_Y_FRAC * g.y_post
     return g
 
 
-def articular_profile(g: SimpleNamespace, n: int = 601):
+def sagittal_weight(x):
+    """Weight of the medial sagittal profile at an M/L station. 0 lat, 1 med."""
+    return smoothstep(x / SAGITTAL_SIDE_BLEND + 0.5)
+
+
+def articular_profile(g: SimpleNamespace, n: int = 601, shape=None):
     """The sagittal articular curve, from the anterior flange round to posterior.
 
     Parametrised by tangent angle phi: at phi=0 the curve runs distally down the
@@ -150,9 +207,10 @@ def articular_profile(g: SimpleNamespace, n: int = 601):
     continuous multi-radius curve; scaling it by lambda makes the total
     anterior-posterior travel equal the published overall A/P.
     """
+    shape = MEDIAL_RADIUS_SHAPE if shape is None else shape
     phi = np.linspace(0.0, np.pi, n)
-    knots = np.linspace(0.0, np.pi, len(RADIUS_SHAPE))
-    radius = np.interp(phi, knots, RADIUS_SHAPE)
+    knots = np.linspace(0.0, np.pi, len(shape))
+    radius = np.interp(phi, knots, shape)
 
     def integrate(f):
         return np.concatenate([[0.0], np.cumsum(0.5 * (f[1:] + f[:-1]) * np.diff(phi))])
@@ -167,9 +225,9 @@ def articular_profile(g: SimpleNamespace, n: int = 601):
     return y, z, lam
 
 
-def build_polygons(g: SimpleNamespace):
+def build_polygons(g: SimpleNamespace, shape=None):
     """Sagittal outlines: the articular envelope and the resection box."""
-    y, z, lam = articular_profile(g)
+    y, z, lam = articular_profile(g, shape=shape)
     g.radius_scale = lam
     z_top = g.z_flange + 6.0
 
@@ -231,9 +289,14 @@ def coronal_offset(g, x, y, hw):
     falloff = CORONAL_BULGE * smoothstep(
         (np.abs(x) - BULGE_START * hw) / ((1.0 - BULGE_START) * hw))
     u = np.clip(np.abs(x) - g.x_cond, -g.cond_hw, CONDYLE_ARC_OUTER * g.cond_hw)
-    arc = CONDYLE_CORONAL_RADIUS - np.sqrt(
-        np.maximum(CONDYLE_CORONAL_RADIUS ** 2 - u ** 2, 0.0))
-    return groove + arc * (1.0 - troch) + falloff * troch
+    medial = smoothstep(x / CORONAL_SIDE_BLEND + 0.5)
+    r_cor = g.r_cor_lat + (g.r_cor_med - g.r_cor_lat) * medial
+    arc = r_cor - np.sqrt(np.maximum(r_cor ** 2 - u ** 2, 0.0))
+    lift = TROCHLEAR_LIFT * np.exp(
+        -((y - TROCHLEAR_LIFT_Y) / TROCHLEAR_LIFT_SIGMA) ** 2) * (
+        1.0 - smoothstep((np.abs(x) - TROCHLEAR_LIFT_XSTART * hw)
+                         / ((1.0 - TROCHLEAR_LIFT_XSTART) * hw)))
+    return groove + lift + arc * (1.0 - troch) + falloff * troch
 
 
 def rim_height(g, x, y, hw):
@@ -255,7 +318,9 @@ def notch_field(g, x, y):
 
 
 def build_volume(g: SimpleNamespace, resolution: float):
-    outer_poly, box_poly = build_polygons(g)
+    outer_med, box_poly = build_polygons(g, MEDIAL_RADIUS_SHAPE)
+    outer_lat, _ = build_polygons(g, LATERAL_RADIUS_SHAPE)
+    outer_poly = outer_med
 
     margin = 2.0
     xs = np.arange(-(g.half_ml + margin), g.half_ml + margin + resolution,
@@ -267,7 +332,8 @@ def build_volume(g: SimpleNamespace, resolution: float):
 
     # The sagittal fields depend only on (y, z), so evaluate them once.
     yy, zz = np.meshgrid(ys, zs, indexing="ij")
-    d_articular = polygon_sdf(yy, zz, outer_poly)
+    d_art_med = polygon_sdf(yy, zz, outer_med)
+    d_art_lat = polygon_sdf(yy, zz, outer_lat)
     d_box = polygon_sdf(yy, zz, box_poly)
     g.min_wall, g.max_wall = wall_thickness(g, outer_poly, box_poly)
 
@@ -279,6 +345,8 @@ def build_volume(g: SimpleNamespace, resolution: float):
 
         # Articular surface, pushed in by the trochlear groove and by the
         # coronal shape of the trochlea and condyles.
+        w = sagittal_weight(x)
+        d_articular = d_art_lat + (d_art_med - d_art_lat) * w
         d = rounded_intersection(d_articular + coronal_offset(g, x, yy, hw),
                                  np.abs(x) - hw, EDGE_RADIUS)
 

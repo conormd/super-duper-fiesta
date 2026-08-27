@@ -92,7 +92,11 @@ MEDIAL_SAGITTAL_MARGIN = 0.4   # over the femoral's distal sagittal radius
 CORONAL_MARGIN = 0.6           # over the femoral's condylar coronal radius
 LATERAL_SAGITTAL = 120.0       # flat enough to let the lateral condyle roll back
 Y_LAT_DISH = 1.0               # lateral dish sits slightly posterior of medial
-DISH_BLEND = 7.0               # saddle between the two compartments
+# Saddle between the compartments. A smooth minimum sags the result by up to
+# a quarter of its blend width, so this has to stay well under the depth of the
+# dishes it joins or it flattens the very thing it is blending: at 7 mm it sank
+# both compartments by more than their own depth and left two shallow pans.
+DISH_BLEND = 2.0
 # How far each arc governs before the dish runs out flat. Coronally this is the
 # femoral condyle's own half width, so the dish mirrors the condyle exactly and
 # then stops: carried on to the midline, two 30 mm arcs 46 mm apart would meet
@@ -119,8 +123,8 @@ WALL_LAT_POST = 0.45 * POSTERIOR_MEDIAL_LIP
 # than this plateau, so it overhangs the M/L edges and there is nowhere to put
 # a wall there that it would not collide with: on those edges the dish's own
 # coronal arc is the rim, which is how a real bearing does it too.
-ANT_LIP_START = 6.0          # anterior of the dish centre, where the lip starts
-ANT_LIP_WIDTH = 11.0
+ANT_LIP_START = 11.0         # anterior of the dish centre, where the lip starts
+ANT_LIP_WIDTH = 9.0
 POST_LIP_START = 10.0
 POST_LIP_WIDTH = 10.0
 RIM_BLEND = 2.5
@@ -198,6 +202,31 @@ def geometry(thickness: float, clearance: float) -> SimpleNamespace:
     return g
 
 
+def seat_femoral(g: SimpleNamespace) -> float:
+    """Raise the component until nothing on it dips below the socket floor.
+
+    Seating on the medial contact at extension is not enough once the condyles
+    differ. The lateral condyle is the larger of the two -- which is what lets
+    it roll back along an arcuate path -- and it does not share the medial
+    pivot, so through flexion it swings further from that pivot than the medial
+    radius and would otherwise sweep below the floor. The bearing's stated
+    thickness is measured to the lowest point of its articular surface, so the
+    component has to clear that point in every pose, not just in extension.
+    """
+    reach = g.radius
+    for shape in (F.femoral.MEDIAL_RADIUS_SHAPE, F.femoral.LATERAL_RADIUS_SHAPE):
+        y, z, _lam, _phi = F.articular_profile(g.femoral, shape=shape)
+        dy, dz = y - g.pivot_f[1], z - g.pivot_f[2]
+        d = np.hypot(dy, dz)
+        alpha = np.arctan2(dy, -dz)
+        theta = np.array([t for t, _ in poses(g, 1.0)])
+        reach = max(reach, float(
+            (d[None, :] * np.cos(alpha[None, :] - theta[:, None])).max()))
+    drop = reach - g.radius
+    g.pivot_i[2] += drop
+    return drop
+
+
 def attach_coronal_radius(g: SimpleNamespace, field) -> None:
     """Set the dish coronal radius from the femoral condyle's own, and check it.
 
@@ -206,11 +235,15 @@ def attach_coronal_radius(g: SimpleNamespace, field) -> None:
     the assertions are the reason the surface can be designed rather than
     carved and still be sound.
     """
-    g.fem_coronal = F.coronal_radius(g.femoral, field)
-    g.r_cor = g.fem_coronal + CORONAL_MARGIN
+    g.fem_cor_med = F.coronal_radius(g.femoral, field, side=+1.0)
+    g.fem_cor_lat = F.coronal_radius(g.femoral, field, side=-1.0)
+    g.r_cor_med = g.fem_cor_med + CORONAL_MARGIN
+    g.r_cor_lat = g.fem_cor_lat + CORONAL_MARGIN
     assert g.r_med_sag >= g.radius, "medial dish is tighter than the condyle"
     assert LATERAL_SAGITTAL >= g.radius, "lateral dish is tighter than the condyle"
-    assert g.r_cor >= g.fem_coronal, "dish coronal radius is tighter than the condyle"
+    assert g.r_cor_med >= g.fem_cor_med, "medial dish coronal is tighter than its condyle"
+    assert g.r_cor_lat >= g.fem_cor_lat, "lateral dish coronal is tighter than its condyle"
+    g.seating = seat_femoral(g)
 
 
 def poses(g: SimpleNamespace, step: float = FLEXION_STEP):
@@ -365,8 +398,8 @@ def articular_height(g, x, y):
     maximum. Every operator here is C-infinity, so the surface has no creases
     anywhere and nothing stands proud between the compartments.
     """
-    med = dish(g, x, y, g.x_cond, Y_DISH, g.r_med_sag, g.r_cor)
-    lat = dish(g, x, y, -g.x_cond, Y_LAT_DISH, LATERAL_SAGITTAL, g.r_cor,
+    med = dish(g, x, y, g.x_cond, Y_DISH, g.r_med_sag, g.r_cor_med)
+    lat = dish(g, x, y, -g.x_cond, Y_LAT_DISH, LATERAL_SAGITTAL, g.r_cor_lat,
                flat=LATERAL_FLAT)
     hollow = smooth_min(med, lat, DISH_BLEND)
     rim = rim_profile(g, x, y)
@@ -441,9 +474,16 @@ def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField)
     for i0 in range(0, len(xs), 32):
         sl = slice(i0, i0 + 32)
         z = zs[None, None, :]
-        d = rounded_intersection(d_foot[sl][:, :, None], -z, BASE_CHAMFER)
+        blank = rounded_intersection(d_foot[sl][:, :, None], -z, BASE_CHAMFER)
         above = (z - height[sl][:, :, None]) / grad[sl][:, :, None]
-        vol[sl] = rounded_intersection(d, above, RIM_BREAK)
+        d = rounded_intersection(blank, above, RIM_BREAK)
+
+        # The top-edge break is a fillet on a subtraction, so it can scoop
+        # below the nominal floor. Unioning the solid slab back in makes the
+        # minimum thickness exact; it cannot introduce interference, because
+        # the femoral component never reaches below the floor.
+        base = np.maximum(blank, z - g.thickness)
+        vol[sl] = np.minimum(d, base)
 
     return vol, xs, ys, zs
 
@@ -485,21 +525,26 @@ def _fit_circle(u, v):
     return float(np.sqrt(r2)) if r2 > 0 else None
 
 
-def dish_floor(xs, ys, h, x0, band=8.0):
-    """Lowest point of one compartment's articular surface."""
-    m = np.abs(xs - x0) < band
-    sub = h[m]
-    i, j = np.unravel_index(int(np.nanargmin(sub)), sub.shape)
-    return float(ys[j]), float(sub[i, j])
+def dish_floor(xs, ys, h, x0, y0):
+    """The compartment's articular surface at its design centre.
+
+    Keyed to where the dish was *designed* to sit rather than to wherever the
+    surface happens to reach lowest. On a compartment with a flat run -- which
+    the lateral one has, deliberately -- the lowest point wanders anywhere
+    along that run, and every measurement taken relative to it wanders with it.
+    """
+    i = int(np.argmin(np.abs(xs - x0)))
+    j = int(np.argmin(np.abs(ys - y0)))
+    return float(ys[j]), float(h[i, j])
 
 
-def sagittal_radius(xs, ys, h, x0, y0, span=10.0):
+def sagittal_radius(xs, ys, h, x0, y0, span=6.0):
     i = int(np.argmin(np.abs(xs - x0)))
     m = np.abs(ys - y0) < span
     return _fit_circle(ys[m], h[i][m])
 
 
-def coronal_radius(xs, ys, h, x0, y0, span=9.0):
+def coronal_radius(xs, ys, h, x0, y0, span=7.0):
     j = int(np.argmin(np.abs(ys - y0)))
     m = np.abs(xs - x0) < span
     return _fit_circle(xs[m], h[:, j][m])
@@ -599,9 +644,9 @@ def main() -> None:
                                       (xs[0], ys[0], zs[0]))
 
     h = top_surface(vol, zs)
-    my, mz = dish_floor(xs, ys, h, g.x_cond)
-    ly, lz = dish_floor(xs, ys, h, -g.x_cond)
-    fem_cor = F.coronal_radius(g.femoral, field)
+    my, mz = dish_floor(xs, ys, h, g.x_cond, Y_DISH)
+    ly, lz = dish_floor(xs, ys, h, -g.x_cond, Y_LAT_DISH)
+    fem_cor = g.fem_cor_med
     med_sag = sagittal_radius(xs, ys, h, g.x_cond, my)
     lat_sag = sagittal_radius(xs, ys, h, -g.x_cond, ly)
     med_cor = coronal_radius(xs, ys, h, g.x_cond, my)
@@ -638,18 +683,22 @@ def main() -> None:
     print(f"  thinnest anywhere: {np.nanmin(h):.2f} mm  (must not be below "
           f"{args.thickness:g})")
     print(f"  condyle centres  : +/-{g.x_cond:.2f} mm from the midline")
+    print(f"  femoral seated    : {g.seating:.2f} mm above the extension contact, "
+          f"so the larger lateral condyle clears the floor")
     print()
-    print(f"  femoral distal R : {R:.2f} mm sagittal, {fem_cor:.2f} mm coronal")
-    print(f"  designed dish R  : medial sagittal {g.r_med_sag:.2f}, "
-          f"lateral sagittal {LATERAL_SAGITTAL:.0f}, coronal {g.r_cor:.2f} mm")
+    print(f"  femoral radii    : {R:.2f} sagittal; coronal "
+          f"{g.fem_cor_med:.2f} medial (spherical), {g.fem_cor_lat:.2f} lateral")
+    print(f"  designed dish R  : medial {g.r_med_sag:.2f} sag / "
+          f"{g.r_cor_med:.2f} cor, lateral {LATERAL_SAGITTAL:.0f} sag / "
+          f"{g.r_cor_lat:.2f} cor")
     print(f"  medial  sagittal : R {med_sag:7.2f} mm -> conformity {ratio(med_sag)}")
     print(f"  lateral sagittal : R {lat_sag:7.2f} mm -> conformity {ratio(lat_sag)}")
     if med_cor:
         print(f"  medial  coronal  : R {med_cor:7.2f} mm -> conformity "
-              f"{fem_cor/med_cor:.2f}")
+              f"{g.fem_cor_med/med_cor:.2f}")
     if lat_cor:
         print(f"  lateral coronal  : R {lat_cor:7.2f} mm -> conformity "
-              f"{fem_cor/lat_cor:.2f}")
+              f"{g.fem_cor_lat/lat_cor:.2f}")
     print()
     print(f"  socket floors    : medial y={my:+.1f}, lateral y={ly:+.1f}")
     print(f"  medial dish rise : {dish_rise(xs, ys, h, g.x_cond, my, 10.0):.2f} mm "

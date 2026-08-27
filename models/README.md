@@ -46,7 +46,8 @@ conventions because it is not published:
 
 | Design assumption | Size 7 value | Size 8 value | Size 10 value |
 | --- | --- | --- | --- |
-| Distal / posterior / anterior articular radius | 38.2 / 19.1 / 21.0 mm | 39.2 / 19.6 / 21.6 mm | 42.1 / 21.1 / 23.2 mm |
+| Medial condyle: sagittal = coronal radius (spherical) | 32.0 mm | 32.9 mm | 35.3 mm |
+| Lateral condyle coronal radius | 30 mm | 30 mm | 30 mm |
 | Anterior flange height | 47.7 mm | 49.5 mm | 53.1 mm |
 | Posterior condyle height | 25.4 mm | 26.4 mm | 28.3 mm |
 | Anterior & posterior chamfer length | 11.4 mm | 12.0 mm | 13.0 mm |
@@ -69,9 +70,24 @@ Construction: the bone-facing surface is the exact five-cut resection box
 articular surface is a multi-radius J-curve, integrated from a prescribed
 radius-vs-tangent-angle profile and scaled so the envelope lands on the table.
 
-**Known limitations.** The model is mirror-symmetric about the sagittal
-midline, so it is neither a left nor a right component; real femoral components
-are side-specific and have a lateralised trochlear groove. There are no
+The condyles are **asymmetric**, so the component is side-specific: +x is the
+medial side and `--side` mirrors it. That asymmetry is the design, not a
+detail. The medial condyle is **spherical** -- its coronal radius is set equal
+to its own sagittal radius, and its sagittal radius is held constant across the
+functional arc. Only a sphere is invariant under both flexion about a medial
+pivot and axial rotation about a vertical axis through it, so only a sphere
+lets a mating medial-congruent bearing keep a congruent socket. The lateral
+condyle is the larger of the two and keeps a multi-radius profile closing down
+posteriorly, so it can roll back along an arcuate path. The trochlea is set
+back proximally over the region that would otherwise sweep across the anterior
+tibial plateau, which is what leaves a bearing room for its anterior lip.
+
+Measured on the size-8 field: medial condyle 32.88 mm sagittal by 33.15 mm
+coronal (spherical to within 1%), lateral condyle 30.05 mm coronal. A fixed
+medial pivot now tracks the component to **95 degrees** of flexion before it
+lifts 1 mm, against 39 degrees for the earlier multi-radius design.
+
+**Known limitations.** There are no
 fixation-surface features (porous coating, cement pockets) and no box or cam.
 The articular surface is plausible, not validated — it is not suitable for
 contact-mechanics or wear work without independent verification.
@@ -132,7 +148,9 @@ row.
 | Lateral A/P | 44.6 mm | 44.6 mm |
 | Posterior medial lip height | 3.4 mm | 3.4 mm |
 | Lateral condyle axial path | 14 deg | 14 deg |
-| Anterior medial lip height | 11 mm | **5.95 mm** -- see limitations |
+| Lateral A/P laxity, 0-120 deg | 11 mm | 10.5 mm |
+| Medial A/P laxity, 0-120 deg | 3 mm | 5.2 mm |
+| Anterior medial lip height | 11 mm | 9.86 mm |
 
 The plateau is asymmetric: its medial half is deeper front-to-back than its
 lateral half, which is most of what makes a tibial component read as a kidney
@@ -140,9 +158,16 @@ rather than an oval.
 
 | Geometry taken from the size-8 femoral | Femoral | Designed | Achieved |
 | --- | --- | --- | --- |
-| Distal sagittal radius | 39.24 mm | 39.64 mm | 45.52 mm |
-| Condylar coronal radius | 29.90 mm | 30.50 mm | 50.57 mm |
+| Medial sagittal radius | 32.88 mm | 33.28 mm | socket |
+| Medial coronal radius | 33.15 mm | 33.75 mm | socket |
+| Lateral coronal radius | 30.05 mm | 30.65 mm | relieved |
 | Condyle centre lines | +/-23.17 mm | +/-23.17 mm | -- |
+
+A fitted radius is a poor description of a compartment with a deliberate flat
+run in it, so the honest contrast between the two is in plain distances: the
+A/P run over which each stays within 0.25 mm of its own floor is **10.8 mm
+medial against 26.0 mm lateral**, and 10 mm behind the floor the medial surface
+has climbed 0.92 mm while the lateral has not climbed at all.
 
 | Design assumption | Value |
 | --- | --- |
@@ -150,7 +175,7 @@ rather than an oval.
 | Bearing clearance (also the print fit at the socket) | 0.4 mm |
 | Posterior cruciate cut-out | 16 mm wide x 9 mm deep; the rationale does not dimension it |
 | Lateral flat run before the arc starts | 12 mm |
-| Volume | 32.15 cm3 |
+| Volume | 33.89 cm3 |
 
 **Minimum gap to the femoral component across the flexion sweep: +0.39 mm**, the
 mesh is watertight, and the bearing is exactly 10.00 mm thick at its thinnest
@@ -161,35 +186,21 @@ corridor between the compartments is held at the articular floor, so nothing
 stands proud where the lateral condyle has to roll back, and the A/P and
 rotational restraint comes from the medial socket rather than from a spine.
 
-**Known limitations.** Three shortfalls remain and all three are the femoral
-component's geometry rather than the bearing's, so each is listed with what
-would actually fix it. *The anterior lip reaches 5.95 mm against 11 mm
-published* -- the significant one, since anterior constraint is what a
-medial-congruent bearing is for. The clearance clamp is doing its job: this
-generic femoral's anterior flange is a continuation of its sagittal J-curve
-rather than a real trochlea, so it sweeps low over the anterior plateau and an
-11 mm lip would collide with it. Fix: give the femoral a trochlea. *The medial
-dish is flatter than designed*, 45.5 mm sagittal and 50.6 mm coronal against
-39.6 and 30.5, because medial-pivot kinematics rotate the femur about a vertical
-axis through a medial condyle that is 39.24 by 29.90 mm rather than spherical,
-so rotating it sweeps a footprint wider than itself and the envelope the bearing
-must stay under is flatter than the socket. Fix: make the medial condyle
-spherical, as real medial-pivot systems do, and the socket becomes invariant
-under both flexion and axial rotation. *A fixed medial pivot tracks this femoral
-only to about 39 degrees of flexion* before it lifts more than 1 mm off the
-pivot, because its J-curve is multi-radius; beyond that the real femur would
-translate or descend to stay in contact, which this static model does not
-resolve, so the deep-flexion contact position is not modelled, only guaranteed
-not to interfere. That also caps the lateral rollback the bearing sees at 2.2 mm
-against the 11 mm of lateral A/P laxity the rationale reports.
+**Known limitations.** The anterior lip reaches 9.86 mm against the 11 mm
+published; the clearance clamp still trims the last millimetre, because this
+generic trochlea is a set-back region on a J-curve rather than a real
+patellofemoral groove. Medial A/P laxity comes out at 5.2 mm against the 3 mm
+the rationale reports, so the pivot is looser than the real bearing's -- the
+medial condyle is spherical over the functional arc but not beyond it, and the
+contact drifts once flexion carries it past that arc. Past 95 degrees the
+component lifts off a fixed pivot, so deep-flexion contact is still not
+modelled, only guaranteed not to interfere.
 
 Beyond those: there is no locking mechanism, the inferior surface being flat
 with a chamfered edge, so this models the bearing surface only and not a tray
-interface. Laterality comes from the bearing, since the femoral component is
-mirror-symmetric and so is neither left nor right while a medial-congruent
-bearing cannot be; `--side` mirrors it. The real Persona CR femur has asymmetric
-condyles, the lateral larger than the medial, which this one does not. As with
-the femoral, the articular surface is plausible, not validated.
+interface. The rationale's 155 degrees of flexion is well beyond what this
+static model resolves. As with the femoral, the articular surface is plausible,
+not validated.
 
 **Printing.** Flat-bottomed, so it prints straight onto the bed in the
 orientation it is generated in, articular side up, with no supports. At 10 mm
