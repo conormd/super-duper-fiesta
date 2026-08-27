@@ -67,42 +67,58 @@ OUTLINE_EXPONENT = 2.6       # superellipse exponent of the plateau outline
 Y_DISH = -1.0                # A/P position of the medial socket floor
 CLEARANCE = 0.4              # bearing gap; also the print fit at the socket
 
-# Lateral relief. The femoral envelope is translated over this A/P excursion
-# before it carves the lateral compartment, which is what drops that side's
-# sagittal conformity and lets the lateral condyle roll back.
-LATERAL_TRAVEL_ANT = 4.0     # anterior of the extension contact
-LATERAL_TRAVEL_POST = 8.0    # posterior of it
-LATERAL_STEPS = 25
-# Where the lateral relief stops. Inside the intercondylar notch there is no
-# femoral material to carve with, so splitting here leaves the eminence to be
-# shaped by the medial sweep and by the wall ceiling.
-X_SPLIT = -6.0
-SPLIT_BLEND = 3.0
+# Dish radii. The bearing surface is designed from these and then verified
+# against the femoral component, rather than being carved by it: a carve is a
+# boolean, and a boolean of a swept solid against a height cap meets itself in
+# creases. These are the two numbers the femoral constrains -- a concave dish
+# may never rise faster than the convex condyle in it, so each must stay at or
+# above the femoral's own radius in that plane (39.24 mm sagittal, 29.90 mm
+# coronal at size 8). The generator asserts exactly that at run time.
+MEDIAL_SAGITTAL_MARGIN = 0.4   # over the femoral's distal sagittal radius
+CORONAL_MARGIN = 0.6           # over the femoral's condylar coronal radius
+LATERAL_SAGITTAL = 120.0       # flat enough to let the lateral condyle roll back
+Y_LAT_DISH = 1.0               # lateral dish sits slightly posterior of medial
+DISH_BLEND = 7.0               # saddle between the two compartments
+# How far each arc governs before the dish runs out flat. Coronally this is the
+# femoral condyle's own half width, so the dish mirrors the condyle exactly and
+# then stops: carried on to the midline, two 30 mm arcs 46 mm apart would meet
+# in an 11 mm ridge, which is a worse post than the one this rewrite removes.
+DISH_AP_HALF = 16.0
+# The lateral compartment's relief is a flat run at the floor, not a shallow
+# dish raised above it. It has to be: the bearing surface may never sit above
+# the lowest the femoral component can reach, so a lateral dish lifted even
+# half a millimetre off the floor is an interference, whereas a flat run along
+# the floor is free. This is the length of that run.
+LATERAL_FLAT = 12.0
 
-# Peripheral wall heights above the articular floor. The medial wall is tall --
-# a congruent socket is an A/P constraint, and its anterior lip is what resists
-# anterior femoral translation. The posterolateral wall is low, so the lateral
-# condyle can roll back over it.
+# Peripheral rim, as a smooth rise out of the dishes rather than a cap over
+# them, measured inwards from the plateau outline. The heights are the
+# medial-congruent design in miniature: a tall anteromedial lip, because a
+# congruent socket is an A/P restraint and its anterior lip is what resists
+# anterior femoral translation, against a posterolateral wall barely off the
+# floor so the lateral condyle can roll back over it unobstructed.
 WALL_MED_ANT = 7.0
 WALL_MED_POST = 3.0
 WALL_LAT_ANT = 5.0
 WALL_LAT_POST = 1.5
-# Central corridor. There is no intercondylar eminence: the femoral component's
-# notch is a through-cut, so inside its width the femoral never touches the
-# bearing and the carve leaves whatever the blank had there. Holding that band
-# down to the articular floor is what keeps the two dishes joined by a flat
-# corridor instead of a post moulded to the notch. With no eminence, all of the
-# bearing's A/P and rotational restraint comes from the medial socket -- which
-# is the medial-congruent principle taken at its word.
-CENTRAL_HALFWIDTH = 10.0     # held down out to here, i.e. the notch edge
-CENTRAL_BLEND = 6.0
-CENTRAL_MARGIN = 4.0         # released this far from the ANTERIOR margin only,
-CENTRAL_MARGIN_BLEND = 8.0   # so the anterior lip stays continuous
-WALL_FILLET = 1.5            # blend from the articular surface into the wall
+# The rim runs anteriorly and posteriorly only. The femoral component is wider
+# than this plateau, so it overhangs the M/L edges and there is nowhere to put
+# a wall there that it would not collide with: on those edges the dish's own
+# coronal arc is the rim, which is how a real bearing does it too.
+ANT_LIP_START = 6.0          # anterior of the dish centre, where the lip starts
+ANT_LIP_WIDTH = 11.0
+POST_LIP_START = 10.0
+POST_LIP_WIDTH = 10.0
+RIM_BLEND = 2.5
+# The designed surface is then held under the swept femoral envelope. A smooth
+# minimum, so the surface stays creaseless, and it only binds where the design
+# would have climbed faster than the component it has to clear -- which is what
+# no amount of tuning the lip parameters by hand can be trusted to avoid.
+ENVELOPE_BLEND = 0.6
 RIM_BREAK = 1.0              # break on the top edge of the wall
 BASE_CHAMFER = 0.8           # chamfer on the inferior edge
 
-# --- Sweep: the kinematics the medial socket is carved by --------------------
+# --- Sweep: the kinematics the finished surface is verified against ----------
 FLEXION_MIN = -5.0           # hyperextension, degrees
 FLEXION_MAX = 120.0
 FLEXION_STEP = 2.0
@@ -126,6 +142,10 @@ def smooth_min(a, b, k):
     return b * (1 - h) + a * h - k * h * (1 - h)
 
 
+def smooth_max(a, b, k):
+    return -smooth_min(-a, -b, k)
+
+
 def geometry(thickness: float, clearance: float) -> SimpleNamespace:
     """Bearing frame: +x medial, +y posterior, +z proximal, z = 0 on the tray.
 
@@ -146,11 +166,30 @@ def geometry(thickness: float, clearance: float) -> SimpleNamespace:
         # Centre line of one femoral condyle: midway between the edge of the
         # intercondylar notch and the M/L edge of the component at the contact.
         x_cond=0.5 * (f.notch_hw + F.half_width(y_contact, z_contact, f)),
+        # The condyle's own half width, so the dish's coronal arc spans exactly
+        # the band the condyle is an arc over and no further.
+        cond_hw=f.cond_hw,
     )
+    g.r_med_sag = radius + MEDIAL_SAGITTAL_MARGIN
     g.pivot_f = np.array([g.x_cond, y_contact, z_contact + radius])
     g.pivot_i = np.array([g.x_cond, Y_DISH, thickness + clearance + radius])
     g.contact_i = np.array([g.x_cond, Y_DISH, thickness + clearance])
     return g
+
+
+def attach_coronal_radius(g: SimpleNamespace, field) -> None:
+    """Set the dish coronal radius from the femoral condyle's own, and check it.
+
+    A concave dish that rises faster than the convex condyle sitting in it
+    interferes no matter how the two are posed, so these are not free choices;
+    the assertions are the reason the surface can be designed rather than
+    carved and still be sound.
+    """
+    g.fem_coronal = F.coronal_radius(g.femoral, field)
+    g.r_cor = g.fem_coronal + CORONAL_MARGIN
+    assert g.r_med_sag >= g.radius, "medial dish is tighter than the condyle"
+    assert LATERAL_SAGITTAL >= g.radius, "lateral dish is tighter than the condyle"
+    assert g.r_cor >= g.fem_coronal, "dish coronal radius is tighter than the condyle"
 
 
 def poses(g: SimpleNamespace, step: float = FLEXION_STEP):
@@ -220,99 +259,154 @@ def outline_polygon(g: SimpleNamespace, n: int = 512) -> np.ndarray:
     return np.stack([x, y], axis=1)
 
 
-def wall_ceiling(g, x, y):
-    """Height the bearing is allowed to reach: the peripheral wall profile.
+CLAMP_BLEND = 2.0
 
-    Capping the blank can only remove material, so it can never introduce
-    interference with the femoral component. It stops the walls and the
-    intercondylar eminence -- which the carve leaves standing at full blank
-    height, the femoral component never having reached them -- from being
-    taller than a bearing's should be.
+
+def soft_clamp(t, limit):
+    """|t|, easing onto `limit` instead of hitting it with a corner.
+
+    A hard clamp is a crease, and a crease in the height field is a visible
+    hard edge on the finished bearing -- the defect this surface exists to
+    avoid. A smooth minimum rounds the corner while staying *exact* until
+    within CLAMP_BLEND of the limit, which matters: a clamp that eases from the
+    origin (a tanh, say) shrinks the arc everywhere and quietly flattens the
+    dish -- it inflated the medial radius from the 39.6 mm designed to 46.5.
+    """
+    return smooth_min(np.abs(t), limit, CLAMP_BLEND)
+
+
+def soft_relu(t, width):
+    """max(t, 0), rounded over `width` so the flat run joins the arc smoothly."""
+    return width * np.logaddexp(0.0, t / width)
+
+
+def sagitta(t, radius, limit):
+    """How far an arc of `radius` has risen `t` from its lowest point.
+
+    Approaching `limit` the rise eases off, so the compartment runs out flat
+    instead of climbing forever; the rim, not the dish, is what turns the
+    surface upwards at the anterior and posterior edges of the plateau.
+    """
+    t = soft_clamp(t, min(limit, 0.94 * radius))
+    return radius - np.sqrt(radius ** 2 - t ** 2)
+
+
+def dish(g, x, y, x0, y0, r_sag, r_cor, flat=0.0):
+    """One compartment: a coronal arc crossed with a sagittal one.
+
+    Both radii are at or above the femoral component's own radius in that
+    plane, which is what makes the compartment safe to sit a condyle in.
+    `flat` holds the sagittal profile at the floor over that length before the
+    arc starts, which is how the lateral compartment gets its rollback relief.
+    """
+    dy = (soft_relu(np.abs(y - y0) - 0.5 * flat, 0.8) if flat
+          else np.abs(y - y0))
+    return (sagitta(dy, r_sag, DISH_AP_HALF)
+            + sagitta(x - x0, r_cor, g.cond_hw))
+
+
+def rim_profile(g, x, y):
+    """The anterior lip and posterior wall, as a rise out of the dishes.
+
+    Part of the same surface as the dishes rather than a cap laid over them, so
+    there is no seam where the two meet -- which is what put a crease around
+    the old bearing and a post between its compartments.
     """
     med = smoothstep((x / g.x_cond + 1.0) / 2.0)     # 0 lateral -> 1 medial
-    post = smoothstep((y / g.half_ap + 1.0) / 2.0)   # 0 anterior -> 1 posterior
-    ant = WALL_LAT_ANT + (WALL_MED_ANT - WALL_LAT_ANT) * med
-    back = WALL_LAT_POST + (WALL_MED_POST - WALL_LAT_POST) * med
-    wall = ant + (back - ant) * post
-
-    # Hold the central corridor down to the articular floor. The hold is
-    # released towards the ANTERIOR margin only, so the anterior lip stays
-    # continuous across the full width; posteriorly it keeps governing all the
-    # way out, which is what leaves the back of the bearing open for the
-    # lateral condyle to roll back over.
-    central = 1.0 - smoothstep(
-        (np.abs(x) - CENTRAL_HALFWIDTH) / CENTRAL_BLEND)
-    central = central * smoothstep(
-        (y + g.half_ap - CENTRAL_MARGIN) / CENTRAL_MARGIN_BLEND)
-    return g.thickness + wall * (1.0 - central)
+    ant_h = WALL_LAT_ANT + (WALL_MED_ANT - WALL_LAT_ANT) * med
+    post_h = WALL_LAT_POST + (WALL_MED_POST - WALL_LAT_POST) * med
+    ant = ant_h * smoothstep((-y - ANT_LIP_START) / ANT_LIP_WIDTH)
+    back = post_h * smoothstep((y - POST_LIP_START) / POST_LIP_WIDTH)
+    return np.maximum(ant, back)
 
 
-def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField):
-    outline = outline_polygon(g)
-    margin = 2.0
-    z_top = g.thickness + max(WALL_MED_ANT, WALL_MED_POST,
-                              WALL_LAT_ANT, WALL_LAT_POST)
+def articular_height(g, x, y):
+    """The bearing's articular surface: one smooth height field, no booleans.
 
-    xs = np.arange(-(g.half_ml + margin), g.half_ml + margin + resolution,
-                   resolution, dtype=np.float64)
-    ys = np.arange(-(g.half_ap + margin), g.half_ap + margin + resolution,
-                   resolution, dtype=np.float64)
-    zs = np.arange(-margin, z_top + margin + resolution,
-                   resolution, dtype=np.float64)
+    Two toroidal compartments joined by a smooth minimum -- which is what forms
+    the saddle between them -- then lifted into the peripheral wall by a smooth
+    maximum. Every operator here is C-infinity, so the surface has no creases
+    anywhere and nothing stands proud between the compartments.
+    """
+    med = dish(g, x, y, g.x_cond, Y_DISH, g.r_med_sag, g.r_cor)
+    lat = dish(g, x, y, -g.x_cond, Y_LAT_DISH, LATERAL_SAGITTAL, g.r_cor,
+               flat=LATERAL_FLAT)
+    hollow = smooth_min(med, lat, DISH_BLEND)
+    rim = rim_profile(g, x, y)
+    return g.thickness + smooth_max(hollow, rim, RIM_BLEND)
 
-    # The footprint and the wall ceiling depend only on (x, y).
-    xx, yy = np.meshgrid(xs, ys, indexing="ij")
-    d_foot = polygon_sdf(xx, yy, outline)
-    ceiling = wall_ceiling(g, xx, yy)
 
+def envelope_height(g, xs, ys, field, resolution):
+    """Lowest the femoral component reaches over the sweep, less the clearance.
+
+    Anywhere it never reaches, this returns a height well above the bearing, so
+    clamping against it there does nothing.
+    """
+    unreached = g.thickness + 40.0
+    zs = np.arange(g.thickness - 1.0,
+                   g.thickness + 1.2 * max(WALL_MED_ANT, WALL_LAT_ANT) + 6.0,
+                   resolution)
     sweep = poses(g)
-    travel = np.linspace(-LATERAL_TRAVEL_ANT, LATERAL_TRAVEL_POST, LATERAL_STEPS)
-
-    vol = np.empty((len(xs), len(ys), len(zs)), dtype=np.float32)
+    out = np.full((len(xs), len(ys)), unreached)
     for i0 in range(0, len(xs), 32):
         sl = slice(i0, i0 + 32)
         x = xs[sl][:, None, None]
         y = ys[None, :, None]
         z = zs[None, None, :]
-
-        # Blank: the plateau footprint, from the tray up to the wall ceiling.
-        blank = rounded_intersection(d_foot[sl][:, :, None], -z, BASE_CHAMFER)
-        d = rounded_intersection(blank, z - ceiling[sl][:, :, None], RIM_BREAK)
-
-        # Medial: the femoral envelope swept about its own distal centre of
-        # curvature. A rotation about that centre barely enlarges the envelope,
-        # so what this carves is a congruent socket.
         carve = np.full(np.broadcast_shapes(x.shape, y.shape, z.shape),
                         np.inf, dtype=np.float32)
         for theta, psi in sweep:
             np.minimum(carve, field(*to_femoral(g, x, y, z, theta, psi)),
                        out=carve, casting="unsafe")
+        # Interpolate the crossing rather than taking the first sample inside
+        # it: rounding up to the grid would put the ceiling as much as a voxel
+        # too high, which is exactly enough to let the component through.
+        gap = carve - g.clearance
+        inside = gap <= 0.0
+        hit = inside.any(axis=2)
+        first = np.clip(np.argmax(inside, axis=2), 1, len(zs) - 1)
+        i, j = np.indices(first.shape)
+        below, above = gap[i, j, first - 1], gap[i, j, first]
+        step = np.divide(below, below - above,
+                         out=np.zeros_like(below), where=(below - above) > 0)
+        crossing = zs[first - 1] + resolution * np.clip(step, 0.0, 1.0)
+        out[sl] = np.where(hit, np.minimum(crossing, zs[first]), unreached)
+    return out
 
-        # Lateral: the same envelope in extension, translated through the
-        # rollback excursion. Restricted to the lateral side of the split, so
-        # the socket and the eminence keep the shape the medial sweep gave them.
-        relief = np.full(carve.shape, np.inf, dtype=np.float32)
-        for dy in travel:
-            np.minimum(relief, field(*to_femoral(g, x, y, z, 0.0, 0.0, dy)),
-                       out=relief, casting="unsafe")
-        relief = np.maximum(relief, x - X_SPLIT)
-        carve = smooth_min(carve, relief, SPLIT_BLEND)
 
-        # A running fit rather than line-to-line contact, and a guarantee that
-        # nothing is ever carved below the nominal thickness. The medial sweep
-        # is already tangent to that plane, so the clamp only holds the floor.
-        carve -= g.clearance
-        carve = np.maximum(carve, g.thickness - z)
-        d = rounded_intersection(d, -carve, WALL_FILLET)
+def build_volume(g: SimpleNamespace, resolution: float, field: F.ArticularField):
+    outline = outline_polygon(g)
+    margin = 2.0
+    xs = np.arange(-(g.half_ml + margin), g.half_ml + margin + resolution,
+                   resolution, dtype=np.float64)
+    ys = np.arange(-(g.half_ap + margin), g.half_ap + margin + resolution,
+                   resolution, dtype=np.float64)
 
-        # Everything above is subtractive, and two of those subtractions are
-        # filleted -- so where the wall ceiling meets the carve, the fillet can
-        # scoop out a shallow trench *below* the nominal floor. Unioning the
-        # solid slab back in makes the minimum thickness exact rather than
-        # nearly right. It cannot introduce interference: the femoral component
-        # never reaches below the floor plus the clearance.
-        base = np.maximum(blank, z - g.thickness)
-        vol[sl] = np.minimum(d, base)
+    xx, yy = np.meshgrid(xs, ys, indexing="ij")
+    d_foot = polygon_sdf(xx, yy, outline)
+    height = articular_height(g, xx, yy)
+    height = smooth_min(height, envelope_height(g, xs, ys, field, resolution),
+                        ENVELOPE_BLEND)
+    height = np.maximum(height, g.thickness)
+
+    # Take the z range from the surface that was actually built, so the sampling
+    # box cannot clip the solid however the dish parameters are set.
+    z_top = float(np.max(np.where(d_foot <= 0.0, height, -np.inf)))
+    zs = np.arange(-margin, z_top + margin + resolution,
+                   resolution, dtype=np.float64)
+
+    # The height field is not a distance, so dividing by the norm of its
+    # gradient keeps the field close enough to one for marching cubes.
+    gy, gx = np.gradient(height, resolution, resolution)
+    grad = np.sqrt(1.0 + gy ** 2 + gx ** 2)
+
+    vol = np.empty((len(xs), len(ys), len(zs)), dtype=np.float32)
+    for i0 in range(0, len(xs), 32):
+        sl = slice(i0, i0 + 32)
+        z = zs[None, None, :]
+        d = rounded_intersection(d_foot[sl][:, :, None], -z, BASE_CHAMFER)
+        above = (z - height[sl][:, :, None]) / grad[sl][:, :, None]
+        vol[sl] = rounded_intersection(d, above, RIM_BREAK)
 
     return vol, xs, ys, zs
 
@@ -458,6 +552,7 @@ def main() -> None:
 
     g = geometry(args.thickness, args.clearance)
     field = F.ArticularField(g.femoral)
+    attach_coronal_radius(g, field)
     out = args.out or Path(
         f"models/generic-tka-articular-surface-mc-size{FEMORAL_SIZE}"
         f"-{args.thickness:g}mm-{args.side}.stl")
@@ -508,6 +603,8 @@ def main() -> None:
     print(f"  condyle centres  : +/-{g.x_cond:.2f} mm from the midline")
     print()
     print(f"  femoral distal R : {R:.2f} mm sagittal, {fem_cor:.2f} mm coronal")
+    print(f"  designed dish R  : medial sagittal {g.r_med_sag:.2f}, "
+          f"lateral sagittal {LATERAL_SAGITTAL:.0f}, coronal {g.r_cor:.2f} mm")
     print(f"  medial  sagittal : R {med_sag:7.2f} mm -> conformity {ratio(med_sag)}")
     print(f"  lateral sagittal : R {lat_sag:7.2f} mm -> conformity {ratio(lat_sag)}")
     if med_cor:
@@ -536,8 +633,8 @@ def main() -> None:
     print(f"  medial contact   : drifts {mhi-mlo:.1f} mm A/P over 0-{tracking:.0f} "
           f"deg (a pivot, so this should stay small)")
     print(f"  lateral contact  : travels {lhi-llo:.1f} mm A/P over 0-{tracking:.0f} "
-          f"deg, in a channel relieved for "
-          f"{LATERAL_TRAVEL_ANT + LATERAL_TRAVEL_POST:.0f} mm")
+          f"deg, on a dish flat for {LATERAL_FLAT:.0f} mm then R "
+          f"{LATERAL_SAGITTAL:.0f} mm")
     print(f"  min gap in sweep : {gap:+.3f} mm  (closest near {gap_at:.0f} deg; "
           f"must be >= 0)")
     print()
