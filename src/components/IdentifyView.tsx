@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import type { Anatomy, Fixation, Implant, Manufacturer } from '../types';
 import { featureScore, tokenize } from '../lib/search';
-import { ANATOMIES } from '../lib/anatomy';
+import { ANATOMIES, implantIdentifierUrl } from '../lib/anatomy';
 import { ImplantCard } from './ImplantCard';
 
 const MANUFACTURERS: (Manufacturer | 'Any / unknown')[] = [
@@ -124,6 +124,14 @@ export function IdentifyView({ implants, onSelect }: Props) {
             </button>
           ))}
         </div>
+        {anatomy && (
+          <p className="result-count" style={{ marginTop: 10 }}>
+            Also worth a look:{' '}
+            <a href={implantIdentifierUrl(anatomy)} target="_blank" rel="noreferrer">
+              ImplantIdentifier.app’s {anatomy} library
+            </a>
+          </p>
+        )}
       </div>
 
       {anatomy && (

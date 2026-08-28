@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Anatomy, Implant } from '../types';
-import { ANATOMIES } from '../lib/anatomy';
+import { ANATOMIES, implantIdentifierUrl } from '../lib/anatomy';
 import { isIndexReady, matchImage, type ImageMatch } from '../lib/imageMatch';
 import { aiCompare, type AiRanking } from '../lib/reRank';
 import { ImplantCard } from './ImplantCard';
@@ -180,6 +180,14 @@ export function IdentifyByImageView({ implants, onSelect }: Props) {
             Not sure — search everything
           </button>
         </div>
+        {anatomy && anatomy !== 'Any / unknown' && (
+          <p className="result-count" style={{ marginTop: 10 }}>
+            Also worth a look:{' '}
+            <a href={implantIdentifierUrl(anatomy)} target="_blank" rel="noreferrer">
+              ImplantIdentifier.app’s {anatomy} library
+            </a>
+          </p>
+        )}
       </div>
 
       {anatomy && (

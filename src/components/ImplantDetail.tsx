@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { Implant, RadiographView } from '../types';
+import { implantIdentifierUrl } from '../lib/anatomy';
 
 interface Props {
   implant: Implant;
@@ -136,19 +137,20 @@ export function ImplantDetail({ implant, onClose, onEdit }: Props) {
             <ViewSlot implant={implant} view="Lateral" onZoom={setZoom} />
             <ViewSlot implant={implant} view="Templating" onZoom={setZoom} />
           </div>
-          {implant.imageLinks && implant.imageLinks.length > 0 && (
-            <p className="view-links">
-              View images externally:{' '}
-              {implant.imageLinks.map((link, i) => (
-                <span key={link.url}>
-                  {i > 0 && ' · '}
-                  <a href={link.url} target="_blank" rel="noreferrer">
-                    {link.label}
-                  </a>
-                </span>
-              ))}
-            </p>
-          )}
+          <p className="view-links">
+            Cross-check externally:{' '}
+            {[
+              { label: 'ImplantIdentifier.app library', url: implantIdentifierUrl(implant.anatomy) },
+              ...(implant.imageLinks ?? []),
+            ].map((link, i) => (
+              <span key={link.url}>
+                {i > 0 && ' · '}
+                <a href={link.url} target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              </span>
+            ))}
+          </p>
         </section>
 
         {implant.photos && implant.photos.length > 0 && (
