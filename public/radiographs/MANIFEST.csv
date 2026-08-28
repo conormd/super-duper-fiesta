@@ -41,6 +41,11 @@ zb-taperloc-complete,Zimmer Biomet,Hip,,zb-taperloc-complete-ap.jpg,zb-taperloc-
 zb-echo-fx,Zimmer Biomet,Hip,,zb-echo-fx-ap.jpg,zb-echo-fx-lat.jpg,zb-echo-fx-tmpl.jpg
 zb-wagner-cone-original,Zimmer Biomet,Hip,Wagner Cone (Original),zb-wagner-cone-original-ap.jpg,zb-wagner-cone-original-lat.jpg,zb-wagner-cone-original-tmpl.jpg
 zb-sirius,Zimmer Biomet,Hip,Sirius,zb-sirius-ap.jpg,zb-sirius-lat.jpg,zb-sirius-tmpl.jpg
+zb-tm-reverse,Zimmer Biomet,Shoulder,,zb-tm-reverse-ap.jpg,zb-tm-reverse-lat.jpg,zb-tm-reverse-tmpl.jpg
+zb-sidus,Zimmer Biomet,Shoulder,,zb-sidus-ap.jpg,zb-sidus-lat.jpg,zb-sidus-tmpl.jpg
+zb-rhk,Zimmer Biomet,Knee,,zb-rhk-ap.jpg,zb-rhk-lat.jpg,zb-rhk-tmpl.jpg
+zb-natural-nail,Zimmer Biomet,Trauma / Fracture fixation,,zb-natural-nail-ap.jpg,zb-natural-nail-lat.jpg,zb-natural-nail-tmpl.jpg
+zb-ncb,Zimmer Biomet,Trauma / Fracture fixation,,zb-ncb-ap.jpg,zb-ncb-lat.jpg,zb-ncb-tmpl.jpg
 st-triathlon,Stryker,Knee,Triathlon,st-triathlon-ap.jpg,st-triathlon-lat.jpg,st-triathlon-tmpl.jpg
 st-scorpio,Stryker,Knee,Scorpio,st-scorpio-ap.jpg,st-scorpio-lat.jpg,st-scorpio-tmpl.jpg
 st-accolade,Stryker,Hip,Accolade,st-accolade-ap.jpg,st-accolade-lat.jpg,st-accolade-tmpl.jpg
@@ -60,6 +65,10 @@ st-omnifit,Stryker,Hip,Omnifit,st-omnifit-ap.jpg,st-omnifit-lat.jpg,st-omnifit-t
 st-triathlon-ts,Stryker,Knee,Triathlon TS,st-triathlon-ts-ap.jpg,st-triathlon-ts-lat.jpg,st-triathlon-ts-tmpl.jpg
 st-meridian,Stryker,Hip,,st-meridian-ap.jpg,st-meridian-lat.jpg,st-meridian-tmpl.jpg
 st-gmrs,Stryker,Hip,,st-gmrs-ap.jpg,st-gmrs-lat.jpg,st-gmrs-tmpl.jpg
+st-reunion,Stryker,Shoulder,,st-reunion-ap.jpg,st-reunion-lat.jpg,st-reunion-tmpl.jpg
+st-perform,Stryker,Shoulder,,st-perform-ap.jpg,st-perform-lat.jpg,st-perform-tmpl.jpg
+st-restoris-mck,Stryker,Knee,,st-restoris-mck-ap.jpg,st-restoris-mck-lat.jpg,st-restoris-mck-tmpl.jpg
+st-mrh,Stryker,Knee,,st-mrh-ap.jpg,st-mrh-lat.jpg,st-mrh-tmpl.jpg
 sn-genesis-ii,Smith & Nephew,Knee,Genesis II,sn-genesis-ii-ap.jpg,sn-genesis-ii-lat.jpg,sn-genesis-ii-tmpl.jpg
 sn-legion,Smith & Nephew,Knee,Legion,sn-legion-ap.jpg,sn-legion-lat.jpg,sn-legion-tmpl.jpg
 sn-journey,Smith & Nephew,Knee,Journey II,sn-journey-ap.jpg,sn-journey-lat.jpg,sn-journey-tmpl.jpg
@@ -76,6 +85,7 @@ sn-peri-loc,Smith & Nephew,Trauma / Fracture fixation,PERI-LOC Locking Plates,sn
 sn-profix,Smith & Nephew,Knee,Profix,sn-profix-ap.jpg,sn-profix-lat.jpg,sn-profix-tmpl.jpg
 sn-spectron,Smith & Nephew,Hip,Spectron EF,sn-spectron-ap.jpg,sn-spectron-lat.jpg,sn-spectron-tmpl.jpg
 sn-emperion,Smith & Nephew,Hip,EMPERION,sn-emperion-ap.jpg,sn-emperion-lat.jpg,sn-emperion-tmpl.jpg
+sn-journey-uni,Smith & Nephew,Knee,,sn-journey-uni-ap.jpg,sn-journey-uni-lat.jpg,sn-journey-uni-tmpl.jpg
 dp-attune,DePuy Synthes,Knee,ATTUNE,dp-attune-ap.jpg,dp-attune-lat.jpg,dp-attune-tmpl.jpg
 dp-pfc-sigma,DePuy Synthes,Knee,P.F.C. Sigma,dp-pfc-sigma-ap.jpg,dp-pfc-sigma-lat.jpg,dp-pfc-sigma-tmpl.jpg
 dp-lcs,DePuy Synthes,Knee,LCS (Low Contact Stress),dp-lcs-ap.jpg,dp-lcs-lat.jpg,dp-lcs-tmpl.jpg
@@ -109,3 +119,6 @@ dp-agility,DePuy Synthes,Ankle,Agility Total Ankle,dp-agility-ap.jpg,dp-agility-
 zb-nexel,Zimmer Biomet,Elbow,Nexel Total Elbow,zb-nexel-ap.jpg,zb-nexel-lat.jpg,zb-nexel-tmpl.jpg
 st-latitude,Stryker,Elbow,Latitude EV Total Elbow,st-latitude-ap.jpg,st-latitude-lat.jpg,st-latitude-tmpl.jpg
 dp-acclaim,DePuy Synthes,Elbow,ACCLAIM Total Elbow,dp-acclaim-ap.jpg,dp-acclaim-lat.jpg,dp-acclaim-tmpl.jpg
+dp-delta-iii,DePuy Synthes,Shoulder,,dp-delta-iii-ap.jpg,dp-delta-iii-lat.jpg,dp-delta-iii-tmpl.jpg
+dp-global-unite,DePuy Synthes,Shoulder,,dp-global-unite-ap.jpg,dp-global-unite-lat.jpg,dp-global-unite-tmpl.jpg
+dp-sigma-hp,DePuy Synthes,Knee,,dp-sigma-hp-ap.jpg,dp-sigma-hp-lat.jpg,dp-sigma-hp-tmpl.jpg
