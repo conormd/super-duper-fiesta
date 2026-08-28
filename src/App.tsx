@@ -7,9 +7,10 @@ import { BrowseView } from './components/BrowseView';
 import { IdentifyView } from './components/IdentifyView';
 import { IdentifyByImageView } from './components/IdentifyByImageView';
 import { AddImplantView } from './components/AddImplantView';
+import { SpineHardwareView } from './components/SpineHardwareView';
 import { ImplantDetail } from './components/ImplantDetail';
 
-type Tab = 'identify' | 'image' | 'browse' | 'add';
+type Tab = 'identify' | 'image' | 'browse' | 'add' | 'spine';
 
 /** Merge user entries over the built-in set; a user entry with the same id
  *  replaces (overrides) the built-in one, keeping its position. */
@@ -81,6 +82,12 @@ export default function App() {
         >
           Add / edit{userImplants.length > 0 ? ` (${userImplants.length})` : ''}
         </button>
+        <button
+          className={`tab ${tab === 'spine' ? 'active' : ''}`}
+          onClick={() => setTab('spine')}
+        >
+          Spine hardware
+        </button>
       </nav>
 
       {tab === 'identify' && <IdentifyView implants={allImplants} onSelect={setSelected} />}
@@ -95,6 +102,7 @@ export default function App() {
           onEditConsumed={() => setEditTarget(null)}
         />
       )}
+      {tab === 'spine' && <SpineHardwareView />}
 
       {selected && (
         <ImplantDetail

@@ -123,3 +123,18 @@ export interface Implant {
 
 /** A yes/no/unsure answer used by the guided identification flow. */
 export type Answer = 'yes' | 'no' | 'unsure';
+
+/**
+ * A lightweight spine-hardware reference entry: manufacturer, model name, and
+ * an external profile link (implantidentifier.app) only. Deliberately a
+ * separate, minimal shape from `Implant` — spine devices span far more
+ * manufacturers than the closed `Manufacturer` union covers, and there is no
+ * image or identifying-feature data documented for these yet.
+ */
+export interface SpineHardwareRef {
+  id: string;
+  /** Free text — spine manufacturers aren't part of the `Manufacturer` union. */
+  manufacturer: string;
+  model: string;
+  profileUrl: string;
+}

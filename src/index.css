@@ -578,6 +578,46 @@ input[type='search'] {
   line-height: 1.45;
 }
 
+.spine-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.spine-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.spine-row:hover {
+  border-color: var(--accent);
+}
+
+.spine-model {
+  font-weight: 600;
+  flex: 2;
+  min-width: 140px;
+}
+
+.spine-mfr {
+  color: var(--text-dim);
+  flex: 1;
+  min-width: 120px;
+}
+
+.spine-link {
+  color: var(--accent);
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
 .facet-group {
   margin-bottom: 14px;
 }
